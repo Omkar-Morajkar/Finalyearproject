@@ -1,19 +1,20 @@
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
-import logo from './logo.svg';
+import "bootstrap/dist/js/bootstrap.bundle";
 import './App.css';
-//import Login from "./Login";
-//import Register from "./Register";
+import { BrowserRouter,Route, Routes } from 'react-router-dom';
+import React from 'react';
 import Navbar from "./Navbar";
-
+import Register from "./Register";
 
 function App() {
   return(
-    <>
-    <Navbar />
-    
-    </>
-  );
+    <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<Navbar/>} />
+            <Route path="/Register" element={<Register/>} />
+        </Routes>
+    </BrowserRouter>
+);
 }
 
 export default App;
