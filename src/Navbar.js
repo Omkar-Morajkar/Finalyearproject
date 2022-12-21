@@ -1,11 +1,13 @@
-import react from "react"
+import React from 'react';
+import Register from './Register';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
     return( 
         <>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
   <div className="container-fluid">
-    <a className="navbar-brand" href="#">Patefund</a>
+    <a className="navbar-brand" href="#">Fundpeti</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -22,8 +24,8 @@ function Navbar() {
       </ul>
       <nav class="navbar navbar-dark bg-dark">
   <form class="container-fluid justify-content-start">
-    <button class="btn btn-light" type="button">Login</button>
-    <button class="btn btn-dark" type="button">Register</button>
+    <button class="btn btn-light" type="button" >Login</button>
+    
   </form>
 </nav>
     </div>
@@ -63,6 +65,9 @@ function Navbar() {
       </li>
       <li className="nav-item">
         <a className="nav-link active" href="#">Blog</a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link active" href="/Register">Register</a>
       </li>
     </ul>
   </div>

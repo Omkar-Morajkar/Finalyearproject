@@ -19,4 +19,7 @@ code {
 .navbar a {
   color: black;
 }
+.vh-100{
+  background-image: linear-gradient(#205CB5, #FFFFFF);
+}
 
