@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.navbar{
+  background: linear-gradient(to left, #6A82F8, #FC5C7D);
+}
+
+.navbar a {
+  color: black;
+}
+
