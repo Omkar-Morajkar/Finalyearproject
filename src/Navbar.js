@@ -39,7 +39,7 @@ function Navbar() {
               </li>
               <li className="nav-item">
                  <a className="nav-link active" href="/Register">Register</a>
-                 <a className="nav-link active" href="/loginpage">Login</a>
+                 <a className="nav-link active" href="/Login">Login</a>
               </li>
             </ul>
           </div>
