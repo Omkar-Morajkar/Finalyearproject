@@ -10,6 +10,7 @@ import Login from "./Login";
 function App() {
   return(
     <BrowserRouter>
+       
         <Routes>
             <Route path="/" element={<Navbar/>} />
             <Route path="/Register" element={<Register/>} />
