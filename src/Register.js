@@ -32,7 +32,7 @@ const Register = () => {
       alert("Enter confirm password");
     }
     else{
-      const url = "http://localhost/enquiry.php";
+      const url = "http://localhost/reactProject/Insert.php";
 
       let fData = new FormData();
       fData.append('name',name);
