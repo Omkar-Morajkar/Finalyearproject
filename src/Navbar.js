@@ -44,7 +44,7 @@ function Navbar() {
 	const nextButton = () => {
 		if (animating) return;
 		const nextIndex = activeIndex === itemLength ?
-			0 : activeIndex + 1;
+			0 : activeIndex + 1;+
 		setActiveIndex(nextIndex);
 	}
 
