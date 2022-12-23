@@ -6,6 +6,7 @@ import React from 'react';
 import Navbar from "./Navbar";
 import Register from "./Register";
 import Login from "./Login";
+import Ahome from "./component/Ahome";
 
 function App() {
   return(
@@ -15,6 +16,7 @@ function App() {
             <Route path="/" element={<Navbar/>} />
             <Route path="/Register" element={<Register/>} />
             <Route path="/Login" element={<Login/>} />
+            <Route path="/Ahome" element={<Ahome/>}/>
         </Routes>
     </BrowserRouter>
 );
