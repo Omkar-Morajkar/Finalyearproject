@@ -32,7 +32,7 @@ const Register = () => {
       alert("Enter confirm password");
     }
     else{
-      const url = "http://localhost/enquiry.php";
+      const url = "http://localhost/reactProject/Insert.php";
 
       let fData = new FormData();
       fData.append('name',name);
@@ -89,9 +89,8 @@ const Register = () => {
                           </div>
                         </div>
                         <div className="form-check d-flex justify-content-center mb-5">
-                          <input className="form-check-input me-2" type="checkbox" defaultValue id="form2Example3c" />
                           <label className="form-check-label" htmlFor="form2Example3">
-                            I agree all statements in <a href="#!">Terms of service</a>
+                            Already have an accout? <a href="/Login">Login</a>
                           </label>
                         </div>
                         <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">

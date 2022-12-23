@@ -1,8 +1,59 @@
-//import React from 'react';
-import React, { Component } from "react";
-import Slider from "react-slick";
+import React from 'react';
 
 function Navbar() {
+
+	// State for Active index
+	const [activeIndex, setActiveIndex] = React.useState(0);
+
+	// State for Animation
+	const [animating, setAnimating] = React.useState(false);
+
+	// Sample items for Carousel
+	const items = [
+		{
+			caption: 'Sample Caption One',src:
+      'https://img.favpng.com/4/12/5/mountain-desktop-wallpaper-4k-resolution-png-favpng-6ptkc4nPsWqUmYtTxEr1d5QSB.jpg',
+			altText: 'Slide One'
+		},
+		{
+			caption: 'Sample Caption Two',src:
+      'https://images.pexels.com/photos/2749481/pexels-photo-2749481.jpeg?auto=compress&cs=tinysrgb&w=600',
+			altText: 'Slide Two'
+		}
+	];
+
+	// Items array length
+	const itemLength = items.length - 1
+
+	// Previous button for Carousel
+	const previousButton = () => {
+		if (animating) return;
+		const nextIndex = activeIndex === 0 ?
+			itemLength : activeIndex - 1;
+		setActiveIndex(nextIndex);
+	}
+
+	// Next button for Carousel
+	const nextButton = () => {
+		if (animating) return;
+		const nextIndex = activeIndex === itemLength ?
+			0 : activeIndex + 1;
+		setActiveIndex(nextIndex);
+	}
+
+	// Carousel Item Data
+	const carouselItemData = items.map((item) => {
+		return (
+			<CarouselItem
+				key={item.src}
+				onExited={() => setAnimating(false)}
+				onExiting={() => setAnimating(true)}
+			>
+				<img src={item.src} alt={item.altText} />
+			</CarouselItem>
+		);
+	});
+
     return( 
         <>
         <nav className="navbar navbar-expand-lg">
@@ -46,48 +97,9 @@ function Navbar() {
             </ul>
           </div>
         </nav>
-        
         </>
     );
 }
 
-export default class SimpleSlider extends Component {
-  render() {
-    const settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1
-    };
-    return (
-      <div>
-        <h2> Single Item</h2>
-        <Slider {...settings}>
-          <div>
-            <h3>1</h3>
-          </div>
-          <div>
-            <h3>2</h3>
-          </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
-        </Slider>
-      </div>
-    );
-  }
-}
-
-
-//export default Navbar;
+export default Navbar;
 
