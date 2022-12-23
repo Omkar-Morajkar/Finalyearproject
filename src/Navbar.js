@@ -1,5 +1,11 @@
 import React from 'react';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+  CarouselControl,
+  Carousel,
+  CarouselItem,
+  CarouselIndicators,
+} from 'reactstrap';
 function Navbar() {
 
 	// State for Active index
