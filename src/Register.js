@@ -4,48 +4,31 @@ import axios from 'axios';
 
 
 const Register = () => {
-  const [name, setName] = useState('');
-  const [mobile, setMobile] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setpassword] = useState('');
-  const [Cpassword, setCpassword] = useState('');
-
-  const handleSubmit = () =>{
-    if(name.length === 0)
-    {
-      alert("Name cannot be empty!");
-    }
-    else if(mobile.length ===0)
-    {
-      alert("Enter mobile number");
-    }
-    else if(email.length === 0)
-    {
-      alert("Enter email");
-    }
-    else if(password.length === 0)
-    {
-      alert("Enter password");
-    }
-    else if(Cpassword.length === 0)
-    {
-      alert("Enter confirm password");
-    }
-    else{
-      const url = "http://localhost/reactProject/Insert.php";
-
-      let fData = new FormData();
-      fData.append('name',name);
-      fData.append('mobile',mobile);
-      fData.append('email',email);
-      fData.append('password',password);
-
-      axios.post(url, fData)
-      .then(response=> alert(response.data))
-      .catch(error=> alert(error));
-    }
+  const [users, setUsers]=useState({
+    name:"",
+    mobile:"",
+    email:"",
+    password:""
+  })
+  const {name,mobile,email,password}=users;
+  const handleChange=(e)=>{
+    setUsers({...users,[e.target.name]: e.target.value})
   }
+  const submitForm = async(e)=>{
+    e.preventDefault();
+    console.log(users);
 
+    await axios.post("http://localhost/FinalYearProject/Register.php", users)
+    .then((result)=>{
+        console.log(result);
+        if(result.data.status =='valid'){
+            alert("Data added successfully");
+        }
+        else{
+            alert("There is some problem");
+        }
+    })
+  }
   return(
     <>
       <section className="vh-100" >
@@ -57,35 +40,35 @@ const Register = () => {
                   <div className="row justify-content-center">
                     <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                       <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
-                      <form className="mx-1 mx-md-4">
+                      <form className="mx-1 mx-md-4" onSubmit={e => submitForm(e)}>
                         <div className="d-flex flex-row align-items-center mb-4">
-                          <i className="fas fa-user fa-lg me-3 fa-fw" />
+                          
                           <div className="form-outline flex-fill mb-0">
-                            <input type="text" id="name" className="form-control" placeholder="Enter Name" value={name} onChange={(e) => setName(e.target.value)}/>
+                            <input type="text" name="name" className="form-control" placeholder="Enter Name" value={name} onChange={e =>handleChange(e)}/>
                           </div>
                         </div>
                         <div className="d-flex flex-row align-items-center mb-4">
-                          <i className="fas fa-lock fa-lg me-3 fa-fw" />
+                          
                           <div className="form-outline flex-fill mb-0">
-                            <input type="tel" id="mobileNo" className="form-control" placeholder="Enter Mobile Number" pattern="[0-9]{5}-[0-9]{5}" value={mobile} onChange={(e) => setMobile(e.target.value)}/>
+                            <input type="tel" id="mobileNo" name="mobile" className="form-control" placeholder="Enter Mobile Number" value={mobile} onChange={e =>handleChange(e)} />
                           </div>
                         </div>
                         <div className="d-flex flex-row align-items-center mb-4">
-                          <i className="fas fa-envelope fa-lg me-3 fa-fw" />
+                          
                           <div className="form-outline flex-fill mb-0">
-                            <input type="email" id="form3Example3c" className="form-control" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                            <input type="email" id="form3Example3c" name="email" className="form-control" placeholder="Enter email" value={email} onChange={e =>handleChange(e)}/>
                           </div>
                         </div>
                         <div className="d-flex flex-row align-items-center mb-4">
-                          <i className="fas fa-lock fa-lg me-3 fa-fw" />
+                          
                           <div className="form-outline flex-fill mb-0">
-                            <input type="password" id="form3Example4c" className="form-control" placeholder="Enter password" value={password} onChange={(e) => setpassword(e.target.value)} />
+                            <input type="password" id="form3Example4c" name="password" className="form-control" placeholder="Enter password" value={password} onChange={e =>handleChange(e)} />
                           </div>
                         </div>
                         <div className="d-flex flex-row align-items-center mb-4">
-                          <i className="fas fa-key fa-lg me-3 fa-fw" />
+                          
                           <div className="form-outline flex-fill mb-0">
-                            <input type="password" id="form3Example4cd" className="form-control" placeholder="Confirm password" value={Cpassword} onChange={(e) => setCpassword(e.target.value)}/>
+                            <input type="password" id="form3Example4cd" className="form-control" placeholder="Confirm password" />
                           </div>
                         </div>
                         <div className="form-check d-flex justify-content-center mb-5">
@@ -94,7 +77,7 @@ const Register = () => {
                           </label>
                         </div>
                         <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                          <button type="button" className="btn btn-primary btn-lg" value="SEND" onClick={handleSubmit}>Register</button>
+                          <button type="submit" className="btn btn-primary btn-lg" name="submit" value="add user" >Register</button>
                         </div>
                       </form>
                     </div>

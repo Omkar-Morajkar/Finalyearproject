@@ -1,13 +1,13 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
-	CarouselControl,
-	Carousel,
-	CarouselItem,
-	CarouselIndicators,
+  CarouselControl,
+  Carousel,
+  CarouselItem,
+  CarouselIndicators,
 } from 'reactstrap';
-
 function Navbar() {
+
 
 	// State for Active index
 	const [activeIndex, setActiveIndex] = React.useState(0);
@@ -106,23 +106,6 @@ function Navbar() {
             </ul>
           </div>
         </nav>
-
-      <div className='carousel' style={{display: 'block', width: 1500, padding: 30}}>
-			<Carousel previous={previousButton} next={nextButton}
-				activeIndex={activeIndex}>
-				<CarouselIndicators items={items}
-					activeIndex={activeIndex}
-					onClickHandler={(newIndex) => {
-						if (animating) return;
-						setActiveIndex(newIndex);
-					}} />
-				{carouselItemData}
-				<CarouselControl directionText="Prev"
-					direction="prev" onClickHandler={previousButton} />
-				<CarouselControl directionText="Next"
-					direction="next" onClickHandler={nextButton} />
-			</Carousel>
-		</div >
         </>
     );
 }
