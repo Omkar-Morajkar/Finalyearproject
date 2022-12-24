@@ -114,29 +114,6 @@ export default function Ahome(){
                       </li>
                     </ul>
                     <hr />
-                    <ul className="sidenav-menu">
-                      <li className="sidenav-item">
-                        <a className="sidenav-link">
-                          <i className="fas fa-cog fa-fw me-3" /><span>Settings</span>
-                        </a>
-                      </li>
-                      <li className="sidenav-item">
-                        <a className="sidenav-link">
-                          <i className="fas fa-flag fa-fw me-3" /><span>Report history</span>
-                        </a>
-                      </li>
-                      <li className="sidenav-item">
-                        <a className="sidenav-link">
-                          <i className="fas fa-question-circle fa-fw me-3" /><span>Help</span>
-                        </a>
-                      </li>
-                      <li className="sidenav-item">
-                        <a className="sidenav-link">
-                          <i className="fas fa-comment-alt fa-fw me-3" /><span>Send feedback</span>
-                        </a>
-                      </li>
-                    </ul>
-                    <hr />
                     <div className="ps-4 mb-3">
                       <a href className="text-body small me-3">About</a>
                       <a href className="text-body small me-3">Press</a>
@@ -241,8 +218,7 @@ export default function Ahome(){
                 {/*Main Navigation*/}
               );
            
-        </>
-               
+        </>        
     );
 }
 
