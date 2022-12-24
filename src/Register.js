@@ -21,12 +21,12 @@ const Register = () => {
     await axios.post("http://localhost/FinalYearProject/Register.php", users)
     .then((result)=>{
         console.log(result);
-        if(result.data.status =='valid'){
-            alert("Data added successfully");
-        }
-        else{
-            alert("There is some problem");
-        }
+        if(result.data.status=='valid'){
+          alert("Data added successfully");
+      }
+      else{
+          alert("There is some problem");
+      }
     })
   }
   return(
