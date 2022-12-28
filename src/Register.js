@@ -17,7 +17,6 @@ const Register = () => {
   const submitForm = async(e)=>{
     e.preventDefault();
     console.log(users);
-
     await axios.post("http://localhost/FinalYearProject/Register.php", users)
     .then((result)=>{
         console.log(result);
