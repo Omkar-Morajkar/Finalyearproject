@@ -18,20 +18,14 @@ const Register = () => {
     e.preventDefault();
     console.log(users);
     await axios.post("http://localhost/FinalYearProject/Register.php", users)
-    .then(result=>{
-     console.log(result);
-      if(result.data.status=="valid"){
-        alert("Data added successfully");
-      }
-      else if(result.data.status=='exist')
-      {
-        alert("data alread exist");
-      }
-      else
-      {
-        alert('There is some problem');
-      }
-      console.log(result.data.status);
+    .then((result)=>{
+        console.log(result);
+        if(result.data.status =='valid'){
+            alert("Data added successfully");
+        }
+        else{
+            alert("There is some problem");
+        }
     })
   }
   return(
