@@ -21,11 +21,12 @@ const Login = () => {
       await axios.post("http://localhost/FinalYearProject/Login.php", users)
       .then((result)=>{
           console.log(result);
-          if(result.data.status =='valid'){
+          if(result.data.status==='valid'){
               navigate(<Navbar/>);
+              alert("Login successful");
           }
           else{
-            navigate(<Navbar/>);
+            alert("Login failed");
           }
       })
     }

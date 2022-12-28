@@ -14,7 +14,7 @@ code {
 
 
 .vh-100{
-  background-image: linear-gradient(#D16BA5, #86A8E7, #5FFBF1);
+  background-image: linear-gradient(to right top, #d7e7ff, #c5dafc, #b3ccfa, #a3bef7, #94b0f3);
 }
 
 * {

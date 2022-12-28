@@ -17,16 +17,21 @@ const Register = () => {
   const submitForm = async(e)=>{
     e.preventDefault();
     console.log(users);
-
     await axios.post("http://localhost/FinalYearProject/Register.php", users)
-    .then((result)=>{
-        console.log(result);
-        if(result.data.status==='valid'){
-          alert("Data added successfully");
+    .then(result=>{
+     console.log(result);
+      if(result.data.status=="valid"){
+        alert("Data added successfully");
       }
-      else{
-          alert("There is some problem");
+      else if(result.data.status=='exist')
+      {
+        alert("data alread exist");
       }
+      else
+      {
+        alert('There is some problem');
+      }
+      console.log(result.data.status);
     })
   }
   return(
