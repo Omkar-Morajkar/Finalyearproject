@@ -7,13 +7,14 @@ import Navbar from "./Navbar";
 import Register from "./Register";
 import Login from "./Login";
 import Ahome from "./component/Ahome";
+import Home from "./Home";
 
 function App() {
   return(
     <BrowserRouter>
-       
+        <Navbar/>
         <Routes>
-            <Route path="/" element={<Navbar/>} />
+            <Route path="/" element={<Home/>}/>
             <Route path="/Register" element={<Register/>} />
             <Route path="/Login" element={<Login/>} />
             <Route path="/Ahome" element={<Ahome/>}/>
