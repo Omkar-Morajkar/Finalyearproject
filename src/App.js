@@ -4,10 +4,11 @@ import './App.css';
 import { BrowserRouter,Route, Routes } from 'react-router-dom';
 import React from 'react';
 import Navbar from "./Navbar";
-import Register from "./Register";
-import Login from "./Login";
-import Ahome from "./component/Ahome";
-import Home from "./Home";
+import Register from "./component/Customer/Register";
+import Login from "./component/Customer/Login";
+import Ahome from "./component/Admin/Ahome";
+import Home from "./component/Customer/Home";
+import CustHome from "./component/Customer/CustHome";
 
 function App() {
   return(
