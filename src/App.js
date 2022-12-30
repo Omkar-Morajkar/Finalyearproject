@@ -8,7 +8,6 @@ import Register from "./component/Customer/Register";
 import Login from "./component/Customer/Login";
 import Ahome from "./component/Admin/Ahome";
 import Home from "./component/Customer/Home";
-import CustHome from "./component/Customer/CustHome";
 
 function App() {
   return(
