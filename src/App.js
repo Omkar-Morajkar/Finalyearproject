@@ -8,6 +8,7 @@ import Register from "./component/Customer/Register";
 import Login from "./component/Customer/Login";
 import Ahome from "./component/Admin/Ahome";
 import Home from "./component/Customer/Home";
+import Custcause from "./component/Customer/Custcause";
 
 function App() {
   return(
@@ -18,6 +19,7 @@ function App() {
             <Route path="/Register" element={<Register/>} />
             <Route path="/Login" element={<Login/>} />
             <Route path="/Ahome" element={<Ahome/>}/>
+            <Route path="/Custcause" element={<Custcause/>}/>
         </Routes>
     </BrowserRouter>
 );
