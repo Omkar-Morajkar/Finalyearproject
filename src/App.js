@@ -8,9 +8,13 @@ import Register from "./component/Customer/Register";
 import Login from "./component/Customer/Login";
 import Ahome from "./component/Admin/Ahome";
 import Home from "./component/Customer/Home";
+<<<<<<< HEAD
 import Contact from "./component/Customer/Contact";
 import DLogin from "./component/Customer/DLogin";
 import DRegister from "./component/Customer/DRegister";
+=======
+import Custcause from "./component/Customer/Custcause";
+>>>>>>> 593bd3be80472d29003f999bc7d2f16192783ea1
 
 function App() {
   return(
@@ -24,6 +28,7 @@ function App() {
             <Route path="/Contact" element={<Contact/>}/>
             <Route path="/DLogin" element={<DLogin/>}/>
             <Route path="DRegister" element={<DRegister/>}/>
+            <Route path="/Custcause" element={<Custcause/>}/>
         </Routes>
     </BrowserRouter>
 );
