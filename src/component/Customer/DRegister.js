@@ -26,7 +26,6 @@ function DRegister(){
                           </div>
                         </div>
                         <div className="d-flex flex-row align-items-center mb-4">
-                          
                           <div className="form-outline flex-fill mb-0">
                             <input type="email" id="form3Example3c" name="email" className="form-control" placeholder="Enter email" />
                           </div>
