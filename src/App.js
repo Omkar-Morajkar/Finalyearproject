@@ -12,12 +12,13 @@ import Contact from "./component/Customer/Contact";
 import DLogin from "./component/Customer/DLogin";
 import DRegister from "./component/Customer/DRegister";
 import Custcause from "./component/Customer/Custcause";
+import Sidebar from "./component/Sidebar";
 
 
 function App() {
   return(
     <BrowserRouter>
-        <Navbar/>
+        <Sidebar/>
         <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/Register" element={<Register/>} />

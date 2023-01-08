@@ -14,32 +14,33 @@ function DRegister(){
                       <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
                       <form className="mx-1 mx-md-4">
                         <div className="d-flex flex-row align-items-center mb-4">
-                          
                           <div className="form-outline flex-fill mb-0">
-                            <input type="text" name="name" className="form-control" placeholder="Enter Name" />
-                          </div>
-                        </div>
-                        <div className="d-flex flex-row align-items-center mb-4">
-                          
-                          <div className="form-outline flex-fill mb-0">
-                            <input type="tel" id="mobileNo" name="mobile" className="form-control" placeholder="Enter Mobile Number"  />
+                            <input type="text" required name="name" className="form-control" placeholder="Enter Name" />
                           </div>
                         </div>
                         <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
-                            <input type="email" id="form3Example3c" name="email" className="form-control" placeholder="Enter email" />
+                            <input type="tel" id="mobileNo"required name="mobile" className="form-control" placeholder="Enter Mobile Number"  />
                           </div>
                         </div>
                         <div className="d-flex flex-row align-items-center mb-4">
-                          
                           <div className="form-outline flex-fill mb-0">
-                            <input type="password" id="form3Example4c" name="password" className="form-control" placeholder="Enter password"  />
+                            <input type="email" id="form3Example3c" required name="email" className="form-control" placeholder="Enter email" />
                           </div>
                         </div>
                         <div className="d-flex flex-row align-items-center mb-4">
-                          
                           <div className="form-outline flex-fill mb-0">
-                            <input type="password" id="form3Example4cd" className="form-control" placeholder="Confirm password" />
+                            <input type="password" id="form3Example4c"  required name="password" className="form-control" placeholder="Enter password"  />
+                          </div>
+                        </div>
+                        <div className="d-flex flex-row align-items-center mb-4">
+                          <div className="form-outline flex-fill mb-0">
+                            <input type="password" id="form3Example4cd" required className="form-control" placeholder="Confirm password" />
+                          </div>
+                        </div>
+                        <div className="d-flex flex-row align-items-center mb-4">
+                          <div className="form-outline flex-fill mb-0">
+                            <input name="foo" type="file" className="form-control" required accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps"/>
                           </div>
                         </div>
                         <div className="form-check d-flex justify-content-center mb-5">

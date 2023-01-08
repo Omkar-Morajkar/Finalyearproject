@@ -5,7 +5,7 @@ import CustCard from './CustCard';
 import Menu from './CustApi';
 import { useState } from 'react';
 
-const Home = () => {
+const Home = (props) => {
     const[menuData, setMenuData] = useState(Menu);
     return (
         <>
