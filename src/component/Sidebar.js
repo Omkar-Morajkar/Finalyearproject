@@ -58,7 +58,7 @@ const Sidebar = () => {
                      marginLeft: "200px",
                      color: "green" }}
           >
-            GeeksforGeeks
+           Fund_Peti.com
           </h1>
         </Nav>
         <SidebarNav sidebar={sidebar}>
