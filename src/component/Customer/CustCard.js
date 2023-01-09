@@ -3,7 +3,7 @@ import React from 'react';
 const CustCard = ({menuData}) =>{
     return(
         <>
-        <section className="main-card--cointainer">
+       
         {menuData.map((curElem)=>{
             return(
             <>
@@ -25,7 +25,7 @@ const CustCard = ({menuData}) =>{
             </>
             );
         })}
-            </section>
+          
         </>
     );
 }
