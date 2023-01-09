@@ -36,7 +36,7 @@ export const SidebarData = [
   },
   {
     title: "Events",
-    path: "/events",
+    path: "/Custcause",
     icon: <FaIcons.FaEnvelopeOpenText />,
  
     iconClosed: <RiIcons.RiArrowDownSFill />,
