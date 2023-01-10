@@ -8,8 +8,8 @@ import SubMenu from "./SubMenu";
 import { IconContext } from "react-icons/lib";
  
 const Nav = styled.div`
-  background: #15171c;
-  height: 80px;
+  background: #9ee778;
+  height: 40px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -26,7 +26,7 @@ const NavIcon = styled(Link)`
  
 const SidebarNav = styled.nav`
   background: #15171c;
-  width: 250px;
+  width: 200px;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -53,13 +53,13 @@ const Sidebar = () => {
           <NavIcon to="#">
             <FaIcons.FaBars onClick={showSidebar} />
           </NavIcon>
-          <h1
+          <h2
             style={{ textAlign: "center",
                      marginLeft: "200px",
                      color: "green" }}
           >
-            GeeksforGeeks
-          </h1>
+            Fundpeti
+          </h2>
         </Nav>
         <SidebarNav sidebar={sidebar}>
           <SidebarWrap>
