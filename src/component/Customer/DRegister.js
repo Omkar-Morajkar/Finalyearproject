@@ -35,14 +35,30 @@ function DRegister(){
                         </div>
                         <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
-                            <input type="password" id="form3Example4cd" required className="form-control" placeholder="Confirm password" />
+                          <input type="text" required name="roll Number" className="form-control" placeholder="PR number(college roll number)" />
                           </div>
                         </div>
+
+                        <div className="d-flex flex-row align-items-center mb-4">
+                          <div className="form-outline flex-fill mb-0">
+                            <input type="text" id="form3Example4cd" required className="form-control" placeholder="Confirm password" />
+                          </div>
+                        </div>
+
                         <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
                             <input name="foo" type="file" className="form-control" required accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps"/>
                           </div>
                         </div>
+
+                        <div className="d-flex flex-row align-items-center mb-4">
+                          <div className="form-outline flex-fill mb-0">
+                            <input name="foo" type="file" className="form-control" required accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps" placeholder="fee structure"/>
+                          </div>
+                        </div>
+
+
+
                         <div className="form-check d-flex justify-content-center mb-5">
                           <label className="form-check-label" htmlFor="form2Example3">
                             Already have an accout? <a href="/Login">Login</a>

@@ -13,6 +13,7 @@ import DLogin from "./component/Customer/DLogin";
 import DRegister from "./component/Customer/DRegister";
 import Custcause from "./component/Customer/Custcause";
 import Sidebar from "./component/Sidebar";
+import Donate from "./component/Customer/Donate";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Route path="/DLogin" element={<DLogin/>}/>
             <Route path="DRegister" element={<DRegister/>}/>
             <Route path="/Custcause" element={<Custcause/>}/>
+            <Route path="/Donate" element={<Donate/>}/>
         </Routes>
     </BrowserRouter>
 );

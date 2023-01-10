@@ -54,6 +54,7 @@ function Navbar() {
 			</CDBSidebarFooter>
 		</CDBSidebar>
 		</div> 
+		
     </>
     );
 }
