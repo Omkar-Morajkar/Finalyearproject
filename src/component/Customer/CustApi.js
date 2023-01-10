@@ -2,6 +2,7 @@ import React from 'react';
 
 const Menu = [{
     id:1,
+    title:"title",
     image:"safsda",
     name: "meggi",
     category: "lunch",
@@ -18,5 +19,4 @@ const Menu = [{
 }
 ]
 ;
-
 export default Menu;
