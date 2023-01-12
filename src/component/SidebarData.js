@@ -36,7 +36,6 @@ export const SidebarData = [
   }, 
   {
     title: "Need Donation",
-    path: "/Login",
     icon: <AiIcons.AiOutlineLogin />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
@@ -56,14 +55,6 @@ export const SidebarData = [
       },
     ],
   }, 
-  {
-    title: "Register",
-    path: "/Register",
-    icon: <IoIcons.IoIosPaper />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-
-  },
   {
     title: "Contact",
     path: "/Contact",

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import * as FaIcons from "react-icons/fa";
+import * as FaIcons from "react-icons/im";
 import * as AiIcons from "react-icons/ai";
 import { SidebarData } from "./SidebarData";
 import SubMenu from "./SubMenu";
 import { IconContext } from "react-icons/lib";
  
 const Nav = styled.div`
-  background: #9ee778;
-  height: 40px;
+  background: black;
+  height: 60px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -25,7 +25,7 @@ const NavIcon = styled(Link)`
 `;
  
 const SidebarNav = styled.nav`
-  background: #15171c;
+  background: black;
   width: 250px;
   height: 100vh;
   display: flex;
@@ -51,7 +51,7 @@ const Sidebar = () => {
       <IconContext.Provider value={{ color: "#fff" }}>
         <Nav>
           <NavIcon to="#">
-            <FaIcons.FaBars onClick={showSidebar} />
+            <FaIcons.ImMenu onClick={showSidebar} />
           </NavIcon>
           <h2
             style={{ textAlign: "center",
