@@ -4,6 +4,8 @@ import './App.css';
 import { BrowserRouter,Route, Routes } from 'react-router-dom';
 import React from 'react';
 import Navbar from "./Navbar";
+import { ProgressBar, Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Register from "./component/Customer/Register";
 import Login from "./component/Customer/Login";
 import Ahome from "./component/Admin/Ahome";
@@ -14,7 +16,7 @@ import DRegister from "./component/Customer/DRegister";
 import Custcause from "./component/Customer/Custcause";
 import Sidebar from "./component/Sidebar";
 import Donate from "./component/Customer/Donate";
-
+import Progressbar from "./component/Customer/Progressbar";
 
 function App() {
   return(
