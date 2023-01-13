@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import * as FaIcons from "react-icons/fa";
+import * as FaIcons from "react-icons/im";
 import * as AiIcons from "react-icons/ai";
 import { SidebarData } from "./SidebarData";
 import SubMenu from "./SubMenu";
 import { IconContext } from "react-icons/lib";
  
 const Nav = styled.div`
-  background: #9ee778;
-  height: 40px;
+  background: black;
+  height: 60px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  
 `;
  
 const NavIcon = styled(Link)`
@@ -25,7 +26,8 @@ const NavIcon = styled(Link)`
 `;
  
 const SidebarNav = styled.nav`
-  background: #15171c;
+  background: black;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5)
   width: 250px;
   height: 100vh;
   display: flex;
@@ -48,10 +50,10 @@ const Sidebar = () => {
  
   return (
     <>
-      <IconContext.Provider value={{ color: "#fff" }}>
+      <IconContext.Provider value={{ color: "blue" }}>
         <Nav>
           <NavIcon to="#">
-            <FaIcons.FaBars onClick={showSidebar} />
+            <FaIcons.ImMenu onClick={showSidebar} />
           </NavIcon>
           <h2
             style={{ textAlign: "center",

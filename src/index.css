@@ -27,14 +27,14 @@ code {
   font-family: "Lato", sans-serif;
 }
 
-html {
+/* html {
   background: #656B74;
   background-image: url(https://s3.postimg.org/s1n3ji1ur/paper_fibers_2_X.png);
   box-sizing: border-box;
   font-family: "Lato", sans-serif;
   font-size: 14px;
   font-weight: 400;
-}
+} */
 
 *,
 *:before,
@@ -42,16 +42,12 @@ html {
   box-sizing: inherit;
 }
 
-.subtle {
-  color: #aaa;
-}
-
 .main-card--cointainer {
-  display: grid;
+  display: list-item;
   grid-template-columns: repeat(3, minmax(300px, 500px));
-  grid-gap: 50px;
+  grid-gap: 100px;
   justify-content: space-around;
-  height: 700px;
+  padding: 10%;
 }
 
 .card-container {
@@ -61,14 +57,10 @@ html {
   grid-template-columns: 1fr;
   justify-content: space-around;
   align-items: flex-start;
-  width:80%;
-  height:400px;
+  width:100%;
+
 }
 
-.card-container img {
-  max-width: 100%;
-  height: 500px;
-}
 
 .card {
   background-color:grey;
@@ -108,7 +100,7 @@ html {
 
 .card-title {
   font-family: "Cormorant Garamond", serif;
-  font-size: 60px;
+  font-size: 30px;
   font-weight: 300;
   line-height: 60px;
   margin: 10px 0;
@@ -144,11 +136,14 @@ html {
 }
 
 .card-tag {
+  background-color: darkseagreen;
   float: right;
   margin: 5px 0 0;
   border: 1px solid #aaa;
   padding: 5px 10px;
   cursor: pointer;
+  text-align: center;
+  
 }
 
 .card-tag:hover {
@@ -157,7 +152,7 @@ html {
 }
 
 .card-media {
-  max-width: 100%;
+  width: 500px;
   height: auto;
 }
 
