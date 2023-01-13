@@ -13,6 +13,7 @@ const Nav = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  
 `;
  
 const NavIcon = styled(Link)`
@@ -26,6 +27,7 @@ const NavIcon = styled(Link)`
  
 const SidebarNav = styled.nav`
   background: black;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5)
   width: 250px;
   height: 100vh;
   display: flex;
@@ -48,7 +50,7 @@ const Sidebar = () => {
  
   return (
     <>
-      <IconContext.Provider value={{ color: "#fff" }}>
+      <IconContext.Provider value={{ color: "blue" }}>
         <Nav>
           <NavIcon to="#">
             <FaIcons.ImMenu onClick={showSidebar} />
