@@ -2,7 +2,7 @@ import React from 'react';
 
 const Menu = [{
     id:1,
-    title:"title",
+    title:"My Little Boy’s Cancer Has Relapsed Twice But I’m Helpless. Please Save Him",
     image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTExtoLVhMIfPRj_8d5RQKF2qjwUbuYL2tZTg&usqp=CAU",
     name: "meggi",
     description:"My name is pavan de souza",
