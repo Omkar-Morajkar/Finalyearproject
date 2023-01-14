@@ -18,6 +18,7 @@ import Sidebar from "./component/Sidebar";
 import Donate from "./component/Customer/Donate";
 import Progressbar from "./component/Customer/Progressbar";
 import Billing from "./component/Customer/Billing";
+import Dreason from "./component/Customer/Dreason";
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
             <Route path="/Custcause" element={<Custcause/>}/>
             <Route path="/Donate" element={<Donate/>}/>
             <Route path="/Billing" element={<Billing/>}/>
+            <Route path="/Dreason" element={<Dreason/>}/>
         </Routes>
     </BrowserRouter>
 );
