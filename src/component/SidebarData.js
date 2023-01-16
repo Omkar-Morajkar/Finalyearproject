@@ -15,24 +15,11 @@ export const SidebarData = [
   },
   {
     title: "Donate",
+    path: "/Login",
     icon: <AiIcons.AiOutlineLogin />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
 
-    subNav: [
-      {
-        title: "Login",
-        path: "/Login",
-        icon: <IoIcons.IoIosPaper />,
-        cName: "sub-nav",
-      },
-      {
-        title: "Register",
-        path: "/Register",
-        icon: <IoIcons.IoIosPaper />,
-        cName: "sub-nav",
-      },
-    ],
   }, 
   {
     title: "Need Donation",

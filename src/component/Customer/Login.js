@@ -58,7 +58,7 @@ const Login = () => {
                           </div>
                         <div className="form-check d-flex justify-content-center mb-5">
                           <label className="form-check-label" htmlFor="form2Example3">
-                            Already have an accout? <a href="/Login">Login</a>
+                            Already have an accout? <a href="/Register">Register</a>
                           </label>
                         </div>
                         <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
