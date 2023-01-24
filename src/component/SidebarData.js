@@ -61,4 +61,12 @@ export const SidebarData = [
     path: "/support",
     icon: <IoIcons.IoMdHelpCircle />,
   },
+    {
+    title: "Verification",
+    path: "/Verification",
+    icon: <AiIcons.AiOutlineLogin />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+
+  }, 
 ];
