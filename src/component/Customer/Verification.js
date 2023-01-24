@@ -1,6 +1,6 @@
 import React from "react";
 
-function DRegister() {
+function Verification() {
   return (
     <>
       <section className="vh-100">
@@ -12,131 +12,243 @@ function DRegister() {
                   <div className="row justify-content-center">
                     <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                       <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
-                        Sign up
+                        Verification
                       </p>
                       <form className="mx-1 mx-md-4">
                         <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
+                            <label>Name:</label>
                             <input
                               type="text"
                               required
                               name="name"
                               className="form-control"
-                              placeholder="Enter Name"
+                              placeholder="Enter Patient Name"
+                            />
+                          </div>
+                        </div>
+                        <div className="radio">
+                        <label>Gender:</label>
+                        <label>
+                            <input
+                            type="radio"
+                            value="Male"
+                            checked={this.state.selectedOption === "Male"}
+                            onChange={this.onValueChange}
+                            />
+                            Male
+                        </label>
+                        </div>
+                        <div className="radio">
+                        <label>
+                            <input
+                            type="radio"
+                            value="Female"
+                            checked={this.state.selectedOption === "Female"}
+                            onChange={this.onValueChange}
+                            />
+                            Female
+                        </label>
+                        </div>
+                         <div className="d-flex flex-row align-items-center mb-4">
+                          <div className="form-outline flex-fill mb-0">
+                            <label>Date of Birth</label>
+                            <input
+                              type="date"
+                              required
+                              name="date"
+                              className="form-control"
+                              placeholder="Enter Patient DOB"
                             />
                           </div>
                         </div>
                         <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
+                            <label>Relationship to Patient:</label>
+                            <input
+                              type="text"
+                              required
+                              name="relation"
+                              className="form-control"
+                              placeholder="Enter Relationship"
+                            />
+                          </div>
+                        </div>
+                        <div className="d-flex flex-row align-items-center mb-4">
+                          <div className="form-outline flex-fill mb-0">
+                            <label>Mobile No:</label>
                             <input
                               type="tel"
                               id="mobileNo"
                               required
                               name="mobile"
                               className="form-control"
-                              placeholder="Enter Mobile Number"
+                              placeholder="Enter Patient Mobile Number"
                             />
                           </div>
                         </div>
                         <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
+                            <label>E-mail:</label>
                             <input
                               type="email"
                               id="form3Example3c"
                               required
                               name="email"
                               className="form-control"
-                              placeholder="Enter email"
+                              placeholder="Enter Patient email"
                             />
                           </div>
                         </div>
                         <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
-                            <input
-                              type="password"
+                            <label>Aadhar No:</label><input
+                              type="text"
                               id="form3Example4c"
                               required
-                              name="password"
+                              name="aadhar"
                               className="form-control"
-                              placeholder="Enter password"
+                              placeholder="Enter Patient Aadhar Card No:"
                             />
                           </div>
                         </div>
                         <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
+                            <label>Address:</label>
+                            <input
+                              type="text"
+                              id="form3Example4c"
+                              required
+                              name="address"
+                              className="form-control"
+                              placeholder="Enter Patient Address"
+                            />
+                            <input
+                              type="text"
+                              id="form3Example4c"
+                              required
+                              name="address"
+                              className="form-control"
+                              placeholder="Second line for address"
+                            />
+                          </div>
+                        </div>
+                        <div className="d-flex flex-row align-items-center mb-4">
+                          <div className="form-outline flex-fill mb-0">
+                            <label>Occupation:</label>
                             <input
                               type="text"
                               required
-                              name="roll Number"
+                              name="occupation"
                               className="form-control"
-                              placeholder="PR number(college roll number)"
+                              placeholder="Enter Patient occupation"
                             />
                           </div>
                         </div>
 
                         <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
+                            <label>Bank Details:</label>
                             <input
                               type="text"
                               id="form3Example4cd"
                               required
                               className="form-control"
-                              placeholder="Confirm password"
+                              placeholder="Enter Patient Bank Acc"
                             />
                           </div>
                         </div>
-
                         <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
+                            <label>Amount:</label>
+                            <input
+                              type="text"
+                              id="form3Example4cd"
+                              required
+                              className="form-control"
+                              placeholder="Enter Amount needed"
+                            />
+                          </div>
+                        </div>
+                        <div className="d-flex flex-row align-items-center mb-4">
+                          <div className="form-outline flex-fill mb-0">
+                            <label>Amount:</label>
+                            <div className="radio">
+                                <label>
+                                    <input
+                                    type="radio"
+                                    value="Red"
+                                    checked={this.state.selectedOption === "Male"}
+                                    onChange={this.onValueChange}
+                                    />
+                                    Urgent
+                                </label>
+                                </div>
+                                <div className="radio">
+                                <label>
+                                    <input
+                                    type="radio"
+                                    value="Orange"
+                                    checked={this.state.selectedOption === "Female"}
+                                    onChange={this.onValueChange}
+                                    />
+                                    In a month 
+                                </label>
+                                </div>
+                                <div className="radio">
+                                <label>
+                                    <input
+                                    type="radio"
+                                    value="Yellow"
+                                    checked={this.state.selectedOption === "Other"}
+                                    onChange={this.onValueChange}
+                                    />
+                                    In a year
+                                </label>
+                                </div>
+                          </div>
+                        </div>
+                        <div className="d-flex flex-row align-items-center mb-4">
+                          <div className="form-outline flex-fill mb-0">
+                            
+                            <label>Medical Reconds:</label>
                             <input
                               name="foo"
                               type="file"
                               className="form-control"
                               required
                               accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps"
+                             placeholder="Add Patient's Medical History"
                             />
                           </div>
                         </div>
 
                         <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
+                            <label>Background Story:</label>
                             <input
                               name="foo"
                               type="file"
                               className="form-control"
                               required
                               accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps"
-                              placeholder="fee structure"
+                              placeholder="Add the reason behind the Patient's ailment"
                             />
                           </div>
                         </div>
 
-                        <div className="form-check d-flex justify-content-center mb-5">
-                          <label
-                            className="form-check-label"
-                            htmlFor="form2Example3"
-                          >
-                            Already have an accout? <a href="/Login">Login</a>
-                          </label>
-                        </div>
+                     
                         <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                           <button
                             type="submit"
                             className="btn btn-primary btn-lg"
                             name="submit"
-                            value="add user"
+                            value="start verification"
                           >
-                            Register
+                            Verify
                           </button>
                         </div>
                       </form>
-                    </div>
-                    <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                      <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                        className="img-fluid"
-                        alt="Sample image"
-                      />
                     </div>
                   </div>
                 </div>
@@ -148,4 +260,4 @@ function DRegister() {
     </>
   );
 }
-export default DRegister;
+export default Verification;
