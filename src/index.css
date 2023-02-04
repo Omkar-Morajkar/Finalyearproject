@@ -5,8 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -237,4 +237,22 @@ code {
 .btn-group__item--active:after {
   opacity: 1;
   transform: translatey(-2px);
+}
+.wrapper{
+  margin-left:200px;
+}
+
+.section{
+  display:grid;
+  margin: 30px;
+  border: solid #3C495E ;
+  place-items:center;
+  min-height:100vh;
+  text-align:center;
+  /* border: 5px solid #3C495E; */
+}
+
+.box-area h2{
+  text-transform:uppercase;
+  font-size:30px;
 }

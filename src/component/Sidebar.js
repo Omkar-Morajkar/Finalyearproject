@@ -8,12 +8,13 @@ import SubMenu from "./SubMenu";
 import { IconContext } from "react-icons/lib";
  
 const Nav = styled.div`
-  background: black;
+  background: white;
+  border-style: outset;
+  width:100%;
   height: 60px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  
 `;
  
 const NavIcon = styled(Link)`
@@ -26,21 +27,21 @@ const NavIcon = styled(Link)`
 `;
  
 const SidebarNav = styled.nav`
-  background: black;
+  background: #e6e6fa;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5)
-  width: 250px;
+  width:200px;
   height: 100vh;
   display: flex;
   justify-content: center;
   position: fixed;
   top: 0;
   left: ${({ sidebar }) => (sidebar ? "0" : "-100%")};
-  transition: 350ms;
+  transition: 500ms;
   z-index: 10;
 `;
  
 const SidebarWrap = styled.div`
-  width: 100%;
+  width: 225px;
 `;
  
 const Sidebar = () => {

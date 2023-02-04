@@ -6,8 +6,14 @@ const Home = (props) => {
     
     return (
         <>
-            <CustHome/>
-            <Footer/>
+        {/* <div class="wrapper">
+            <div class="section">
+                <div class="box-area"> */}
+                    <CustHome/>
+                    <Footer/>   
+                {/* </div>    
+            </div>
+        </div>       */}
         </>
     );
 }

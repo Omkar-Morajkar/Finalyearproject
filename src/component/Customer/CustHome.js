@@ -60,7 +60,7 @@ const CustHome = ()=>{
 	});
     return(
     <>
-        <div className='carousel' style={{display: 'block', width: 1500, padding: 30}}>
+        <div className='carousel' style={{display: 'block', width: 1000, padding: 30}}>
 			<Carousel previous={previousButton} next={nextButton}
 				activeIndex={activeIndex}>
 				<CarouselIndicators items={items}

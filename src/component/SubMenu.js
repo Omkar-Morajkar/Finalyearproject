@@ -4,10 +4,11 @@ import styled from "styled-components";
  
 const SidebarLink = styled(Link)`
   display: flex;
-  color: #e1e9fc;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  margin:5px;
+  padding: 30px;
+  border-style: outset 1px;
   list-style: none;
   height: 5px;
   text-decoration: none;
