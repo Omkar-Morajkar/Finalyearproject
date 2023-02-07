@@ -3,8 +3,9 @@ import React from 'react';
 const Footer = () => {
     return(
         <>
-            {/* Footer */}
-            <footer className="text-center text-lg-start bg-light text-muted">
+        <div id='Foot'>
+         {/* Footer */}
+         <footer className="text-center text-lg-start bg-light text-muted">
             {/* Section: Social media */}
             <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
             {/* Left */}
@@ -119,6 +120,8 @@ const Footer = () => {
             {/* Copyright */}
             </footer>
             {/* Footer */}
+        </div>
+           
         </>
     );
 }

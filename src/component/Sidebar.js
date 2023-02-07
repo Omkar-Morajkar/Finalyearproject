@@ -48,6 +48,14 @@ const Sidebar = () => {
   const [sidebar, setSidebar] = useState(false);
  
   const showSidebar = () => setSidebar(!sidebar);
+  if(sidebar && document.getElementById("Login"))
+  {
+    document.getElementById("Login").style.marginLeft = "225px";
+  }
+  else if(!sidebar && document.getElementById("Login"))
+  {
+    document.getElementById("Login").style.marginLeft = "0px";
+  }
  
   return (
     <>

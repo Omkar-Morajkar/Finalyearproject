@@ -6,14 +6,11 @@ const Home = (props) => {
     
     return (
         <>
-        {/* <div class="wrapper">
-            <div class="section">
-                <div class="box-area"> */}
-                    <CustHome/>
-                    <Footer/>   
-                {/* </div>    
+            <div id='Login'style={{marginLeft:"225px"}}>
+                <CustHome/>
+            <Footer/>   
             </div>
-        </div>       */}
+            
         </>
     );
 }

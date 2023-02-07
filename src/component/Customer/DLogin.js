@@ -3,7 +3,8 @@ import React from 'react';
 export default function DLogin  (){
     return(
         <>
-        <section className="vh-100" >
+        <div id='Login' style={{marginLeft:"225px"}} >
+          <section className="vh-100" >
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-lg-12 col-xl-11">
@@ -45,6 +46,8 @@ export default function DLogin  (){
           </div>
         </div>
       </section>
+      </div>
+        
         </>
     );
 }

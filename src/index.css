@@ -242,16 +242,6 @@ code {
   margin-left:200px;
 }
 
-.section{
-  display:grid;
-  margin: 30px;
-  border: solid #3C495E ;
-  place-items:center;
-  min-height:100vh;
-  text-align:center;
-  /* border: 5px solid #3C495E; */
-}
-
 .box-area h2{
   text-transform:uppercase;
   font-size:30px;

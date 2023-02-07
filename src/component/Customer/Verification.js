@@ -3,6 +3,7 @@ import React from "react";
 function Verification() {
   return (
     <>
+    <div id="Login">
       <section className="vh-100">
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
@@ -33,8 +34,8 @@ function Verification() {
                             <input
                             type="radio"
                             value="Male"
-                            checked={this.state.selectedOption === "Male"}
-                            onChange={this.onValueChange}
+                            // checked={this.state.selectedOption === "Male"}
+                            // onChange={this.onValueChange}
                             />
                             Male
                         </label>
@@ -44,8 +45,8 @@ function Verification() {
                             <input
                             type="radio"
                             value="Female"
-                            checked={this.state.selectedOption === "Female"}
-                            onChange={this.onValueChange}
+                            // checked={this.state.selectedOption === "Female"}
+                            // onChange={this.onValueChange}
                             />
                             Female
                         </label>
@@ -178,8 +179,8 @@ function Verification() {
                                     <input
                                     type="radio"
                                     value="Red"
-                                    checked={this.state.selectedOption === "Male"}
-                                    onChange={this.onValueChange}
+                                    // checked={this.state.selectedOption === "Male"}
+                                    // onChange={this.onValueChange}
                                     />
                                     Urgent
                                 </label>
@@ -189,8 +190,8 @@ function Verification() {
                                     <input
                                     type="radio"
                                     value="Orange"
-                                    checked={this.state.selectedOption === "Female"}
-                                    onChange={this.onValueChange}
+                                    // checked={this.state.selectedOption === "Female"}
+                                    // onChange={this.onValueChange}
                                     />
                                     In a month 
                                 </label>
@@ -200,8 +201,8 @@ function Verification() {
                                     <input
                                     type="radio"
                                     value="Yellow"
-                                    checked={this.state.selectedOption === "Other"}
-                                    onChange={this.onValueChange}
+                                    // checked={this.state.selectedOption === "Other"}
+                                    // onChange={this.onValueChange}
                                     />
                                     In a year
                                 </label>
@@ -257,6 +258,8 @@ function Verification() {
           </div>
         </div>
       </section>
+    </div>
+      
     </>
   );
 }

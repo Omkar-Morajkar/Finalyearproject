@@ -60,22 +60,25 @@ const CustHome = ()=>{
 	});
     return(
     <>
-        <div className='carousel' style={{display: 'block', width: 1000, padding: 30}}>
-			<Carousel previous={previousButton} next={nextButton}
-				activeIndex={activeIndex}>
-				<CarouselIndicators items={items}
-					activeIndex={activeIndex}
-					onClickHandler={(newIndex) => {
-						if (animating) return;
-						setActiveIndex(newIndex);
-					}} />
-				{carouselItemData}
-				<CarouselControl directionText="Prev"
-					direction="prev" onClickHandler={previousButton} />
-				<CarouselControl directionText="Next"
-					direction="next" onClickHandler={nextButton} />
-			</Carousel>
-		</div >
+		<div id="mainHome">
+			<div className='carousel' style={{display: 'block', width: 1000, padding: 30}}>
+				<Carousel previous={previousButton} next={nextButton}
+					activeIndex={activeIndex}>
+					<CarouselIndicators items={items}
+						activeIndex={activeIndex}
+						onClickHandler={(newIndex) => {
+							if (animating) return;
+							setActiveIndex(newIndex);
+						}} />
+					{carouselItemData}
+					<CarouselControl directionText="Prev"
+						direction="prev" onClickHandler={previousButton} />
+					<CarouselControl directionText="Next"
+						direction="next" onClickHandler={nextButton} />
+				</Carousel>
+			</div >
+		</div>
+        
     </>
     );
 }

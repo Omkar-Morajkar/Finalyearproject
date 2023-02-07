@@ -18,6 +18,8 @@ import Donate from "./component/Customer/Donate";
 import Billing from "./component/Customer/Billing";
 import Dreason from "./component/Customer/Dreason";
 import ListUser from "./component/Admin/ListUser";
+import Verification from "./component/Customer/Verification";
+import DonateInput from "./component/Customer/DonateInput";
 
 function App() {
   return(
@@ -36,6 +38,8 @@ function App() {
             <Route path="/Billing" element={<Billing/>}/>
             <Route path="/Dreason" element={<Dreason/>}/>
             <Route path="/ListUsers" element={<ListUser/>}/>
+            <Route path="/Verification" element={<Verification/>}/>
+            <Route path="/Input" element={<DonateInput/>}/>
         </Routes>
     </BrowserRouter>
 );
