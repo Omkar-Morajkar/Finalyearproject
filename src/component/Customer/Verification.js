@@ -29,6 +29,7 @@ function Verification() {
                         </div>
                         <div className="radio">
                         <label>Gender:</label>
+                        <br />
                         <label>
                             <input
                             type="radio"
@@ -39,6 +40,7 @@ function Verification() {
                             Male
                         </label>
                         </div>
+                         <br />
                         <div className="radio">
                         <label>
                             <input
@@ -239,6 +241,7 @@ function Verification() {
 
                      
                         <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                          <a href="/verify">
                           <button
                             type="submit"
                             className="btn btn-primary btn-lg"
@@ -246,7 +249,7 @@ function Verification() {
                             value="start verification"
                           >
                             Verify
-                          </button>
+                          </button></a>
                         </div>
                       </form>
                     </div>
