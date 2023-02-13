@@ -1,8 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
+  const navigate = useNavigate();
   const [users, setUsers] = useState({
     name:"",
     mobile:"",
@@ -23,6 +25,7 @@ const Register = () => {
       if(response.data.status =="valid")
       {
         alert("Data added successfully");
+        navigate('/Login');
       }
       else if(response.data.status =="invalid")
       {
@@ -40,6 +43,7 @@ const Register = () => {
 
   return(
     <>
+    <div id="Login" style={{marginLeft:"225px"}}>
       <section className="vh-100" >
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
@@ -100,6 +104,7 @@ const Register = () => {
           </div>
         </div>
       </section>
+      </div>
     </>
   ); 
 };

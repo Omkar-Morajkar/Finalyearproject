@@ -6,7 +6,10 @@ const Donate = () =>{
     const[menuData, setMenuData] = useState(Menu);
     return(
         <>
-            <CustCard menuData={menuData}/>
+            <div id='Login'>
+                <CustCard menuData={menuData}/>
+            </div>
+            
         </>
     );
 }

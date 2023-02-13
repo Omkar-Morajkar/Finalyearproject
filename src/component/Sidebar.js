@@ -8,8 +8,8 @@ import SubMenu from "./SubMenu";
 import { IconContext } from "react-icons/lib";
  
 const Nav = styled.div`
-  background: white;
-  border-style: outset;
+background-color: #007bff;
+  border: 3px solid white;
   width:100%;
   height: 60px;
   display: flex;
@@ -36,13 +36,16 @@ const SidebarNav = styled.nav`
   position: fixed;
   top: 0;
   left: ${({ sidebar }) => (sidebar ? "0" : "-100%")};
-  transition: 500ms;
+  transition: 700ms;
   z-index: 10;
-`;
+  
+`
+
  
 const SidebarWrap = styled.div`
   width: 225px;
 `;
+
  
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(false);
@@ -51,6 +54,7 @@ const Sidebar = () => {
   if(sidebar && document.getElementById("Login"))
   {
     document.getElementById("Login").style.marginLeft = "225px";
+    document.getElementById("Login").style.transition = '500ms';
   }
   else if(!sidebar && document.getElementById("Login"))
   {
@@ -59,7 +63,7 @@ const Sidebar = () => {
  
   return (
     <>
-      <IconContext.Provider value={{ color: "blue" }}>
+      <IconContext.Provider value={{ color: "black" }}>
         <Nav>
           <NavIcon to="#">
             <FaIcons.ImMenu onClick={showSidebar} />
@@ -67,7 +71,7 @@ const Sidebar = () => {
           <h2
             style={{ textAlign: "center",
                      marginLeft: "200px",
-                     color: "green" }}
+                     color: "white" }}
           >
             Fundpeti
           </h2>

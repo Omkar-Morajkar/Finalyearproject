@@ -3,36 +3,70 @@ import React from 'react';
 const Contact = () =>{
     return(
         <>
-            {/* Default form contact */}
-            <form className="text-center border border-light p-5" action="#!">
-            <p className="h4 mb-4">Contact us</p>
-            {/* Name */}
-            <input type="text" id="defaultContactFormName" className="form-control mb-4" placeholder="Name" />
-            {/* Email */}
-            <input type="email" id="defaultContactFormEmail" className="form-control mb-4" placeholder="E-mail" />
-            {/* Subject */}
-            <label>Subject</label>
-            <select className="browser-default custom-select mb-4">
-                <option value disabled>Choose option</option>
-                <option value={1} selected>Feedback</option>
-                <option value={2}>Report a bug</option>
-                <option value={3}>Feature request</option>
-                <option value={4}>Feature request</option>
-            </select>
-            {/* Message */}
-            <div className="form-group">
-                <textarea className="form-control rounded-0" id="exampleFormControlTextarea2" rows={3} placeholder="Message" defaultValue={""} />
-            </div>
-            {/* Copy */}
-            <div className="custom-control custom-checkbox mb-4">
-                <input type="checkbox" className="custom-control-input" id="defaultContactFormCopy" />
-                <label className="custom-control-label" htmlFor="defaultContactFormCopy">Send me a copy of this message</label>
-            </div>
-            {/* Send button */}
-            <button className="btn btn-info btn-block" type="submit">Send</button>
-            </form>
-            {/* Default form contact */}
+            <div class="page-heading text-center">
 
+<div class="container zoomIn animated">
+    
+    <h1 class="page-title">CONTACT US <span class="title-under"></span></h1>
+    <p class="page-description">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit Necessitatibus.
+    </p>
+    
+</div>
+
+</div>
+
+<div class="main-container fadeIn animated">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-7 col-sm-12 col-form">
+            <h2 class="title-style-2">CONTACT FORM <span class="title-under"></span></h2>
+            <form action="php/mail.php" class="contact-form ajax-form">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <input type="text" name="name" class="form-control" placeholder="Name*" required/>
+                    </div>
+                     <div class="form-group col-md-6">
+                        <input type="email" name="email" class="form-control" placeholder="E-mail*" required/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <textarea name="message" rows="5" class="form-control" placeholder="Message*" required></textarea>
+                </div>
+
+                <div class="form-group alerts">
+                    <div class="alert alert-success" role="alert"> 
+                    </div>
+                        <div class="alert alert-danger" role="alert">
+                    </div>  
+                </div>	
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary pull-right">Send message</button>
+                </div>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+
+        <div class="col-md-4 col-md-offset-1 col-contact">
+            <h2 class="title-style-2"> SADAKA CONTACTS <span class="title-under"></span></h2>
+            <p>
+                <b>Sadaka</b> ipsum dolor sit amet, consectetur adipiscing elit. Ut at eros rutrum turpis viverra elementum semper quis ex. Donec lorem nulla .
+            </p>
+            <div class="contact-items">
+                <ul class="list-unstyled contact-items-list">
+                    <li class="contact-item"> <span class="contact-icon"> <i class="fa fa-map-marker"></i></span> 135 Hay el nahda, Rabat, Morocco</li>
+                    <li class="contact-item"> <span class="contact-icon"> <i class="fa fa-phone"></i></span> 00 210 25 55  55 11</li>
+
+                    <li class="contact-item"> <span class="contact-icon"> <i class="fa fa-envelope"></i></span> contact@sadaka.org</li>
+                </ul>
+            </div>   
+        </div>
+    </div> 
+</div>
+</div>
         </>
     );
 }

@@ -1,84 +1,120 @@
 import React from 'react'
-import {
-	CarouselControl,
-	Carousel,
-	CarouselItem,
-	CarouselIndicators,
-} from 'reactstrap';
+import { Carousel } from 'react-bootstrap';
+import img1 from '../Images/home1.jpg';
+import img2 from '../Images/home2.jpg';
+import img3 from '../Images/home3.jpg';
+import logo1 from '../Logo/our-mission-icon.png';
+import logo2 from '../Logo/make-donation-icon.png';
+import logo3 from '../Logo/help-icon.png';
+import logo4 from '../Logo/programs-icon.png'
 
 const CustHome = ()=>{
-    // State for Active index
-	const [activeIndex, setActiveIndex] = React.useState(0);
-
-	// State for Animation
-	const [animating, setAnimating] = React.useState(false);
-
-	// Sample items for Carousel
-	const items = [
-		{
-			caption: 'Sample Caption One',src:
-      'https://img.favpng.com/4/12/5/mountain-desktop-wallpaper-4k-resolution-png-favpng-6ptkc4nPsWqUmYtTxEr1d5QSB.jpg',
-			altText: 'Slide One'
-		},
-		{
-			caption: 'Sample Caption Two',src:
-      'https://images.pexels.com/photos/2749481/pexels-photo-2749481.jpeg?auto=compress&cs=tinysrgb&w=600',
-			altText: 'Slide Two'
-		}
-	];
-
-	// Items array length
-	const itemLength = items.length - 1
-
-	// Previous button for Carousel
-	const previousButton = () => {
-		if (animating) return;
-		const nextIndex = activeIndex === 0 ?
-			itemLength : activeIndex - 1;
-		setActiveIndex(nextIndex);
-	}
-
-	// Next button for Carousel
-	const nextButton = () => {
-		if (animating) return;
-		const nextIndex = activeIndex === itemLength ?
-			0 : activeIndex + 1;
-		setActiveIndex(nextIndex);
-	}
-
-	// Carousel Item Data
-	const carouselItemData = items.map((item) => {
-		return (
-			<CarouselItem
-				key={item.src}
-				onExited={() => setAnimating(false)}
-				onExiting={() => setAnimating(true)}
-			>
-				<img src={item.src} alt={item.altText} />
-			</CarouselItem>
-		);
-	});
+    
     return(
     <>
 		<div id="mainHome">
-			<div className='carousel' style={{display: 'block', width: 1000, padding: 30}}>
-				<Carousel previous={previousButton} next={nextButton}
-					activeIndex={activeIndex}>
-					<CarouselIndicators items={items}
-						activeIndex={activeIndex}
-						onClickHandler={(newIndex) => {
-							if (animating) return;
-							setActiveIndex(newIndex);
-						}} />
-					{carouselItemData}
-					<CarouselControl directionText="Prev"
-						direction="prev" onClickHandler={previousButton} />
-					<CarouselControl directionText="Next"
-						direction="next" onClickHandler={nextButton} />
-				</Carousel>
-			</div >
+		<Carousel>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src={img1}
+          alt="First slide"
+        />
+        <Carousel.Caption>
+			<h2 class="carousel-title bounceInDown animated slow">Because they need your help</h2>
+            <h4 class="carousel-subtitle bounceInUp animated slow ">Do not let them down</h4>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src={img2}
+          alt="Second slide"
+        />
+        <Carousel.Caption>
+          <h3>Second slide label</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src={img3}
+          alt="Third slide"
+        />
+        <Carousel.Caption>
+          <h3>Third slide label</h3>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
 		</div>
         
+		<div class="section-home about-us fadeIn animated">
+
+<div class="container">
+	<div class="row">
+
+		<div class="col-md-3 col-sm-6">
+			<div class="about-us-col">
+				<div class="col-icon-wrapper">
+				  <img src={logo1} alt=""/>
+				</div>
+				<h3 class="col-title">our mission</h3>
+				<div class="col-details">
+				  <p>Lorem ipsum dolor sit amet consect adipisscin elit proin vel lectus ut eta esami vera dolor sit amet consect</p> 
+				</div>
+				<a href="#" class="btn btn-primary"> Read more </a>
+			</div>
+		</div>
+
+		<div class="col-md-3 col-sm-6">
+			<div class="about-us-col">
+				<div class="col-icon-wrapper">
+				  <img src={logo2} alt=""/>
+				</div>
+				<h3 class="col-title">Make donations</h3>
+				<div class="col-details">
+				  <p>Lorem ipsum dolor sit amet consect adipisscin elit proin vel lectus ut eta esami vera dolor sit amet consect</p>
+				</div>
+				<a href="#" class="btn btn-primary"> Read more </a>
+			</div> 
+		</div>
+
+
+		<div class="col-md-3 col-sm-6">
+			<div class="about-us-col">
+				<div class="col-icon-wrapper">
+					<img src={logo3} alt=""/>
+				</div>
+				<h3 class="col-title">Help & support</h3>
+				<div class="col-details">
+					<p>Lorem ipsum dolor sit amet consect adipisscin elit proin vel lectus ut eta esami vera dolor sit amet consect</p>  
+				</div>
+				<a href="#" class="btn btn-primary"> Read more </a>
+			</div>
+		</div>
+
+
+		<div class="col-md-3 col-sm-6">
+			<div class="about-us-col">
+				<div class="col-icon-wrapper">
+					<img src={logo4} alt=""/>
+				</div>
+				<h3 class="col-title">our programs</h3>
+				<div class="col-details">
+				  <p>Lorem ipsum dolor sit amet consect adipisscin elit proin vel lectus ut eta esami vera dolor sit amet consect</p>	  
+				</div>
+				<a href="#" class="btn btn-primary"> Read more </a>		
+		  </div>		  
+		</div>
+			
+	</div>
+</div>
+
+</div>
+
     </>
     );
 }
