@@ -12,7 +12,7 @@ const CustHome = ()=>{
     
     return(
     <>
-		<div id="mainHome">
+		<div id="mainHome" style={{margintop:'60px'}}>
 		<Carousel>
       <Carousel.Item>
         <img

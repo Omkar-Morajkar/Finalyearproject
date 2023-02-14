@@ -1,79 +1,73 @@
 import React from 'react';
+import Footer from './Footer';
 
 const Billing = () =>{
     return(
     <>
-        <div class="container">
-            <form action="">
-                <div class="row">
-                    <div class="col">
-                        <h3 class="title">BILLING ADDRESS</h3>
-                        <div class="inputBox">
-                            <span>Full Name :</span>
-                            <input type="text" placeholder="ABC EFG"/>
-                        </div>
-                        <div class="inputBox">
-                            <span>Email :</span>
-                            <input type="email" placeholder="example@example.com"/>
-                        </div>
-                        <div class="inputBox">
-                            <span>Address :</span>
-                            <input type="text" placeholder="Hno. - street - locality"/>
-                        </div>
-                        <div class="inputBox">
-                            <span>City :</span>
-                            <input type="text" placeholder="GOA"/>
-                        </div>
-                        <div class="flex">
-                            <div class="inputBox">
-                                <span>State :</span>
-                                <input type="text" placeholder="INDIA"/>
-                            </div>
-                            <div class="inputBox">
-                                <span>Zip Code :</span>
-                                <input type="text" placeholder="123 456"/>
-                            </div>
-                        </div>
-
+    <div id='Login'>
+        <div className="col-75" style={{marginTop:'10px', marginRight:'100px',marginLeft:'100px',marginBottom:'10px', borderRadius:'100px'}}>
+            <div className="Bcontainer">
+            <form action="/action_page.php">
+                <div className="row">
+                <div className="col-50">
+                    <h3>Billing Address</h3>
+                    <label htmlFor="fname"><i className="fa fa-user" /> Full Name</label>
+                    <input type="text" id="fname" name="firstname" placeholder="John M. Doe" />
+                    <label htmlFor="amount"><i class="fa fa-inr" />Enter Amount</label>
+                    <input type="number" id="email" name="email" placeholder="Amount" />
+                    <label htmlFor="adr"><i className="fa fa-address-card-o" /> Address</label>
+                    <input type="text" id="adr" name="address" placeholder="542 W. 15th Street" />
+                    <label htmlFor="city"><i className="fa fa-institution" /> City</label>
+                    <input type="text" id="city" name="city" placeholder="New York" />
+                    <div className="row">
+                    <div className="col-50">
+                        <label htmlFor="state">State</label>
+                        <input type="text" id="state" name="state" placeholder="NY" />
                     </div>
-                    <div class="col">
-                        <h3 class="title">PAYMENT</h3>
-
-                        <div class="inputBox">
-                            <span>CARDS ACCEPTED :</span>
-                            <img src="images/card_img.png" alt=""/>
-                        </div>
-                        <div class="inputBox">
-                            <span>Name On Card :</span>
-                            <input type="text" placeholder="Mr. ABC EFG"/>
-                        </div>
-                        <div class="inputBox">
-                            <span>Credit Card Number :</span>
-                            <input type="text" placeholder="1111-2222-3333-4444"/>
-                        </div>
-                        <div class="inputBox">
-                            <span>Exp Month :</span>
-                            <input type="text" placeholder="january"/>
-                        </div>
-
-                        <div class="flex">
-                            <div class="inputBox">
-                                <span>Exp Year :</span>
-                                <input type="number" placeholder="2022"/>
-                            </div>
-                            <div class="inputBox">
-                                <span>CVV :</span>
-                                <input type="text" placeholder="1234"/>
-                            </div>
-                        </div>
-
+                    <div className="col-50">
+                        <label htmlFor="zip">Zip</label>
+                        <input type="text" id="zip" name="zip" placeholder={10001} />
                     </div>
-            
+                    </div>
                 </div>
-
-                <input type="submit" value="proceed to Donate" class="submit-btn"/>
+                <div className="col-50">
+                    <h3>Payment</h3>
+                    <label htmlFor="fname">Accepted Cards</label>
+                    <div className="icon-container">
+                    <i className="fa fa-cc-visa" style={{color: 'navy'}} />
+                    <i className="fa fa-cc-amex" style={{color: 'blue'}} />
+                    <i className="fa fa-cc-mastercard" style={{color: 'red'}} />
+                    <i className="fa fa-cc-discover" style={{color: 'orange'}} />
+                    </div>
+                    <label htmlFor="cname">Name on Card</label>
+                    <input type="text" id="cname" name="cardname" placeholder="John More Doe" />
+                    <label htmlFor="ccnum">Credit card number</label>
+                    <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" />
+                    <label htmlFor="expmonth">Exp Month</label>
+                    <input type="text" id="expmonth" name="expmonth" placeholder="September" />
+                    <div className="row">
+                    <div className="col-50">
+                        <label htmlFor="expyear">Exp Year</label>
+                        <input type="text" id="expyear" name="expyear" placeholder={2018} />
+                    </div>
+                    <div className="col-50">
+                        <label htmlFor="cvv">CVV</label>
+                        <input type="text" id="cvv" name="cvv" placeholder={352} />
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <label>
+                <input type="checkbox" defaultChecked="checked" name="sameadr" /> Shipping address same as billing
+                </label>
+                <input type="submit" defaultValue="Continue to checkout" className="btn" />
             </form>
-        </div>    
+            </div>
+        </div>
+        <Footer/>
+        </div>
+        
+
     </>
     );
 }

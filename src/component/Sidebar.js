@@ -27,7 +27,8 @@ const NavIcon = styled(Link)`
 `;
  
 const SidebarNav = styled.nav`
-  background: #e6e6fa;
+  background: #87CEFA;
+  border: 3px solid white;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5)
   width:200px;
   height: 100vh;
@@ -60,13 +61,13 @@ const Sidebar = () => {
   {
     document.getElementById("Login").style.marginLeft = "0px";
   }
- 
+
   return (
     <>
       <IconContext.Provider value={{ color: "black" }}>
         <Nav>
           <NavIcon to="#">
-            <FaIcons.ImMenu onClick={showSidebar} />
+            <FaIcons.ImMenu onClick={showSidebar}/>
           </NavIcon>
           <h2
             style={{ textAlign: "center",

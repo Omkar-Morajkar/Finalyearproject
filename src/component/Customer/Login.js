@@ -67,7 +67,7 @@ const Login = () => {
                                     <div className="d-flex flex-row align-items-center mb-4">
                                       <i className="fas fa-user fa-lg me-3 fa-fw" />
                                       <div className="form-outline flex-fill mb-0">
-                                        <input type="text" id="name" required name="email" className="form-control" placeholder="Enter email" value={email} onChange={e =>handleChange(e)} />
+                                        <input type="text" id="name" required name="email" className="form-control1" placeholder="Enter email" value={email} onChange={e =>handleChange(e)} />
                                       </div>
                                     </div>
                                     <div className="d-flex flex-row align-items-center mb-4">
