@@ -52,19 +52,24 @@ const Sidebar = () => {
   const [sidebar, setSidebar] = useState(false);
  
   const showSidebar = () => setSidebar(!sidebar);
-  if(sidebar && document.getElementById("Login"))
+  if(sidebar && document.getElementById("Login") && document.getElementById("mydiv"))
   {
     document.getElementById("Login").style.marginLeft = "225px";
     document.getElementById("Login").style.transition = '500ms';
+    document.getElementById("mydiv").style.marginLeft = "225px";
+    document.getElementById("mydiv").style.transition = '500ms';
   }
-  else if(!sidebar && document.getElementById("Login"))
+  else if(!sidebar && document.getElementById("Login") && document.getElementById("mydiv"))
   {
     document.getElementById("Login").style.marginLeft = "0px";
+    document.getElementById("mydiv").style.marginLeft = "0px";
   }
 
   return (
     <>
+    
       <IconContext.Provider value={{ color: "black" }}>
+        <div id="mydiv">
         <Nav>
           <NavIcon to="#">
             <FaIcons.ImMenu onClick={showSidebar}/>
@@ -77,6 +82,7 @@ const Sidebar = () => {
             Fundpeti
           </h2>
         </Nav>
+        </div>
         <SidebarNav sidebar={sidebar}>
           <SidebarWrap>
             <NavIcon to="#">
