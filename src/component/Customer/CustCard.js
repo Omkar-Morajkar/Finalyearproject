@@ -1,10 +1,9 @@
 import React from "react";
 import ProgressBar from "react-bootstrap/ProgressBar";
-import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const CustCard = ({ menuData }) => {
   const now = 50;
-  const navigate = useNavigate();
 
   return (
     <>
@@ -29,7 +28,7 @@ const CustCard = ({ menuData }) => {
                                   <div className="card-read">Read</div>
                                   <ProgressBar now={now} label={`${now}%`} />
                                   <br/>
-                                  <button className="card-tag subtle" onClick={navigate('/Billing')} >Donate</button>
+                                  <Link to='/billing'><button className="card-tag subtle" >Donate</button></Link>
                                 </div>
                           </div>
                           <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">

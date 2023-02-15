@@ -21,9 +21,8 @@ const CustHome = ()=>{
           alt="First slide"
         />
         <Carousel.Caption>
-			<h2 class="carousel-title bounceInDown animated slow">Because they need your help</h2>
+			<h1 class="carousel-title bounceInDown animated slow" style={{}}>Because they need your help</h1>
             <h4 class="carousel-subtitle bounceInUp animated slow ">Do not let them down</h4>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -33,8 +32,8 @@ const CustHome = ()=>{
           alt="Second slide"
         />
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h1>Together we can save thier lives</h1>
+          <h4>So lets do it!</h4>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -44,8 +43,8 @@ const CustHome = ()=>{
           alt="Third slide"
         />
         <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          <h1>Your kindness and generosity can transform lives. </h1>
+          <h3>Donate now.</h3>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

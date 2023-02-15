@@ -15,6 +15,8 @@ background-color: #007bff;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  
+  
 `;
  
 const NavIcon = styled(Link)`
@@ -57,7 +59,7 @@ const Sidebar = () => {
     document.getElementById("Login").style.marginLeft = "225px";
     document.getElementById("Login").style.transition = '500ms';
     document.getElementById("mydiv").style.marginLeft = "225px";
-    document.getElementById("mydiv").style.transition = '500ms';
+    document.getElementById("mydiv").style.transition = '700ms';
   }
   else if(!sidebar && document.getElementById("Login") && document.getElementById("mydiv"))
   {
