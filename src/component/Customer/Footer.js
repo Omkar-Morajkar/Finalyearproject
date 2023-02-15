@@ -15,10 +15,13 @@ const Footer = () => {
                     <h4 class="footer-title">About us <span class="title-under"></span></h4>
                     <div class="footer-content">
                         <p>
-                            <strong>Fund_Peti</strong>is an crowdfunding website that helps needy people to get fund for thier needy ones at easy request
+                            <strong>Fund_Peti.com</strong>
                         </p> 
                         <p>
-                            ILorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at eros rutrum turpis viverra elementum semper quis ex. Donec lorem nulla, aliquam quis neque vel, maximus lacinia urna.
+                           for details :
+                           Contact
+                           ph no:9583843920
+                           mumbai,India
                         </p>
                     </div>
                 </div>
