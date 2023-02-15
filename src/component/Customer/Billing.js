@@ -23,12 +23,9 @@ const Billing = () =>{
                     <div className="row">
                     <div className="col-50">
                         <label htmlFor="state">State</label>
-                        <input type="text" id="state" name="state" placeholder="NY" />
+                        <input type="text" id="Country" name="Country" placeholder="Country" />
                     </div>
-                    <div className="col-50">
-                        <label htmlFor="zip">Zip</label>
-                        <input type="text" id="zip" name="zip" placeholder={10001} />
-                    </div>
+                    
                     </div>
                 </div>
                 <div className="col-50">
