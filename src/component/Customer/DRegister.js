@@ -34,11 +34,7 @@ function DRegister(){
                             <input type="password" id="form3Example4c"  required name="password" className="form-control" placeholder="Enter password"  />
                           </div>
                         </div>
-                        <div className="d-flex flex-row align-items-center mb-4">
-                          <div className="form-outline flex-fill mb-0">
-                          <input type="text" required name="roll Number" className="form-control" placeholder="PR number(college roll number)" />
-                          </div>
-                        </div>
+                       
 
                         <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
