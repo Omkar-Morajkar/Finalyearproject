@@ -1,5 +1,6 @@
 import React from 'react';
 import Footer from './Footer';
+import './Billing.css';
 
 const Billing = () =>{
     return(
@@ -57,10 +58,7 @@ const Billing = () =>{
                     </div>
                 </div>
                 </div>
-                <label>
-                <input type="checkbox" defaultChecked="checked" name="sameadr" /> Shipping address same as billing
-                </label>
-                <input type="submit" defaultValue="Continue to checkout" className="btn" />
+                <input type="submit" className="btn" value='submit'/>
             </form>
             </div>
         </div>
