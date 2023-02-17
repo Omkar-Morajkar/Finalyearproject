@@ -1,6 +1,52 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function DLogin  (){
+  // const navigate = useNavigate();
+  // const [users, setUsers] = useState({
+  //   email:"",
+  //   password:""  
+  // })
+  // const{email,password}=users;
+  // const handleChange = (e) =>{
+  //   setUsers({...users,[e.target.name]:e.target.value});
+  // }
+  // const submitForm = async(e) =>{
+  //   e.preventDefault();
+  //   console.log(users);
+
+  //   if(email.length == "")
+  //   {
+  //     alert("Enter email");
+  //   }
+  //   if(password.length == "")
+  //   {
+  //     alert("Enter password");
+  //   }
+  //   var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  //   if(!regex.test(email))
+  //   {
+  //     alert("Invalid email format");
+  //   }
+
+  //   await axios.post("http://localhost/FinalYearProject/Login.php",users)
+  //   .then((resp)=>{
+  //     console.log(resp);
+  //     if(resp.data.status =="valid")
+  //     {
+  //       alert("Login successful");
+  //       navigate('/Custcause');
+  //     }
+  //     else if(resp.data.status =="invalid")
+  //     {
+  //       alert("There is some problem");
+  //     }
+  //     else
+  //     {
+  //       alert("There is some problem"+resp.data.status);
+  //     }
+  //   })
+  // }
     return(
         <>
         <div id='Login' style={{marginLeft:"225px"}} >

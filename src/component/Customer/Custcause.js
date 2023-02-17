@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 
 const Custcause = () => {
     return (
@@ -18,19 +18,19 @@ const Custcause = () => {
                       <form className="mx-1 mx-md-4">
                       <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                         <a href="/Dreason">
-                          <button type="button" style = {{backgroundColor: 'red', width: '250px'}} className="btn btn-primary btn-md" value="stage">Stage1</button>
+                          <Link to="/Verification"><button type="button" style = {{backgroundColor: 'red', width: '250px'}} className="btn btn-primary btn-md" value="stage">Stage1</button></Link>
                         </a>
                         </div>
                         <p>Select this stage if you are in sever needs of funds <p>e.g within a week.</p></p>
                         <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                           <a href="/Dreason">
-                          <button type="button" style = {{backgroundColor: 'orange', width: '250px'}} className="btn btn-primary btn-md" value="stage">Stage2</button>
+                          <Link to="/Verification"><button type="button" style = {{backgroundColor: 'orange', width: '250px'}} className="btn btn-primary btn-md" value="stage">Stage2</button></Link>
                         </a>
                         </div>
                         <p>Select this stage if you need of funds within medium time <p>e.g within a month.</p></p>
                         <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                           <a href="/Dreason">
-                          <button type="button" style = {{backgroundColor: 'green', width: '250px'}} className="btn btn-primary btn-md" value="stage">Stage3</button>
+                          <Link to="/Verification"><button type="button" style = {{backgroundColor: 'green', width: '250px'}} className="btn btn-primary btn-md" value="stage">Stage3</button></Link>
                         </a>
                         </div>
                         <p>Select this stage if you need of funds within moderate time <p>e.g within a year.</p></p>

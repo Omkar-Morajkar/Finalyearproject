@@ -21,7 +21,7 @@ const CustHome = ()=>{
           alt="First slide"
         />
         <Carousel.Caption>
-			<h1 class="carousel-title bounceInDown animated slow" style={{}}>Because they need your help</h1>
+			<h1 class="carousel-title bounceInDown animated slow">Because they need your help</h1>
             <h4 class="carousel-subtitle bounceInUp animated slow ">Do not let them down</h4>
         </Carousel.Caption>
       </Carousel.Item>

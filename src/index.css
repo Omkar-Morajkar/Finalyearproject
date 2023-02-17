@@ -1,4 +1,4 @@
-body {
+.body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -7,7 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   
 }
-code {
+.code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
@@ -184,7 +184,7 @@ code {
   text-align: center;
 }
 
-.navbar h1 {
+.navbar .h1 {
   padding-bottom: 20px;
   text-transform: capitalize;
 }
@@ -240,7 +240,7 @@ code {
   margin-left:200px;
 }
 
-.box-area h2{
+.box-area .h2{
   text-transform:uppercase;
   font-size:30px;
 }
@@ -352,20 +352,20 @@ code {
 .footer-form .btn-submit:hover {
   background: #fff;
 }
-.footer-form input:-moz-placeholder,
-.footer-form textarea:-moz-placeholder {
+.footer-form .input:-moz-placeholder,
+.footer-form .textarea:-moz-placeholder {
   color: #fff;
 }
-.footer-form input::-moz-placeholder,
-.footer-form textarea::-moz-placeholder {
+.footer-form .input::-moz-placeholder,
+.footer-form .textarea::-moz-placeholder {
   color: #fff;
 }
-.footer-form input:-ms-input-placeholder,
-.footer-form textarea:-ms-input-placeholder {
+.footer-form .input:-ms-input-placeholder,
+.footer-form .textarea:-ms-input-placeholder {
   color: #fff;
 }
-.footer-form input::-webkit-input-placeholder,
-.footer-form textarea::-webkit-input-placeholder {
+.footer-form .input::-webkit-input-placeholder,
+.footer-form .textarea::-webkit-input-placeholder {
   color: #fff;
 }
 .row {
@@ -404,14 +404,14 @@ code {
   border-radius: 3px;
 }
 
-input[type=text] {
+.input[type=text] {
   width: 100%;
   margin-bottom: 20px;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 3px;
 }
-input[type=number] {
+.input[type=number] {
   width: 100%;
   margin-bottom: 20px;
   padding: 12px;
@@ -419,7 +419,7 @@ input[type=number] {
   border-radius: 3px;
 }
 
-label {
+.label {
   margin-bottom: 10px;
   display: block;
 }
@@ -446,7 +446,7 @@ label {
   background-color: #45a049;
 }
 
-span.price {
+.span.price {
   float: right;
   color: grey;
 }

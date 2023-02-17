@@ -3,7 +3,6 @@ import "bootstrap/dist/js/bootstrap.bundle";
 import './App.css';
 import { BrowserRouter,Route, Routes } from 'react-router-dom';
 import React from 'react';
-import Navbar from "./Navbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Register from "./component/Customer/Register";
 import Login from "./component/Customer/Login";
@@ -36,7 +35,6 @@ function App() {
             <Route path="/Custcause" element={<Custcause/>}/>
             <Route path="/Donate" element={<Donate/>}/>
             <Route path="/Billing" element={<Billing/>}/>
-            <Route path="/Dreason" element={<Dreason/>}/>
             {/* <Route path="/ListUsers" element={<ListUser/>}/> */}
             <Route path="/Verification" element={<Verification/>}/>
             <Route path="/Input" element={<DonateInput/>}/>
