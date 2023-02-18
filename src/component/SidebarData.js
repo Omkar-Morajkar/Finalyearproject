@@ -35,25 +35,8 @@ export const SidebarData = [
     icon: <FaIcons.FaPhone />,
   },
   {
-    title: "Cause",
-    path: "/Custcause",
-    icon: <FaIcons.FaEnvelopeOpenText />,
- 
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
- 
-  },
-  {
     title: "Support",
     path: "/support",
     icon: <IoIcons.IoMdHelpCircle />,
   },
-    {
-    title: "Verification",
-    path: "/Verification",
-    icon: <AiIcons.AiOutlineLogin />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-
-  }, 
 ];

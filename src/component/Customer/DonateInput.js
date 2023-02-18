@@ -1,42 +1,42 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import axios from 'axios';
 
 function DonateInput(){
-  // const navigate = useNavigate();
-  // const [users, setUsers] = useState({
-  //   pname:"",
-  //   title:"",
-  //   amount:"",
-  //   pImage:"",
-  //   discrip:""
-      
-  // })
-  // const{pname,title,amount,pImage,discrip}=users;
-  // const handleChange = (e) =>{
-  //   setUsers({...users,[e.target.name]:e.target.value});
-  // }
-  // const submitForm = async(e) =>{
-  //   e.preventDefault();
-  //   console.log(users);
+  const navigate = useNavigate();
+  const [users, setUsers] = useState({
+    pname:"",
+    title:"",
+    pImage:"",
+    discrip:""
+  })
+  const{pname,title,pImage,discrip}=users;
+  const handleChange = (e) =>{
+    setUsers({...users,[e.target.name]:e.target.value});
+  }
+  const submitForm = async(e) =>{
+    e.preventDefault();
+    console.log(users);
 
-  //   await axios.post("http://localhost/FinalYearProject/Login.php",users)
-  //   .then((resp)=>{
-  //     console.log(resp);
-  //     if(resp.data.status =="valid")
-  //     {
-  //       alert("Login successful");
-  //       navigate('/Donate');
-  //     }
-  //     else if(resp.data.status =="invalid")
-  //     {
-  //       alert("There is some problem");
-  //     }
-  //     else
-  //     {
-  //       alert("There is some problem"+resp.data.status);
-  //     }
-  //   })
-  // }
+    await axios.post("http://localhost/FinalYearProject/dInput.php",users)
+    .then((rspo)=>{
+      console.log(rspo);
+      if(rspo.data.status =="valid")
+      {
+        alert("Login successful");
+        navigate('/Donate');
+      }
+      else if(rspo.data.status =="invalid")
+      {
+        alert("There is some problem");
+      }
+      else
+      {
+        alert("There is some problem"+rspo.data.status);
+      }
+    })
+  }
     return(
         <>
          <div id='Login'>
@@ -49,36 +49,27 @@ function DonateInput(){
               <div className="colums">
                 <div className="item">
                   <label htmlFor="name">Name<span>*</span></label>
-                  <input id="name" type="text" name="name" required placeholder='Enter name of the patient' />   
-                   {/* value={pname} onChange={e =>handleChange(e)} */}
+                  <input id="name" type="text" name="pname" required placeholder='Enter name of the patient' value={pname} onChange={e =>handleChange(e)}/>  
                 </div>
                 <div className="item">
                   <label htmlFor="eaddress">Title<span>*</span></label>
-                  <input id="title" type="text" name="eaddress" required placeholder='Enter Title' />
-                  {/* value={title} onChange={e =>handleChange(e)} */}
-                </div>
-                <div className="item">
-                  <label htmlFor="phone">Amount<span>*</span></label>
-                  <input id="phone" type="number" name="phone" required placeholder='Enter amount' />
-                  {/* value={amount} onChange={e =>handleChange(e)} */}
+                  <input id="title" type="text" name="title" required placeholder='Enter Title' value={title} onChange={e =>handleChange(e)}/>
                 </div>
                 <div className="item">
                   <label >Image<span>*</span></label>
-                  <input type="file" id="image" name="image" placeholder='Select patient photo' />
-                  {/* value={pImage} onChange={e =>handleChange(e)} */}
+                  <input type="file" id="image" name="pImage" placeholder='Select patient photo' value={pImage} onChange={e =>handleChange(e)}/>
                 </div>
               </div>
               <div className="week">
-                
               </div>
               <div className="item">
                 <label htmlFor="visit">Enter discription</label>
-                <textarea id="visit" rows={3} />
-                {/* value={discrip} onChange={e =>handleChange(e)} */}
+                <textarea id="visit" rows={3} name="discrip" style={{boxshadow:'2px 2px 5px rgba(0, 0, 0, 0.5)'}} value={discrip} onChange={e =>handleChange(e)}/>
+                
               </div>
              
               <div className="btn-block">
-                <button type="submit" href="/">Submit</button>
+                <button type="submit" name="submit" value="add user"  href="/">Submit</button>
               </div>
             </form>
           </div>

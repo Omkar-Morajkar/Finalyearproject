@@ -1,7 +1,55 @@
 import React from "react";
-
+import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Verification() {
+  const navigate = useNavigate();
+  const [users, setUsers] = useState({
+    name:"",
+    Gender:"",
+    dob:"",
+    Relation:"",
+    Mno:"",
+    email:"",
+    aadhaar:"",
+    address:"",
+    occupation:"",
+    bank:"",
+    amount:"",
+    stage:"",
+    Mrecord:"",
+    Bstory:""
+  })
+  const{name,Gender,dob,Relation,Mno,email,aadhaar,address,occupation,bank,amount,stage,Mrecord,Bstory}=users;
+  const handleChange = (e) =>{
+    setUsers({...users,[e.target.name]:e.target.value});
+  }
+  const submitForm = async(e) =>{
+    e.preventDefault();
+    console.log(users);
+
+    await axios.post("http://localhost/finalYearProject/verification.php",users)
+    .then((respo)=>{
+      console.log(respo);
+      if(respo.data.status =="valid")
+      {
+        alert("Data added successfully");
+        navigate('/Login');
+      }
+      else if(respo.data.status =="invalid")
+      {
+        alert("There is some problem");
+      }
+      else if(respo.data.status =="exist"){
+        alert("Account already exist");
+      }
+      else
+      {
+        alert("There is some problem"+respo.data.status);
+      }
+    })
+  }
   return (
     <>
     <div id="Login">
@@ -12,60 +60,70 @@ function Verification() {
           
           <div clas
           sName="testbox" style={{marginLeft:'200px',marginRight:'200px' }}>
-            <form action="/" style={{borderRadius:"20px",marginTop:"20px",marginBottom:'20px'}}>
+            <form action="/" onSubmit={e => submitForm(e)} style={{borderRadius:"20px",marginTop:"20px",marginBottom:'20px'}}>
               <div className="colums">
                 <div className="item">
                   <label htmlFor="name">Name<span>*</span></label>
-                  <input id="name" type="text" name="name" required placeholder='Enter name of the patient'/>
+                  <input id="name" type="text" name="name" required placeholder='Enter name of the patient' value={name} onChange={e =>handleChange(e)}/>
                 </div>
                 <div className="item">
-                    <label>Gender:</label>
-                    <input type="radio" id='male' name="gender" value="male"/> Male
-                    <input type="radio" id='female' name="gender" value="female"/> Female
+                    <label htmlFor="name">Gender<span>*</span></label>
+                    <select id="gender" name='Gender' style={{width:'100%',height:'50%'}} value={Gender} onChange={e =>handleChange(e)}>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    </select>
                 </div>
                 <div className="item">
-                    <label  htmlFor="name">Date of Birth:</label>
-                    <input type="date" name="dob"/>
+                    <label>Date of Birth:</label>
+                    <input type="date" name="dob" value={dob} onChange={e =>handleChange(e)}/>
                 </div>
                 <div className="item">
                     <label>Relationship with patient:</label>
-                    <input id="Relation" type="text" name="Relation" required placeholder='Enter Relationship with patient'/>
+                    <input id="Relation" type="text" name="Relation" required placeholder='Enter Relationship with patient' value={Relation} onChange={e =>handleChange(e)}/>
                 </div>
                 <div className="item">
                     <label>Phone number:</label>
-                    <input type="tel" name="phone" placeholder="Enter mobile number"/>
+                    <input type="tel" name="Mno" placeholder="Enter mobile number" value={Mno} onChange={e =>handleChange(e)}/>
                 </div>
                 <div className="item">
                   <label htmlFor="eaddress"> Email<span>*</span></label>
-                  <input id="title" type="text" name="eaddress" required placeholder='Enter patient email' />
+                  <input id="title" type="email" name="email" required placeholder='Enter patient email' value={email} onChange={e =>handleChange(e)}/>
                 </div>
                 <div className="item">
                     <label>Aadhaar card number:</label>
-                    <input type="text" name="aadhaar" pattern="[0-9]{12}" required placeholder="Enter aadhaar number"/>
+                    <input type="number" name="aadhaar" pattern="[0-9]{12}" required placeholder="Enter aadhaar number" value={aadhaar} onChange={e =>handleChange(e)}/>
                 </div>
                 <div className="item">
                   <label htmlFor="address">Address<span>*</span></label>
-                  <input id="address" type="text" name="address" required placeholder='Enter address' />
+                  <input id="address" type="text" name="address" required placeholder='Enter address' value={address} onChange={e =>handleChange(e)}/>
                 </div>
                 <div className="item">
                     <label>Occupation:</label>
-                    <input type="text" required name="occupation" className="form-control" placeholder="Enter Patient occupation"/>
+                    <input type="text" required name="occupation" className="form-control" placeholder="Enter Patient occupation" value={occupation} onChange={e =>handleChange(e)}/>
                 </div>
                 <div className="item">
                     <label>Bank Details:</label>
-                    <input type="text" id="form3Example4cd" required className="form-control" placeholder="Enter Patient Bank Acc"/>
+                    <input type="text" id="form3Example4cd" name="bank" required className="form-control" placeholder="Enter Patient Bank Acc" value={bank} onChange={e =>handleChange(e)}/>
                 </div>
                 <div className="item">
                     <label>Amount:</label>
-                    <input type="text" id="form3Example4cd" required className="form-control" placeholder="Enter Amount needed" />
+                    <input type="text" id="form3Example4cd" name="amount" required className="form-control" placeholder="Enter Amount needed" value={amount} onChange={e =>handleChange(e)}/>
+                </div>
+                <div className="item">
+                    <label htmlFor="name">Please select the stage of funds needed.<span>*</span></label>
+                    <select id="stage" name='stage'style={{width:'100%',height:'50%'}} value={stage} onChange={e =>handleChange(e)}>
+                    <option value="week">Week</option>
+                    <option value="month">Month</option>
+                    <option value='year'>Year</option>
+                    </select>
                 </div>
                 <div className="item">
                     <label>Medical Reconds:</label>
-                    <input name="foo" type="file" className="form-control" required accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps" placeholder="Add Patient's Medical History" />
+                    <input name="Mrecord" type="file" className="form-control" required accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps" placeholder="Add Patient's Medical History" value={Mrecord} onChange={e =>handleChange(e)}/>
                 </div>
                 <div className="item">
                     <label>Background Story:</label>
-                    <input name="foo" type="file" className="form-control" required accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps" placeholder="Add the reason behind the Patient's ailment" />
+                    <input name="Bstory" type="file" className="form-control" required accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps" placeholder="Add the reason behind the Patient's ailment" value={Bstory} onChange={e =>handleChange(e)} />
                 </div>
               </div>
              
