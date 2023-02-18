@@ -1,8 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+<<<<<<< HEAD
 import { useState } from "react";
 import axios from 'axios';
 
+=======
+import {useForm} from "react-hook-form";
+import {useState} from "react-hook-form";
+>>>>>>> 5c30f83af15dc3435ca726b345378e89ea9f78ee
 export default function DLogin  (){
   const navigate = useNavigate();
   const [users, setUsers] = useState({
@@ -31,6 +36,7 @@ export default function DLogin  (){
       alert("Invalid email format");
     }
 
+<<<<<<< HEAD
     await axios.post("http://localhost/FinalYearProject/Login.php",users)
     .then((re)=>{
       console.log(re);
@@ -49,6 +55,27 @@ export default function DLogin  (){
       }
     })
   }
+=======
+  //   await axios.post("http://localhost/FinalYearProject/Login.php",users)
+  //   .then((resp)=>{
+  //     console.log(resp);
+  //     if(resp.data.status =="valid")
+  //     {
+  //       alert("Login successful");
+  //       navigate('/Custcause');
+  //     }
+  //     else if(resp.data.status =="invalid")
+  //     {
+  //       alert("There is some problem");
+  //     }
+  //     else
+  //     {
+  //       alert("There is some problem"+resp.data.status);
+  //     }
+  //   })
+  // }
+     const {login,handlesubmit,errors}=useForm();
+>>>>>>> 5c30f83af15dc3435ca726b345378e89ea9f78ee
     return(
         <>
         <div id='Login' style={{marginLeft:"225px"}} >
@@ -65,15 +92,37 @@ export default function DLogin  (){
                         <div className="d-flex flex-row align-items-center mb-4">
                           <i className="fas fa-user fa-lg me-3 fa-fw" />
                           <div className="form-outline flex-fill mb-0">
+<<<<<<< HEAD
                             <input type="text" id="name" name="email" className="form-control" placeholder="Enter email" value={email} onChange={e =>handleChange(e)} />
+=======
+
+                            <input type="text" id="name" name="email" 
+                            className="form-control"
+                             placeholder="Enter email" 
+                             ref={login({ required:"Email is required",pattern:value:^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
+                            })}
+                        />
+>>>>>>> 5c30f83af15dc3435ca726b345378e89ea9f78ee
                           </div>
                         </div>
+                        <p>{errors.email?.message}</p>
+
+
                         <div className="d-flex flex-row align-items-center mb-4">
                           <i className="fas fa-lock fa-lg me-3 fa-fw" />
                           <div className="form-outline flex-fill mb-0">
+<<<<<<< HEAD
                             <input type="password" id="form3Example4c" name="password" className="form-control" placeholder="Enter password" value={password} onChange={e =>handleChange(e)}/>
+=======
+                            <input type="password" id="form3Example4c" name="password" className="form-control" placeholder="Enter password" 
+                             ref={login({ required:"password is required",pattern:{value:^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+~`-={}[\]:;\"'<>,.?/\\])(?!.*\s).{8,20}s$
+                            }})}
+                             
+                            />
+>>>>>>> 5c30f83af15dc3435ca726b345378e89ea9f78ee
                           </div>
                           </div>
+                          <p>{errors.password?.message}</p>
                         <div className="form-check d-flex justify-content-center mb-5">
                           <label className="form-check-label" htmlFor="form2Example3">
                             Don't have an accout? <a href="/DRegister">Register</a>
