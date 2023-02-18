@@ -1,44 +1,47 @@
 import React from 'react';
 import './Dregister.css';
+import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function DRegister(){
-  // const navigate = useNavigate();
-  // const [users, setUsers] = useState({
-  //   name:"",
-  //   mobile:"",
-  //   email:"",
-  //   password:""  
-  // })
-  // const{name,mobile,email,password}=users;
-  // const handleChange = (e) =>{
-  //   setUsers({...users,[e.target.name]:e.target.value});
-  // }
-  // const submitForm = async(e) =>{
-  //   e.preventDefault();
-  //   console.log(users);
+  const navigate = useNavigate();
+  const [users, setUsers] = useState({
+    Dname:"",
+    Dnumber:"",
+    Demail:"",
+    Dpass:"",
+    Daadhar:""
+  })
+  const{Dname,Dnumber,Demail,Dpass,Daadhar}=users;
+  const handleChange = (e) =>{
+    setUsers({...users,[e.target.name]:e.target.value});
+  }
+  const submitForm = async(e) =>{
+    e.preventDefault();
+    console.log(users);
 
-  //   await axios.post("http://localhost/FinalYearProject/Register.php",users)
-  //   .then((response)=>{
-  //     console.log(response);
-  //     if(response.data.status =="valid")
-  //     {
-  //       alert("Data added successfully");
-  //       navigate('/Login');
-  //     }
-  //     else if(response.data.status =="invalid")
-  //     {
-  //       alert("There is some problem");
-  //     }
-  //     else if(response.data.status =="exist"){
-  //       alert("Account already exist");
-  //     }
-  //     else
-  //     {
-  //       alert("There is some problem"+response.data.status);
-  //     }
-  //   })
-  // }
+    await axios.post("http://localhost/FinalYearProject/DRegister.php",users)
+    .then((rs)=>{
+      console.log(rs);
+      if(rs.data.status =="valid")
+      {
+        alert("Data added successfully");
+        navigate('/Login');
+      }
+      else if(rs.data.status =="invalid")
+      {
+        alert("There is some problem");
+      }
+      else if(rs.data.status =="exist"){
+        alert("Account already exist");
+      }
+      else
+      {
+        alert("There is some problem"+response.data.status);
+      }
+    })
+  }
 
     return(
         <>
@@ -52,25 +55,25 @@ function DRegister(){
                   <div className="row justify-content-center">
                     <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                       <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
-                      <form className="mx-1 mx-md-4">
+                      <form className="mx-1 mx-md-4" onSubmit={e => submitForm(e)}>
                         <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
-                            <input type="text" required name="name" className="form-control" placeholder="Enter Name" style={{boxshadow: '0 0 5px rgba(0, 0, 0, 0.3)'}}/>
+                            <input type="text" id="Dname" required name='Dname' className="form-control" placeholder="Enter Name" value={Dname} onChange={e =>handleChange(e)}/>
                           </div>
                         </div>
                         <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
-                            <input type="tel" id="mobileNo"required name="mobile" className="form-control" placeholder="Enter Mobile Number"  />
+                            <input type="tel" id="mobileNo"required  name='Dnumber' className="form-control" placeholder="Enter Mobile Number" value={Dnumber} onChange={e =>handleChange(e)}  />
                           </div>
                         </div>
                         <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
-                            <input type="email" id="form3Example3c" required name="email" className="form-control" placeholder="Enter email" />
+                            <input type="email" id="form3Example3c" required name='Demail' className="form-control" placeholder="Enter email" value={Demail} onChange={e =>handleChange(e)}/>
                           </div>
                         </div>
                         <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
-                            <input type="password" id="form3Example4c"  required name="password" className="form-control" placeholder="Enter password"  />
+                            <input type="password" id="form3Example4c"  required name='Dpass' className="form-control" placeholder="Enter password" value={Dpass} onChange={e =>handleChange(e)} />
                           </div>
                         </div>
                        
@@ -83,17 +86,9 @@ function DRegister(){
 
                         <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
-                            <input name="foo" type="file" className="form-control" required accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps"/>
+                            <input  type="file" name='Daadhar' className="form-control" required value={Daadhar} onChange={e =>handleChange(e)}/>
                           </div>
                         </div>
-
-                        <div className="d-flex flex-row align-items-center mb-4">
-                          <div className="form-outline flex-fill mb-0">
-                            <input name="foo" type="file" className="form-control" required accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps" placeholder="fee structure"/>
-                          </div>
-                        </div>
-
-
 
                         <div className="form-check d-flex justify-content-center mb-5">
                           <label className="form-check-label" htmlFor="form2Example3">
@@ -101,7 +96,7 @@ function DRegister(){
                           </label>
                         </div>
                         <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                          <button type="submit" className="btn btn-primary btn-lg" name="submit" value="add user" >Register</button>
+                        <button type="submit" className="btn btn-primary btn-lg" name="submit" value="add user" >Register</button>
                         </div>
                       </form>
                     </div>
