@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import {useForm} from "react-hook-form";
+import {useState} from "react-hook-form";
 export default function DLogin  (){
   // const navigate = useNavigate();
   // const [users, setUsers] = useState({
@@ -47,6 +48,7 @@ export default function DLogin  (){
   //     }
   //   })
   // }
+     const {login,handlesubmit,errors}=useForm();
     return(
         <>
         <div id='Login' style={{marginLeft:"225px"}} >
@@ -63,15 +65,29 @@ export default function DLogin  (){
                         <div className="d-flex flex-row align-items-center mb-4">
                           <i className="fas fa-user fa-lg me-3 fa-fw" />
                           <div className="form-outline flex-fill mb-0">
-                            <input type="text" id="name" name="email" className="form-control" placeholder="Enter email"  />
+
+                            <input type="text" id="name" name="email" 
+                            className="form-control"
+                             placeholder="Enter email" 
+                             ref={login({ required:"Email is required",pattern:value:^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
+                            })}
+                        />
                           </div>
                         </div>
+                        <p>{errors.email?.message}</p>
+
+
                         <div className="d-flex flex-row align-items-center mb-4">
                           <i className="fas fa-lock fa-lg me-3 fa-fw" />
                           <div className="form-outline flex-fill mb-0">
-                            <input type="password" id="form3Example4c" name="password" className="form-control" placeholder="Enter password" />
+                            <input type="password" id="form3Example4c" name="password" className="form-control" placeholder="Enter password" 
+                             ref={login({ required:"password is required",pattern:{value:^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+~`-={}[\]:;\"'<>,.?/\\])(?!.*\s).{8,20}s$
+                            }})}
+                             
+                            />
                           </div>
                           </div>
+                          <p>{errors.password?.message}</p>
                         <div className="form-check d-flex justify-content-center mb-5">
                           <label className="form-check-label" htmlFor="form2Example3">
                             Already have an accout? <a href="/DRegister">Register</a>
