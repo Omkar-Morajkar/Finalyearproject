@@ -3,8 +3,10 @@ import './Dregister.css';
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import {useForm} from "react-hook-form";
 
 function DRegister(){
+  const { register, formState: {errors},handleSubmit } = useForm();
   const navigate = useNavigate();
   const [users, setUsers] = useState({
     Dname:"",
@@ -55,44 +57,34 @@ function DRegister(){
                   <div className="row justify-content-center">
                     <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                       <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
-                      <form className="mx-1 mx-md-4" onSubmit={e => submitForm(e)}>
-                        <div className="d-flex flex-row align-items-center mb-4">
+                      <form className="mx-1 mx-md-4" onSubmit={ handleSubmit( e => submitForm(e))}>
                           <div className="form-outline flex-fill mb-0">
-                            <input type="text" id="Dname" required name='Dname' className="form-control" placeholder="Enter Name" value={Dname} onChange={e =>handleChange(e)}/>
+                            <input type="text" name='Dname' className="form-control"  placeholder="Enter Name" value={Dname} {...register("Dname", { required:true})} onChange={e =>handleChange(e)}/>
+                            <p style={{color:'red',fontSize:'13px'}}>{errors.Dname?.type === "required" && "*Enter name"}</p>
                           </div>
-                        </div>
-                        <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
-                            <input type="tel" id="mobileNo"required  name='Dnumber' className="form-control" placeholder="Enter Mobile Number" value={Dnumber} onChange={e =>handleChange(e)}  />
+                            <input type="tel" id="mobileNo" name='Dnumber' className="form-control" placeholder="Enter Mobile Number" value={Dnumber} {...register("Dnumber", { required:true})} onChange={e =>handleChange(e)}  />
+                            <p style={{color:'red',fontSize:'13px'}}>{errors.Dnumber?.type === "required" && "*Please Enter mobile number"}</p>
                           </div>
-                        </div>
-                        <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
-                            <input type="email" id="form3Example3c" required name='Demail' className="form-control" placeholder="Enter email" value={Demail} onChange={e =>handleChange(e)}/>
+                            <input type="email" name='Demail' className="form-control"  placeholder="Enter email" value={Demail} {...register("Demail", { required:true})} onChange={e =>handleChange(e)}/>
+                            <p style={{color:'red',fontSize:'13px'}}>{errors.Demail?.type === "required" && "*Enter email"}</p>
                           </div>
-                        </div>
-                        <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
-                            <input type="password" id="form3Example4c"  required name='Dpass' className="form-control" placeholder="Enter password" value={Dpass} onChange={e =>handleChange(e)} />
+                            <input type="password"  name='Dpass' className="form-control"  placeholder="Enter password" value={Dpass} {...register("Dpass", { required:true})} onChange={e =>handleChange(e)} />
+                            <p style={{color:'red',fontSize:'13px'}}>{errors.Dpass?.type === "required" && "*Enter password"}</p>
                           </div>
-                        </div>
-                       
-
-                        <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
-                            <input type="text" id="form3Example4cd" required className="form-control" placeholder="Confirm password" />
+                            <input type="text" name='cpass' className="form-control"  placeholder="Confirm password" {...register("cpass", { required:true})} />
+                            <p style={{color:'red',fontSize:'13px'}}>{errors.cpass?.type === "required" && "Please confirm your password"}</p>
                           </div>
-                        </div>
-
-                        <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
-                            <input  type="file" name='Daadhar' className="form-control" required value={Daadhar} onChange={e =>handleChange(e)}/>
+                            <input  type="file" name='Daadhar' className="form-control"  value={Daadhar} {...register("Daadhar", { required:true})} onChange={e =>handleChange(e)}/>
+                            <p style={{color:'red',fontSize:'13px'}}>{errors.Daadhar?.type === "required" && "Enter Addharcard "}</p>
                           </div>
-                        </div>
-
                         <div className="form-check d-flex justify-content-center mb-5">
                           <label className="form-check-label" htmlFor="form2Example3">
-                            Already have an accout? <a href="/Login">Login</a>
+                            Already have an accout? <a href="/DLogin">Login</a>
                           </label>
                         </div>
                         <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
