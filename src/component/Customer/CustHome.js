@@ -62,7 +62,8 @@ const CustHome = ()=>{
 				</div>
 				<h3 class="col-title">our mission</h3>
 				<div class="col-details">
-				  <p>Lorem ipsum dolor sit amet consect adipisscin elit proin vel lectus ut eta esami vera dolor sit amet consect</p> 
+				  <p>To know more details about fundpeti.com,
+					click more</p> 
 				</div>
 				<a href="#" class="btn btn-primary"> Read more </a>
 			</div>
@@ -75,7 +76,7 @@ const CustHome = ()=>{
 				</div>
 				<h3 class="col-title">Make donations</h3>
 				<div class="col-details">
-				  <p>Lorem ipsum dolor sit amet consect adipisscin elit proin vel lectus ut eta esami vera dolor sit amet consect</p>
+				  <p>Alone we can do so little ;together we can do so much So lets donate together</p>
 				</div>
 				<a href="#" class="btn btn-primary"> Read more </a>
 			</div> 
@@ -89,7 +90,8 @@ const CustHome = ()=>{
 				</div>
 				<h3 class="col-title">Help & support</h3>
 				<div class="col-details">
-					<p>Lorem ipsum dolor sit amet consect adipisscin elit proin vel lectus ut eta esami vera dolor sit amet consect</p>  
+					<p>For queries related to donations,
+						Please contact us to discuss your needs</p>  
 				</div>
 				<a href="#" class="btn btn-primary"> Read more </a>
 			</div>
@@ -103,7 +105,7 @@ const CustHome = ()=>{
 				</div>
 				<h3 class="col-title">our programs</h3>
 				<div class="col-details">
-				  <p>Lorem ipsum dolor sit amet consect adipisscin elit proin vel lectus ut eta esami vera dolor sit amet consect</p>	  
+				  <p>Donations</p>	  
 				</div>
 				<a href="#" class="btn btn-primary"> Read more </a>		
 		  </div>		  
