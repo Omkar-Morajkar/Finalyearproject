@@ -19,6 +19,8 @@ import ListUser from "./component/Admin/ListUser";
 import Verification from "./component/Customer/Verification";
 import DonateInput from "./component/Customer/DonateInput";
 import Donator from "./component/Admin/Donator";
+import Verify from "./component/Admin/Verify";
+import VerifyPerson from "./component/Admin/VerifyPerson";
 
 function App() {
   return(
@@ -39,6 +41,8 @@ function App() {
             <Route path="/Verification" element={<Verification/>}/>
             <Route path="/Input" element={<DonateInput/>}/>
             <Route path="/Donator" element={<Donator/>}/>
+            <Route path="/averify" element={<Verify/>}/>
+            <Route path="/pverify" element={<VerifyPerson/>}/>
         </Routes>
     </BrowserRouter>
 );

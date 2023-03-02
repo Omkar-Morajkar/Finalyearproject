@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios"
 
-const CustCard = ({ menuData }) => {
+const CustCard = () => {
   const now = 50;
   const [dinput, setdinput] = useState([]);
     useEffect(() => {
@@ -18,8 +18,6 @@ const CustCard = ({ menuData }) => {
     }
   return (
     <>
-      
-
             <section className="main-card--cointainer">
             {dinput.map(inputs =>(
                   <div className="col-lg-12 col-xl-11" >
@@ -29,18 +27,18 @@ const CustCard = ({ menuData }) => {
                           <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                             <div className="card-body">
                                   <h3 className="card-title">{inputs.title}</h3>
-                                  <span className="card-author subtle">{inputs.name}</span>
+                                  <span className="card-author subtle">Name:{inputs.name}</span><br/>
                                   <span className="card-description subtle">
                                     {inputs.discription}
                                   </span>
-                                  <div className="card-read">Read</div>
+                                  <br/><br/>
                                   <ProgressBar now={now} label={`${now}%`} />
                                   <br/>
                                   <Link to='/billing'><button className="card-tag subtle" >Donate</button></Link>
                                 </div>
                           </div>
                           <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                            <img src={inputs.image}alt="images"className="card-media"/>
+                            <img src={`http://localhost/FinalYearProject/uploads/`+inputs.image}alt="images"className="card-media" style={{width:"500px",height:'300px',borderRadius:'20px'}}/>
                           </div>
                         </div>
                       </div>
@@ -49,6 +47,7 @@ const CustCard = ({ menuData }) => {
         ))}
         <br/>
       </section>
+      <br/>
     </>
   );
 };
