@@ -22,56 +22,19 @@ const Footer = () => {
                            Contact
                            ph no:9583843920
                            mumbai,India
+                           Flipkart Private Limited is an Indian e-commerce company, headquartered in Bengaluru, and incorporated in Singapore as a private limited company. The company initially focused on online book sales before expanding into other product categories such as consumer electronics, fashion, home essentials, groceries, and lifestyle products.
+
+The service competes primarily with Amazon's Indian subsidiary and domestic rival Snapdeal.[5][6] As of March 2017, Flipkart held a 39.5% market share of India's e-commerce industry.[7] Flipkart has a dominant position in the apparel segment, bolstered by its acquisition of Myntra, and was described as being "neck and neck" with Amazon in the sale of electronics and mobile phones.[8]
+
+In August 2018, American retail chain Walmart acquired a 77% controlling stake in Flipkart for US$16 billion, valuing Flipkart at around US$20 billion.[9] Flipkart is valued at $37.6 billion as of 2022.[10] It is planning to go public through a listing in the United States of America in 2023.[1
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="footer-col">
-                    <h4 class="footer-title">LAST TWEETS <span class="title-under"></span></h4>
-                    <div class="footer-content">
-                        <ul class="tweets list-unstyled">
-                            <li class="tweet"> 
-                                20 Surprise Eggs, Kinder Surprise Cars 2 Thomas Spongebob Disney Pixar  http://t.co/fTSazikPd4 
-                            </li>
-                            <li class="tweet"> 
-                                20 Surprise Eggs, Kinder Surprise Cars 2 Thomas Spongebob Disney Pixar  http://t.co/fTSazikPd4 
-                            </li>
-                            <li class="tweet"> 
-                                20 Surprise Eggs, Kinder Surprise Cars 2 Thomas Spongebob Disney Pixar  http://t.co/fTSazikPd4 
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            
 
-            <div class="col-md-4">
-                <div class="footer-col">
-                    <h4 class="footer-title">Contact us <span class="title-under"></span></h4>
-                    <div class="footer-content">
-                        <div class="footer-form" >
-                            <form action="php/mail.php" class="ajax-form">
-                                <div class="form-group">
-                                    <input type="text" name="name" class="form-control" placeholder="Name" required/>
-                                </div>
-
-                                 <div class="form-group">
-                                    <input type="email" name="email" class="form-control" placeholder="E-mail" required/>
-                                </div>
-
-                                <div class="form-group">
-                                    <textarea name="message" class="form-control" placeholder="Message" required></textarea>
-                                </div>
-
-                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-submit pull-right">Send message</button>
-                                </div> 
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <div class="clearfix"></div>
         </div> 
     </div>
