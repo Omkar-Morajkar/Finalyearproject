@@ -40,7 +40,7 @@ function DRegister(){
       }
       else
       {
-        alert("There is some problem"+response.data.status);
+        alert("There is some problem"+rs.data.status);
       }
     })
   }
