@@ -21,6 +21,8 @@ import DonateInput from "./component/Customer/DonateInput";
 import Donator from "./component/Admin/Donator";
 import Verify from "./component/Admin/Verify";
 import VerifyPerson from "./component/Admin/VerifyPerson";
+import ALogin from "./component/Admin/ALogin";
+
 
 function App() {
   return(
@@ -43,6 +45,7 @@ function App() {
             <Route path="/Donator" element={<Donator/>}/>
             <Route path="/averify" element={<Verify/>}/>
             <Route path="/pverify" element={<VerifyPerson/>}/>
+            <Route path="/ALogin" element={<ALogin/>}/>
         </Routes>
     </BrowserRouter>
 );
