@@ -84,7 +84,11 @@ export default function DLogin  (){
                           </div>
                           
                           
-                        
+                        <div className="form-check d-flex justify-content-center mb-5">
+                          <label className="form-check-label" htmlFor="form2Example3">
+                            Don't have an accout? <a href="/DRegister">Register</a>
+                          </label>
+                        </div>
                         <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                         <button type="submit" className="btn btn-primary btn-lg" name="submit" value="add user" >Login</button>
                         </div>
