@@ -20,7 +20,7 @@ function DRegister(){
     setUsers({...users,[e.target.name]:e.target.value});
   }
   const submitForm = async(e) =>{
-    e.preventDefault();
+  
     console.log(users);
 
     await axios.post("http://localhost/FinalYearProject/DRegister.php",users)
