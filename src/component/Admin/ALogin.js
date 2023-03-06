@@ -92,7 +92,7 @@ export default function DLogin  (){
                       </form>
                     </div>
                     <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                      <img src="https://clipground.com/images/admin-logo-1.png" className="img-fluid" alt="admin image" width="80%" />
+                      <img src="https://th.bing.com/th/id/R.00fdea8c39e39ffc866d002d0252295e?rik=0Kx%2f%2fw4fUe1LqQ&riu=http%3a%2f%2ffreevector.co%2fwp-content%2fuploads%2f2010%2f10%2f78948-admin-with-cogwheels.png&ehk=fl98rnz6xBu0ddu9dSUD9MnISxa%2fG%2fAIqxt2sCA%2fvho%3d&risl=&pid=ImgRaw&r=0" className="img-fluid" alt="admin image" height="50%" width=""/>
                     </div>
                   </div>
                 </div>
