@@ -78,7 +78,8 @@ export default function DLogin  (){
 
                         
                           <div className="form-outline flex-fill mb-0">
-                            <input type="password" name="password" placeholder="Enter password" value={password} {...register("password", {required: true})} onChange={e =>handleChange(e)} />
+                            <input type="password" name="password" placeholder="Enter password" value={password} {...register("password", {required: true,pattern:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_])[A-Za-z\d!@#$%^&*_]{8,}$/})} onChange={e =>handleChange(e)} />
+                            <p style={{color:'red'}}>{errors.password?.type === "pattern" && "password format is incorrect"}</p>
                             <p style={{color:'red'}}>{errors.password?.type === "required" && "Enter password"}</p>
                             
                           </div>
@@ -91,7 +92,7 @@ export default function DLogin  (){
                       </form>
                     </div>
                     <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                      <img src="image.png" className="img-fluid" alt="admin image" />
+                      <img src="https://clipground.com/images/admin-logo-1.png" className="img-fluid" alt="admin image" width="80%" />
                     </div>
                   </div>
                 </div>
