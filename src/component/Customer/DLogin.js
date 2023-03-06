@@ -78,7 +78,8 @@ export default function DLogin  (){
 
                         
                           <div className="form-outline flex-fill mb-0">
-                            <input type="password" name="password" placeholder="Enter password" value={password} {...register("password", {required: true})} onChange={e =>handleChange(e)} />
+                            <input type="password" name="password" placeholder="Enter password" value={password} {...register("password", { required:true,pattern:/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8, 20}$/})} onChange={e =>handleChange(e)} />
+                            <p style={{color:'red'}}>{errors.password?.type === "pattern" && "password format is incorrect"}</p>
                             <p style={{color:'red'}}>{errors.password?.type === "required" && "Enter password"}</p>
                             
                           </div>
