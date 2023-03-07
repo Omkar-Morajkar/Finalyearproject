@@ -1,71 +1,61 @@
 import React from 'react';
+import './Contact.css';
 
 const Contact = () =>{
     return(
         <>
-            <div class="page-heading text-center">
-
-<div class="container zoomIn animated">
-    
-    <h1 class="page-title">CONTACT US <span class="title-under"></span></h1>
-    <p class="page-description">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit Necessitatibus.
-    </p>
-    
-</div>
-
-</div>
-
-<div class="main-container fadeIn animated">
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-7 col-sm-12 col-form">
-            <h2 class="title-style-2">CONTACT FORM <span class="title-under"></span></h2>
-            <form action="php/mail.php" class="contact-form ajax-form">
-                <div class="row">
-                    <div class="form-group col-md-6">
-                        <input type="text" name="name" class="form-control" placeholder="Name*" required/>
-                    </div>
-                     <div class="form-group col-md-6">
-                        <input type="email" name="email" class="form-control" placeholder="E-mail*" required/>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <textarea name="message" rows="5" class="form-control" placeholder="Message*" required></textarea>
-                </div>
-
-                <div class="form-group alerts">
-                    <div class="alert alert-success" role="alert"> 
-                    </div>
-                        <div class="alert alert-danger" role="alert">
-                    </div>  
-                </div>	
-
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary pull-right">Send message</button>
-                </div>
-                <div class="clearfix"></div>
-            </form>
+         <div id='Login'>
+            <div className="card">
+  <div className="containerr">
+    <div className="contentt">
+      <div className="left-side">
+        <div className="address details">
+          <i className="fas fa-map-marker-alt" />
+          <div className="topic">Address</div>
+          <div className="text-one">Mapusa, Boshan building</div>
+          <div className="text-two">floor-3,Mapusa-Goa</div>
         </div>
-
-        <div class="col-md-4 col-md-offset-1 col-contact">
-            <h2 class="title-style-2"> SADAKA CONTACTS <span class="title-under"></span></h2>
-            <p>
-                <b>Sadaka</b> ipsum dolor sit amet, consectetur adipiscing elit. Ut at eros rutrum turpis viverra elementum semper quis ex. Donec lorem nulla .
-            </p>
-            <div class="contact-items">
-                <ul class="list-unstyled contact-items-list">
-                    <li class="contact-item"> <span class="contact-icon"> <i class="fa fa-map-marker"></i></span> 135 Hay el nahda, Rabat, Morocco</li>
-                    <li class="contact-item"> <span class="contact-icon"> <i class="fa fa-phone"></i></span> 00 210 25 55  55 11</li>
-
-                    <li class="contact-item"> <span class="contact-icon"> <i class="fa fa-envelope"></i></span> contact@sadaka.org</li>
-                </ul>
-            </div>   
+        <div className="phone details">
+          <i className="fas fa-phone-alt" />
+          <div className="topic">Phone</div>
+          <div className="text-one">+0832-2472981</div>
+          <div className="text-two">+0832-2472421</div>
         </div>
-    </div> 
-</div>
+        <div className="email details">
+          <i className="fas fa-envelope" />
+          <div className="topic">Email </div>
+          <div className="text-one">Fund_peti29@gmail.com</div>
+          <div className="text-two">ContactFund_Peti96@gmail.com</div>
+        </div>
+      </div>
+      <div className="right-side">
+        <div className="topic-text">Send us a message</div>
+        <p>
+          If you have any sort of queries related to account,terms and conditions or any sort of queries do contact us without hesitation on the provided email,or you can drop a message below
+        </p>
+        <form action="#">
+          <div className="inputbox">
+            <input type="text" placeholder="Enter your name" />
+          </div>
+          <div className="inputbox">
+            
+            <input type="text" placeholder="Enter your email" />
+          </div>
+
+         <textarea id="msgtext" class="textmsg"rows={4}  cols={50} placeholder="enter your message here"/>
+
+
+
+          <div className="inputbox message-box"></div>
+          <div className="button">
+            <input type="button" defaultValue="Send Now" />
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
 </div>
         </>
     );
