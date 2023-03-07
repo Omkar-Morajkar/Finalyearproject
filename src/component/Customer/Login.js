@@ -67,12 +67,15 @@ const Login = () => {
                                   <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign In</p>
                                   <form className="mx-1 mx-md-4" onSubmit={handleSubmit( e => submitForm(e))}>
                                     <div className="form-outline flex-fill mb-0">
-                                      <input type="text" id="name" name="email" className="form-control" placeholder="Enter email" value={email} {...register("email", { required:true})} onChange={e =>handleChange(e)} />
+                                      <input type="text" id="name" name="email" className="form-control" placeholder="Enter email" value={email} {...register("email", { required:true,pattern:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/})} onChange={e =>handleChange(e)} />
                                       <p style={{color:'red',fontSize:'13px'}}>{errors.email?.type === "required" && "*Enter email"}</p>
+                                      <p style={{color:'red'}}>{errors.email?.type === "pattern" && "Email format is incorrect"}</p>
+
                                     </div>
                                     <div className="form-outline flex-fill mb-0">
-                                      <input type="password" id="form3Example4c" name="password" className="form-control" placeholder="Enter password" value={password} {...register("password", { required:true})} onChange={e =>handleChange(e)}/>
+                                      <input type="password" id="form3Example4c" name="password" className="form-control" placeholder="Enter password" value={password} {...register("password", { required:true,pattern:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_])[A-Za-z\d!@#$%^&*_]{8,}$/})} onChange={e =>handleChange(e)}/>
                                       <p style={{color:'red',fontSize:'13px'}}>{errors.password?.type === "required" && "*Enter password"}</p>
+                                      <p style={{color:'red'}}>{errors.password?.type === "pattern" && "password format is incorrect"}</p>
                                     </div>
                                     <div className="form-check d-flex justify-content-center mb-5">
                                       <label className="form-check-label" htmlFor="form2Example3">

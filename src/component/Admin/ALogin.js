@@ -69,7 +69,7 @@ export default function DLogin  (){
                       <form className="mx-1 mx-md-4" onSubmit={ handleSubmit( e => submitForm(e))}>
                         
                           <div className="form-outline flex-fill mb-0">
-                            <input type="email" name="email"  placeholder="Enter email"  value={email} {...register("email", { required:true,pattern:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/i})}onChange={e =>handleChange(e)}  />
+                            <input type="email" name="email"  placeholder="Enter email"  value={email} {...register("email", { required:true,pattern:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/})}onChange={e =>handleChange(e)}  />
                             <p style={{color:'red'}}>{errors.email?.type === "pattern" && "Email format is incorrect"}</p>
                             <p style={{color:'red'}}>{errors.email?.type === "required" && "Enter email"}</p>
                             
