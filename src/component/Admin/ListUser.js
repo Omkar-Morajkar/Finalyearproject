@@ -24,7 +24,6 @@ function ListUser() {
                         <th scope="col">Name</th>
                         <th scope="col">Mobile</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Password</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,11 +33,6 @@ function ListUser() {
                             <td>{user.name}</td>
                             <td>{user.mobile}</td>
                             <td>{user.email}</td>
-                            <td>{user.password}</td>
-                            <td>
-                                <Link to={`user/${user.id}/edit`} style={{marginRight: "10px"}} className="btn btn-info">Edit</Link>
-                                {/* <button className="btn btn-danger">Delete</button> */}
-                            </td>
                         </tr>
                     )}
                 </tbody>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
@@ -8,20 +8,24 @@ import { useParams } from 'react-router-dom';
 function VerifyPerson(){
     
     const [dinput, setdinput] = useState([]);
+
     const {id} = useParams();
+
     useEffect(() => {
-        getUsers();
-    }, []); 
+        getUsers(id);
+    }, [id]); 
 
     
-    function getUsers() {
-        axios.get(`http://localhost/FinalYearProject/verify.php/user/${id}/edit`).then(function(rese) {
+    function getUsers(userId) {
+        axios.get(`http://localhost/FinalYearProject/VerifyPerson.php/${userId}`).then(function(rese) {
             console.log(rese.data);
             setdinput(rese.data);
         });
     }
     return(
+      
         <>
+        
            <section className="main-card--cointainer">
             {dinput.map(inputs =>(
                   <div className="col-lg-12 col-xl-11" >
@@ -31,21 +35,20 @@ function VerifyPerson(){
                           <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                             <div className="card-body">
                                   <span className="card-description subtle">
-                                    {inputs.name}
-                                    {inputs.gender}
-                                    {inputs.dob}
-                                    {inputs.relation}
-                                    {inputs.mno}
-                                    {inputs.email}
-                                    {inputs.aadhaar}
-                                    {inputs.address}
-                                    {inputs.occupation}
-                                    {inputs.bank}
-                                    {inputs.amount}
-                                    {inputs.stage}
-                                    {inputs.mrecord}
-                                    {inputs.bstory}
-
+                                  Name: {inputs.name}<br/>
+                                  Gender: {inputs.gender}<br/>
+                                  Date of Birth: {inputs.dob}<br/><br/>
+                                  Relation{inputs.relation}<br/>
+                                  Mobile number: {inputs.mno}<br/>
+                                  Email: {inputs.email}<br/>
+                                  Aadhaar: {inputs.aadhaar}<br/>
+                                  Address: {inputs.address}<br/>
+                                  Occupation: {inputs.occupation}<br/>
+                                  Bank: {inputs.bank}<br/>
+                                  Amount: {inputs.amount}<br/>
+                                  Stage: {inputs.stage}<br/>
+                                  Medical Records: {inputs.mrecord}<br/>
+                                  Background Story: {inputs.bstory}<br/>
                                   </span>
                                 </div>
                           </div>

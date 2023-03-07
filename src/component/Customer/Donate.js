@@ -3,13 +3,11 @@ import CustCard from './CustCard';
 import Menu from './CustApi';
 
 const Donate = () =>{
-    const[menuData, setMenuData] = useState(Menu);
     return(
         <>
             <div id='Login'>
-                <CustCard menuData={menuData}/>
+                <CustCard />
             </div>
-            
         </>
     );
 }

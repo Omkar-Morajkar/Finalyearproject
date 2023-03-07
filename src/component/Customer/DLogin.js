@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import axios from 'axios';
 import {useForm} from "react-hook-form";
+import Sidebar from '../Sidebar';
 
 
 export default function DLogin  (){
@@ -20,20 +21,6 @@ export default function DLogin  (){
     e.preventDefault();
     console.log(users);
 
-    // if(email.length == "")
-    // {
-    //   alert("Enter email");
-    // }
-    // if(password.length == "")
-    // {
-    //   alert("Enter password");
-    // }
-    // var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    // if(!regex.test(email))
-    // {
-    //   alert("Invalid email format");
-    // }
-
     await axios.post("http://localhost/FinalYearProject/Login.php",users)
     .then((re)=>{
       console.log(re);
@@ -46,10 +33,6 @@ export default function DLogin  (){
       {
         alert("There is some problem");
       }
-      // else
-      // {
-      //   alert("There is some problem"+re.data.status);
-      // }
     })
     console.log(errors)
   }
