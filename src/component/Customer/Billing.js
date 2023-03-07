@@ -58,8 +58,10 @@ const Billing = () =>{
                 <div className="col-50">
                     <h3>Billing Address</h3>
                     <label htmlFor="fname">Full Name</label>
-                    <input type="text" id="fname" name="name" placeholder="John M. Doe"  value={name} {...register("name", {required: true})} onChange={e =>handleChange(e)} />
+                    <input type="text" id="fname" name="name" placeholder="John M. Doe"  value={name} {...register("name", {required: true,pattern:/^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/})} onChange={e =>handleChange(e)} />
                     <p style={{color:'red',fontSize:'13px'}}>{errors.name?.type === "required" && "*Enter name"}</p>
+                    <p style={{color:'red'}}>{errors.name?.type === "pattern" && "invalid name format"}</p>
+
 
                     <label htmlFor="amount">Enter Amount</label>
                     <input type="number" id="amount" name="amount" placeholder="Amount"  value={amount} {...register("amount", {required: true})} onChange={e =>handleChange(e)}/>
@@ -70,8 +72,10 @@ const Billing = () =>{
                     <p style={{color:'red',fontSize:'13px'}}>{errors.address?.type === "required" && "*Enter Address"}</p>
                     
                     <label htmlFor="city"> City</label>
-                    <input type="text" id="city" name="city" placeholder="New York"  value={city} {...register("city", {required: true})} onChange={e =>handleChange(e)}/>
+                    <input type="text" id="city" name="city" placeholder="New York"  value={city} {...register("city", {required: true,pattern:/^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/})} onChange={e =>handleChange(e)}/>
                     <p style={{color:'red',fontSize:'13px'}}>{errors.city?.type === "required" && "*Enter city"}</p>
+                    <p style={{color:'red'}}>{errors.city?.type === "pattern" && " you have entered incorrect city name"}</p>
+                    
                     
                     <div className="row">
                         <div className="col-50">
@@ -87,27 +91,34 @@ const Billing = () =>{
                     <img src={cardLogo} alt="card"/><br/><br/><br/>
 
                     <label htmlFor="cname">Name on Card</label>
-                    <input type="text" id="cname" name="cname" placeholder="John More Doe"  value={cname} {...register("cname", {required: true})} onChange={e =>handleChange(e)}/>
+                    <input type="text" id="cname" name="cname" placeholder="John More Doe"  value={cname} {...register("cname", {required: true,pattern:/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/})} onChange={e =>handleChange(e)}/>
                     <p style={{color:'red',fontSize:'13px'}}>{errors.cname?.type === "required" && "*Enter name on the card"}</p>
+                    <p style={{color:'red'}}>{errors.cname?.type === "pattern" && " you have entered incorrect card name"}</p>
                     
                     <label htmlFor="ccnum">card number</label>
-                    <input type="number" id="ccnum" name="cnumber" placeholder="1111-2222-3333-4444"  value={cnumber} {...register("cnumber", {required: true})} onChange={e =>handleChange(e)}/>
+                    <input type="number" id="ccnum" name="cnumber" placeholder="1111-2222-3333-4444"  value={cnumber} {...register("cnumber", {required: true,pattern:/^(?:4[0-9]{12}(?:[0-9]{3})?|(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|6(?:011|5[0-9]{2})[0-9]{12}|(?:2131|1800|35\d{3})\d{11})$/ })} onChange={e =>handleChange(e)}/>
                     <p style={{color:'red',fontSize:'13px'}}>{errors.cnumber?.type === "required" && "*Enter card number"}</p>
-                    
+                    <p style={{color:'red'}}>{errors.cnumber?.type === "pattern" && " you have entered incorrect card number"}</p>
+
                     <label htmlFor="expmonth">Exp Month</label>
-                    <input type="number" id="expmonth" name="emonth" placeholder="September"  value={emonth} {...register("emonth", {required: true})} onChange={e =>handleChange(e)}/>
+                    <input type="number" id="expmonth" name="emonth" placeholder="Month number"  value={emonth} {...register("emonth", {required: true,pattern:/^(0?[1-9]|1[0-2])$/})} onChange={e =>handleChange(e)}/>
                     <p style={{color:'red',fontSize:'13px'}}>{errors.emonth?.type === "required" && "*Enter month"}</p>
-                    
+                    <p style={{color:'red'}}>{errors.emonth?.type === "pattern" && " you have entered invalid details"}</p>
+
+
                     <div className="row">
                     <div className="col-50">
                         <label htmlFor="expyear">Exp Year</label>
-                        <input type="number" id="expyear" name="eyear" placeholder={2018}  value={eyear} {...register("eyear", {required: true})} onChange={e =>handleChange(e)}/>
+                        <input type="number" id="expyear" name="eyear" placeholder={2018}  value={eyear} {...register("eyear", {required: true,pattern:/^(0[1-9]|1[0-2])\/\d{2}$/})} onChange={e =>handleChange(e)}/>
                         <p style={{color:'red',fontSize:'13px'}}>{errors.eyear?.type === "required" && "*Enter year"}</p>
+                        <p style={{color:'red'}}>{errors.eyear?.type === "pattern" && " you have entered invalid year"}</p>
                     </div>
                     <div className="col-50">
                         <label htmlFor="cvv">CVV</label>
-                        <input type="number" id="cvv" name="cvv" placeholder={352}  value={cvv} {...register("cvv", {required: true})} onChange={e =>handleChange(e)}/>
+                        <input type="number" id="cvv" name="cvv" placeholder={352}  value={cvv} {...register("cvv", {required: true,pattern:/^\d{3,4}$/})} onChange={e =>handleChange(e)}/>
                         <p style={{color:'red',fontSize:'13px'}}>{errors.cvv?.type === "required" && "*Enter cvv"}</p>
+                        <p style={{color:'red'}}>{errors.cvv?.type === "pattern" && " you have entered invalid cvv number"}</p>
+
                     </div>
                     </div>
                 </div>
