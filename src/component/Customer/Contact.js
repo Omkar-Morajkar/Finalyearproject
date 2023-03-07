@@ -1,6 +1,6 @@
 import React from 'react';
 import './Contact.css';
-
+import imagelogo from '../Images/project.png';
 const Contact = () =>{
     return(
         <>
@@ -9,6 +9,13 @@ const Contact = () =>{
   <div className="containerr">
     <div className="contentt">
       <div className="left-side">
+
+      <img
+          className="d-block w-100"
+          src={imagelogo}
+          height={300}
+          width={300}
+          />
         <div className="address details">
           <i className="fas fa-map-marker-alt" />
           <div className="topic">Address</div>
