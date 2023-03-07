@@ -64,8 +64,10 @@ const Billing = () =>{
 
 
                     <label htmlFor="amount">Enter Amount</label>
-                    <input type="number" id="amount" name="amount" placeholder="Amount"  value={amount} {...register("amount", {required: true})} onChange={e =>handleChange(e)}/>
+                    <input type="number" id="amount" name="amount" placeholder="Amount"  value={amount} {...register("amount", {required: true,pattern:/^\d+(\.\d{1,2})?$/})} onChange={e =>handleChange(e)}/>
                     <p style={{color:'red',fontSize:'13px'}}>{errors.amount?.type === "required" && "*Enter Amount"}</p>
+                    <p style={{color:'red'}}>{errors.amount?.type === "pattern" && " you have entered invalid amount"}</p>
+
 
                     <label htmlFor="adr"> Address</label>
                     <input type="text" id="adr" name="address" placeholder="542 W. 15th Street"  value={address} {...register("address", {required: true})} onChange={e =>handleChange(e)}/>
@@ -80,8 +82,10 @@ const Billing = () =>{
                     <div className="row">
                         <div className="col-50">
                             <label htmlFor="state">State</label>
-                            <input type="text" id="state" name="state" placeholder="state"  value={state} {...register("state", {required: true})} onChange={e =>handleChange(e)}/>
+                            <input type="text" id="state" name="state" placeholder="state"  value={state} {...register("state", {required: true,pattern:/^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/})} onChange={e =>handleChange(e)}/>
                             <p style={{color:'red',fontSize:'13px'}}>{errors.state?.type === "required" && "*Enter state"}</p>
+                             <p style={{color:'red'}}>{errors.city?.type === "pattern" && "State with this name doesn't exist"}</p>
+                    
                         </div>
                     </div>
                 </div>
