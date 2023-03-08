@@ -94,7 +94,35 @@ input[type=text] {
     border-radius: 10px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   }
-/* .subbtn{
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-} */
+.vPerson{
+  width: 100%;
+  height:40px;
+  border-radius: 5px;
+  background: white;
+  margin: 10px;
+  padding: 5px;
+  font-size: 13pt;
+  font-family: "Times New Roman", Times, serif;
+  box-shadow: 5px 5px 5px rgba(48, 113, 244, 0.3);
+}
+.vPer{
+  width: 100%;
+  height:40px;
+  margin: 10px;
+  padding: 5px;
+  font-size: 13pt;
+  font-family: "Times New Roman", Times, serif;
+  
+}
+.divTable{
+  width: 100%;
+  height: 100%;
+  margin-top: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background: #c9c9c9;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
   

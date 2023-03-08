@@ -44,7 +44,7 @@ function App() {
             <Route path="/Input" element={<DonateInput/>}/>
             <Route path="/Donator" element={<Donator/>}/>
             <Route path="/averify" element={<Verify/>}/>
-            <Route path="/pverify" element={<VerifyPerson/>}/>
+            <Route path="/pverify/:id" element={<VerifyPerson/>}/>
             <Route path="/ALogin" element={<ALogin/>}/>
         </Routes>
     </BrowserRouter>
