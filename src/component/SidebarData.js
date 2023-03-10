@@ -8,7 +8,7 @@ export const SidebarData = [
   {
     title: "Home",
     path: "/",
-    icon: <AiIcons.AiFillHome />,
+    icon: <AiIcons.AiFillHome />, 
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
  
@@ -33,10 +33,5 @@ export const SidebarData = [
     title: "Contact",
     path: "/Contact",
     icon: <FaIcons.FaPhone />,
-  },
-  {
-    title: "Support",
-    path: "/support",
-    icon: <IoIcons.IoMdHelpCircle />,
   },
 ];

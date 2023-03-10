@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import axios from 'axios';
 import {useForm} from "react-hook-form";
 import Sidebar from '../Sidebar';
@@ -13,24 +13,39 @@ export default function DLogin  (){
     email:"",
     password:""  
   })
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    const loginStatus = localStorage.getItem('Dlogin');
+    if (loginStatus === 'true') {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
   const{email,password}=users;
   const handleChange = (e) =>{
     setUsers({...users,[e.target.name]:e.target.value});
   }
+
   const submitForm = async(e) =>{
-    e.preventDefault();
+    // e.preventDefault();
     console.log(users);
 
-    await axios.post("http://localhost/FinalYearProject/Login.php",users)
+    await axios.post("http://localhost/finalYearProject/Dlogin.php",users)
     .then((re)=>{
       console.log(re);
       if(re.data.status =="valid")
       {
         alert("Login successful");
+        setIsLoggedIn(true);
+        localStorage.setItem('Dlogin', 'true');
         navigate('/verification');
       }
       else if(re.data.status =="invalid")
       {
+        alert("Login fail");
+      }
+      else{
         alert("There is some problem");
       }
     })
@@ -39,6 +54,10 @@ export default function DLogin  (){
   
     return(
         <>
+        {isLoggedIn ? (
+            navigate('/verification')
+        ) : (
+
         <div id='Login' style={{marginLeft:"225px"}} >
           <section className="vh-100" >
         <div className="container h-100" >
@@ -52,14 +71,12 @@ export default function DLogin  (){
                       <form className="mx-1 mx-md-4" onSubmit={ handleSubmit( e => submitForm(e))}>
                         
                         <div className="form-outline flex-fill mb-0">
-                          <input type="email" name="email"  placeholder="Enter email"  value={email} {...register("email", { required:true,pattern:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/i})}onChange={e =>handleChange(e)}  />
-                          <p style={{color:'red'}}>{errors.email?.type === "pattern" && "Email format is incorrect"}</p>
+                          <input type="email" name="email"  placeholder="Enter email"  value={email} {...register("email", { required:true})}onChange={e =>handleChange(e)}  />
                           <p style={{color:'red'}}>{errors.email?.type === "required" && "Enter email"}</p> 
                         </div>
                     
                         <div className="form-outline flex-fill mb-0">
-                          <input type="password" name="password" placeholder="Enter password" value={password} {...register("password", { required:true,pattern:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_])[A-Za-z\d!@#$%^&*_]{8,}$/})} onChange={e =>handleChange(e)} />
-                          <p style={{color:'red'}}>{errors.password?.type === "pattern" && "password format is incorrect"}</p>
+                          <input type="password" name="password" placeholder="Enter password" value={password} {...register("password", { required:true})} onChange={e =>handleChange(e)} />
                           <p style={{color:'red'}}>{errors.password?.type === "required" && "Enter password"}</p>
                         </div>
                         
@@ -85,7 +102,7 @@ export default function DLogin  (){
         </div>
       </section>
       </div>
-        
+        )}
         </>
     );
 }

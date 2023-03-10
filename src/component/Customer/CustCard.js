@@ -18,11 +18,11 @@ const CustCard = () => {
     }
   return (
     <>
-            <section className="main-card--cointainer">
-            {dinput.map(inputs =>(
-                  <div className="col-lg-12 col-xl-11" >
+            <section className="main-card--cointainer" style={{margin:'0px'}}>
+            {dinput.map((inputs,key) =>(
+                  <div key={key} className="col-lg-12 col-xl-11" >
                     <br/><br/>
-                    <div className="card text-black" style={{borderRadius: '25px', boxshadow: '2px 2px 5px rgba(0, 0, 0, 0.3)' }}>
+                    <div className="card text-black" style={{background:'#e9ecef',boxShadow:' 0px 10px 10px rgba(0, 0, 0, 0.5)',borderRadius: '25px' }}>
                       <div className="card-body p-md-5">
                         <div className="row justify-content-center">
                           <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
@@ -33,13 +33,18 @@ const CustCard = () => {
                                     {inputs.discription}
                                   </span>
                                   <br/><br/>
-                                  <ProgressBar now={now} label={`${now}%`} />
+                                    <ProgressBar now={now} label={`${now}%`} />
                                   <br/>
-                                  <Link to='/billing'><button className="card-tag subtle" >Donate</button></Link>
+                                  <Link to={{
+                                    pathname: `/billing/${inputs.id}`,
+                                    state: {
+                                        userId: inputs.id
+                                    }
+                                }} style={{marginRight: "10px" ,width:'130px',boxShadow:' 0px 5px 5px rgba( 0, 0, 0, 0.5)'}} className="btn btn-info">Donate</Link>
                                 </div>
                           </div>
                           <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                            <img src={`http://localhost/FinalYearProject/uploads/`+inputs.image}alt="images"className="card-media" style={{width:"500px",height:'300px',border:'2px solid black',borderRadius:'20px'}}/>
+                            <img src={`http://localhost/FinalYearProject/uploads/`+inputs.image}alt="images"className="card-media" style={{width:"500px",height:'300px',boxShadow:' 0px 10px 10px rgba( 0, 0, 0, 0.5)',borderRadius:'20px'}}/>
                           </div>
                         </div>
                       </div>

@@ -35,10 +35,6 @@ function Donator() {
                             <td>{user.city}</td>
                             <td>{user.state}</td>
                             <td>{user.amount}</td>
-                            <td>
-                                <Link to={`user/${user.id}/edit`} style={{marginRight: "10px"}} className="btn btn-info">Edit</Link>
-                                {/* <button className="btn btn-danger">Delete</button> */}
-                            </td>
                         </tr>
                     )}
                 </tbody>

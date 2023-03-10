@@ -27,7 +27,7 @@ const Billing = () =>{
     setUsers({...users,[e.target.name]:e.target.value});
   }
   const submitForm = async(e) =>{
-    e.preventDefault();
+    // e.preventDefault();
     console.log(users);
 
     await axios.post("http://localhost/FinalYearProject/billing.php",users)
@@ -131,7 +131,7 @@ const Billing = () =>{
             </form>
             </div>
         </div>
-        <Footer/>
+      
         </div>
         
 

@@ -136,12 +136,14 @@ function Verification() {
                     <option value="Female">Female</option>
                     </select>
                     <p style={{color:'red',fontSize:'13px'}}>{errors.Gender?.type === "required" && "*Select Gender"}</p>
+
                 </div>
 
                 <div className="item">
                     <label>Date of Birth:</label>
                     <input type="date" name="dob" {...register("dob", {required: true})} onChange={e =>handleChange(e)}/>
                     <p style={{color:'red',fontSize:'13px'}}>{errors.dob?.type === "required" && "*Enter date of birth"}</p>
+                    
                 </div>
 
                 <div className="item">

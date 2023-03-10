@@ -6,6 +6,7 @@ import * as AiIcons from "react-icons/ai";
 import { SidebarData } from "./SidebarData";
 import SubMenu from "./SubMenu";
 import { IconContext } from "react-icons/lib";
+import { useNavigate } from 'react-router-dom';
  
 const Nav = styled.div`
 background-color: #007bff;
@@ -39,7 +40,7 @@ const SidebarNav = styled.nav`
   position: fixed;
   top: 0;
   left: ${({ sidebar }) => (sidebar ? "0" : "-100%")};
-  transition: 700ms;
+  transition: 400ms;
   z-index: 10;
   
 `
@@ -52,14 +53,16 @@ const SidebarWrap = styled.div`
  
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(false);
+
+  const navigate = useNavigate();
  
   const showSidebar = () => setSidebar(!sidebar);
   if(sidebar && document.getElementById("Login") && document.getElementById("mydiv"))
   {
     document.getElementById("Login").style.marginLeft = "225px";
-    document.getElementById("Login").style.transition = '500ms';
+    document.getElementById("Login").style.transition = '400ms';
     document.getElementById("mydiv").style.marginLeft = "225px";
-    document.getElementById("mydiv").style.transition = '700ms';
+    document.getElementById("mydiv").style.transition = '400ms';
   }
   else if(!sidebar && document.getElementById("Login") && document.getElementById("mydiv"))
   {
@@ -67,6 +70,15 @@ const Sidebar = () => {
     document.getElementById("mydiv").style.marginLeft = "0px";
   }
 
+  const logout = () => {
+    // Reset the user authentication state
+   
+    localStorage.removeItem('login'); // remove the token from localStorage or sessionStorage
+    localStorage.removeItem('Dlogin');
+    alert("Logout successful")
+    navigate('/Login');
+    
+  };
   return (
     <>
     
@@ -83,6 +95,9 @@ const Sidebar = () => {
           >
             Fundpeti
           </h2>
+          <div>
+            <button type="submit" onClick={logout} className="btn btn-primary btn-lg" name="submit" style={{position:'absolute',right:'50px',width:'100px'}}>LogOut</button>
+          </div>
         </Nav>
         </div>
         <SidebarNav sidebar={sidebar}>

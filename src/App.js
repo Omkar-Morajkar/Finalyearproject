@@ -11,7 +11,6 @@ import Home from "./component/Customer/Home";
 import Contact from "./component/Customer/Contact";
 import DLogin from "./component/Customer/DLogin";
 import DRegister from "./component/Customer/DRegister";
-import Custcause from "./component/Customer/Custcause";
 import Sidebar from "./component/Sidebar";
 import Donate from "./component/Customer/Donate";
 import Billing from "./component/Customer/Billing";
@@ -36,9 +35,8 @@ function App() {
             <Route path="/Contact" element={<Contact/>}/>
             <Route path="/DLogin" element={<DLogin/>}/>
             <Route path="DRegister" element={<DRegister/>}/>
-            <Route path="/Custcause" element={<Custcause/>}/>
             <Route path="/Donate" element={<Donate/>}/>
-            <Route path="/Billing" element={<Billing/>}/>
+            <Route path="/Billing/:id" element={<Billing/>}/>
             <Route path="/ListUsers" element={<ListUser/>}/>
             <Route path="/Verification" element={<Verification/>}/>
             <Route path="/Input" element={<DonateInput/>}/>
