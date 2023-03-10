@@ -83,7 +83,7 @@ const Sidebar = () => {
     <>
     
       <IconContext.Provider value={{ color: "black" }}>
-        <div id="mydiv">
+        <div id="mydiv" className="mydiv">
         <Nav>
           <NavIcon to="#">
             <FaIcons.ImMenu onClick={showSidebar}/>
@@ -95,9 +95,9 @@ const Sidebar = () => {
           >
             Fundpeti
           </h2>
-          <div>
-            <button type="submit" onClick={logout} className="btn btn-primary btn-lg" name="submit" style={{position:'absolute',right:'50px',width:'100px'}}>LogOut</button>
-          </div>
+          
+            <button type="submit" onClick={logout} className="btn btn-primary btn-lg" name="submit"  style={{ background:'white',color:'blue', position: "absolute", right: '50px', width: '100px',height:'40px',fontSize:'12pt' }}>Logout</button>
+          
         </Nav>
         </div>
         <SidebarNav sidebar={sidebar}>
