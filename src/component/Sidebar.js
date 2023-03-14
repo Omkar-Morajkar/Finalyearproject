@@ -16,8 +16,10 @@ background-color: #007bff;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  
-  
+  box-shadow: inset 0px 10px 10px 0px rgba(0, 0, 0, 0.5);
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+
 `;
  
 const NavIcon = styled(Link)`
@@ -28,12 +30,11 @@ const NavIcon = styled(Link)`
   justify-content: flex-start;
   align-items: center;
 `;
- 
+//  #87CEFA
 const SidebarNav = styled.nav`
-  background: #87CEFA;
-  border: 3px solid white;
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5)
-  width:200px;
+  background:#ddf2ff ;
+  box-shadow: inset 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  width:225px;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -75,6 +76,7 @@ const Sidebar = () => {
    
     localStorage.removeItem('login'); // remove the token from localStorage or sessionStorage
     localStorage.removeItem('Dlogin');
+    localStorage.removeItem('userId');
     alert("Logout successful")
     navigate('/Login');
     

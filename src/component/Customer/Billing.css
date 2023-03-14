@@ -123,7 +123,7 @@ input[type=text] {
   background: #c9c9c9;
   padding: 40px;
   border-radius: 20px;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 5px 5px 5px rgba(21, 177, 255, 0.3);
 }
 .buttonn{
   width: 130px;
@@ -134,4 +134,27 @@ input[type=text] {
   transform: translateY(-50%);
   font-family: "Times New Roman", Times, serif;
   text-align: center;
+  box-shadow: inset ;
+ 
+}
+.login {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.login.loaded {
+  opacity: 1;
+}.card {
+  animation: popup 0.3s ease;
+}
+
+@keyframes popup {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

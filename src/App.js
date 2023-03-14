@@ -24,6 +24,7 @@ import ALogin from "./component/Admin/ALogin";
 
 
 function App() {
+    const id = localStorage.getItem('userId');
   return(
     <BrowserRouter>
         <Sidebar/>
@@ -35,11 +36,11 @@ function App() {
             <Route path="/Contact" element={<Contact/>}/>
             <Route path="/DLogin" element={<DLogin/>}/>
             <Route path="DRegister" element={<DRegister/>}/>
-            <Route path="/Donate" element={<Donate/>}/>
+            <Route path="/Donate/" element={<Donate/>}/>
             <Route path="/Billing/:id" element={<Billing/>}/>
             <Route path="/ListUsers" element={<ListUser/>}/>
-            <Route path="/Verification" element={<Verification/>}/>
-            <Route path="/Input" element={<DonateInput/>}/>
+            <Route path="/Verification/:id" element={<Verification/>}/>
+            <Route path="/Input/:id" element={<DonateInput/>}/>
             <Route path="/Donator" element={<Donator/>}/>
             <Route path="/averify" element={<Verify/>}/>
             <Route path="/pverify/:id" element={<VerifyPerson/>}/>

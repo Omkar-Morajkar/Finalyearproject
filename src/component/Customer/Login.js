@@ -13,12 +13,15 @@ const Login = () => {
     password:""  
   })
 
+  const [isLoaded, setIsLoaded] = useState(false);
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
     const loginStatus = localStorage.getItem('login');
     if (loginStatus === 'true') {
       setIsLoggedIn(true);
     }
+    setIsLoaded(true);
   }, []);
 
   const{email,password}=users;
@@ -55,26 +58,26 @@ const Login = () => {
             navigate('/Donate')
         ) : (
 
-        <div id="Login" style={{marginLeft:"225px"}}>
-            <div class="section">
+        <div id="Login" className={`login ${isLoaded ? "loaded" : ""}`} style={{marginLeft:"225px"}}>
+            <div className="section">
                 <div class="box-area">
                   <section className="vh-100" >
                     <div className="container h-100">
                       <div className="row d-flex justify-content-center align-items-center h-100">
                         <div className="col-lg-12 col-xl-11" >
-                          <div className="card text-black" style={{background:'#e9ecef',boxShadow:' 0px 10px 10px rgba(0, 0, 0, 0.5)', borderRadius:'20px'}}>
+                          <div className="card text-black" style={{background:'#e9ecef',boxShadow:'  0px 10px 10px rgba(0, 0, 0, 0.5)', borderRadius:'20px', animation: "popup 0.3s ease" }}>
                             <div className="card-body p-md-5" >
                               <div className="row justify-content-center">
                                 <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                                   <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign In</p>
                                   <form className="mx-1 mx-md-4" onSubmit={handleSubmit( e => submitForm(e))}>
                                     <div className="form-outline flex-fill mb-0">
-                                      <input type="text"  className="form-control" placeholder="Enter email" value={email} {...register("email", { required:true})} onChange={e =>handleChange(e)} />
+                                      <input type="text"  className="form-control" style={{boxShadow:' 0px 5px 5px rgba(0, 0, 0, 0.5)'}} placeholder="Enter email" value={email} {...register("email", { required:true})} onChange={e =>handleChange(e)} />
                                       <p style={{color:'red',fontSize:'13px'}}>{errors.email?.type === "required" && "*Enter email"}</p>
 
                                     </div>
                                     <div className="form-outline flex-fill mb-0">
-                                      <input type="password"  className="form-control" placeholder="Enter password" value={password} {...register("password", { required:true,})} onChange={e =>handleChange(e)}/>
+                                      <input type="password"  className="form-control" style={{boxShadow:' 0px 5px 5px rgba(0, 0, 0, 0.5)'}} placeholder="Enter password" value={password} {...register("password", { required:true,})} onChange={e =>handleChange(e)}/>
                                       <p style={{color:'red',fontSize:'13px'}}>{errors.password?.type === "required" && "*Enter password"}</p>
                                       
                                     </div>

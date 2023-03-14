@@ -2,11 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
-import { useNavigate, useParams } from 'react-router-dom';
-import VerifyPerson from "./VerifyPerson";
 
 function Verify (){
-    const navigate = useNavigate();
 
     const [users, setUsers] = useState([]);
     useEffect(() => {
@@ -24,7 +21,7 @@ function Verify (){
         <div id="Login">
         <div className="container"> 
         <br/><br/>
-        <div className='divTable' style={{ background:'#e9ecef',padding: '30px', borderRadius: '20px', border: '1px solid #ccc', boxShadow: '10px 10px 10px rgba(0, 0, 0, 0.3)',}}>
+        <div className='divTable' style={{ background:'#e9ecef',padding: '30px', borderRadius: '20px', border: '1px solid #ccc', boxShadow: 'inset 10px 10px 10px rgba(0, 0, 0.3, 0.3)',}}>
             <h1>Verify</h1>
             <table className="table">
                 <thead>
@@ -55,7 +52,7 @@ function Verify (){
                     )}
                 </tbody>
             </table>
-        </div>
+        </div> 
     </div>
     </div>
         </>
