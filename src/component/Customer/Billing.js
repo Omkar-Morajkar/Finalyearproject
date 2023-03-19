@@ -1,15 +1,16 @@
 import React from 'react';
-import Footer from './Footer';
 import './Billing.css';
 import cardLogo from '../Logo/card.png';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import { useState } from "react";
 import axios from 'axios';
 import {useForm} from "react-hook-form";
 
 const Billing = () =>{
   const { register, formState: {errors},handleSubmit } = useForm();
+
   const navigate = useNavigate();
+
   const [users, setUsers] = useState({
     name:"",
     amount:"",
@@ -29,6 +30,23 @@ const Billing = () =>{
   const submitForm = async(e) =>{
     // e.preventDefault();
     console.log(users);
+    await axios.post("http://localhost/FinalYearProject/billing.php",users)
+    .then((rs)=>{
+      console.log(rs);
+      if(rs.data.status =="valid")
+      {
+        alert("payment successfull");
+        navigate('/Donate');
+      }
+      else if(rs.data.status =="invalid")
+      {
+        alert("payment failed");
+      }
+      else
+      {
+        alert("There is some problem"+rs.data.status);
+      }
+    })
 
     await axios.post("http://localhost/FinalYearProject/billing.php",users)
     .then((rs)=>{
@@ -117,6 +135,7 @@ const Billing = () =>{
                         <p style={{color:'red',fontSize:'13px'}}>{errors.eyear?.type === "required" && "*Enter year"}</p>
                         <p style={{color:'red'}}>{errors.eyear?.type === "pattern" && " you have entered invalid year"}</p>
                     </div>
+                    
                     <div className="col-50">
                         <label htmlFor="cvv">CVV</label>
                         <input type="number" id="cvv" name="cvv" placeholder={352}  value={cvv} {...register("cvv", {required: true,pattern:/^\d{3,4}$/})} onChange={e =>handleChange(e)}/>

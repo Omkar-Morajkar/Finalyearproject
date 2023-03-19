@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useParams } from 'react-router-dom';
 import { useState } from "react";
 import axios from 'axios';
 import {useForm} from "react-hook-form";
@@ -7,6 +7,9 @@ import {useForm} from "react-hook-form";
 function DonateInput(){
 
   const { register, formState: {errors},handleSubmit } = useForm();
+
+  const { id } = useParams();
+
   const navigate = useNavigate();
   const [nm, setPname] = useState([]);
   const [ti,setTi] = useState([]);
@@ -41,7 +44,7 @@ function DonateInput(){
 
     console.log(fd);
 
-    await axios.post("http://localhost/FinalYearProject/dInput.php",fd)
+    await axios.post(`http://localhost/FinalYearProject/dInput.php?id=${id}`,fd)
     .then((rspo)=>{
       // console.log(rspo);
       if(rspo.data.status =="valid")

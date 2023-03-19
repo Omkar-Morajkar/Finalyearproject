@@ -56,7 +56,7 @@ const CustHome = ()=>{
 	<div class="row">
 
 		<div class="col-md-3 col-sm-6">
-			<div class="about-us-col">
+			<div class="about-us-col"  style={{boxShadow:'inset 0px 10px 10px rgba(0, 0, 0, 0.5)'}}>
 				<div class="col-icon-wrapper">
 				  <img src={logo1} alt=""/>
 				</div>
@@ -69,8 +69,8 @@ const CustHome = ()=>{
 			</div>
 		</div>
 
-		<div class="col-md-3 col-sm-6">
-			<div class="about-us-col">
+		<div class="col-md-3 col-sm-6" >
+			<div class="about-us-col" style={{boxShadow:'inset 0px 10px 10px rgba(0, 0, 0, 0.5)'}}>
 				<div class="col-icon-wrapper">
 				  <img src={logo2} alt=""/>
 				</div>
@@ -84,7 +84,7 @@ const CustHome = ()=>{
 
 
 		<div class="col-md-3 col-sm-6">
-			<div class="about-us-col">
+			<div class="about-us-col"  style={{boxShadow:' inset 0px 10px 10px rgba(0, 0, 0, 0.5)'}}>
 				<div class="col-icon-wrapper">
 					<img src={logo3} alt=""/>
 				</div>
@@ -98,8 +98,8 @@ const CustHome = ()=>{
 		</div>
 
 
-		<div class="col-md-3 col-sm-6">
-			<div class="about-us-col">
+		<div class="col-md-3 col-sm-6"  >
+			<div class="about-us-col" style={{boxShadow:' inset 0px 10px 10px rgba(0, 0, 0, 0.5)'}}>
 				<div class="col-icon-wrapper">
 					<img src={logo4} alt=""/>
 				</div>

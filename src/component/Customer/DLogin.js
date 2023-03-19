@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useState,useEffect } from "react";
 import axios from 'axios';
 import {useForm} from "react-hook-form";
-import Sidebar from '../Sidebar';
 
 
 export default function DLogin  (){
@@ -39,7 +38,9 @@ export default function DLogin  (){
         alert("Login successful");
         setIsLoggedIn(true);
         localStorage.setItem('Dlogin', 'true');
-        navigate('/verification');
+        console.log(localStorage.setItem('userId',re.data.userId));
+        navigate(`/verification/${re.data.userId}`);
+        
       }
       else if(re.data.status =="invalid")
       {
@@ -55,7 +56,7 @@ export default function DLogin  (){
     return(
         <>
         {isLoggedIn ? (
-            navigate('/verification')
+            navigate(`/verification/${localStorage.getItem('userId')}`)
         ) : (
 
         <div id='Login' style={{marginLeft:"225px"}} >
@@ -63,7 +64,7 @@ export default function DLogin  (){
         <div className="container h-100" >
           <div className="row d-flex justify-content-center align-items-center h-100" >
             <div className="col-lg-12 col-xl-11" >
-              <div className="card text-black"  style={{background:'#e9ecef',boxShadow:'0px 5px 10px 0px rgba(0, 0, 0, 0.3)', borderRadius:'20px',marginTop:'30px',marginBottom:'30px'}}>
+              <div className="card text-black"  style={{background:'#e9ecef',boxShadow:' 0px 10px 10px rgba(0, 0, 0, 0.5)', borderRadius:'20px',marginTop:'30px',marginBottom:'30px'}}>
                 <div className="card-body p-md-5" >
                   <div className="row justify-content-center">
                     <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
@@ -71,12 +72,12 @@ export default function DLogin  (){
                       <form className="mx-1 mx-md-4" onSubmit={ handleSubmit( e => submitForm(e))}>
                         
                         <div className="form-outline flex-fill mb-0">
-                          <input type="email" name="email"  placeholder="Enter email"  value={email} {...register("email", { required:true})}onChange={e =>handleChange(e)}  />
+                          <input type="email" name="email"  placeholder="Enter email" style={{boxShadow:' 0px 5px 5px rgba(0, 0, 0, 0.5)'}}  value={email} {...register("email", { required:true})}onChange={e =>handleChange(e)}  />
                           <p style={{color:'red'}}>{errors.email?.type === "required" && "Enter email"}</p> 
                         </div>
                     
                         <div className="form-outline flex-fill mb-0">
-                          <input type="password" name="password" placeholder="Enter password" value={password} {...register("password", { required:true})} onChange={e =>handleChange(e)} />
+                          <input type="password" name="password" placeholder="Enter password" style={{boxShadow:' 0px 5px 5px rgba(0, 0, 0, 0.5)'}} value={password} {...register("password", { required:true})} onChange={e =>handleChange(e)} />
                           <p style={{color:'red'}}>{errors.password?.type === "required" && "Enter password"}</p>
                         </div>
                         
