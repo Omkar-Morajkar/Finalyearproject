@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 // import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from 'axios';
-import { useParams} from 'react-router-dom';
+import { useParams,useNavigate} from 'react-router-dom';
 import {useForm} from "react-hook-form";
 
 function VerifyPerson(){
-    
+  const navigate = useNavigate();
     const [dinput, setdinput] = useState([]);
 
     const [ver, setVer] = useState([]);
