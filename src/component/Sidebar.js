@@ -9,6 +9,7 @@ import { IconContext } from "react-icons/lib";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios"; 
 import imagelogo from '../component/Images/project.png';
+import { Button, Modal } from 'react-bootstrap';
 
 const Nav = styled.div`
 background-color: #007bff;
@@ -56,6 +57,20 @@ const SidebarWrap = styled.div`
  
 const Sidebar = () => {
 
+  const [showModal, setShowModal] = useState(false);
+
+  const handleCloseModal = () => setShowModal(false);
+
+  const handleLogout = () => {
+    localStorage.removeItem('login'); 
+    localStorage.removeItem('Dlogin');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('email');
+    localStorage.removeItem('Demail');
+    setShowModal(false);
+    navigate('/');
+  };
+
   const isLoggedIn = localStorage.getItem('login');
   const dlogi = localStorage.getItem('Dlogin');
 
@@ -86,20 +101,12 @@ const Sidebar = () => {
   }
 
   const logout = () => {
-    localStorage.removeItem('login'); 
-    localStorage.removeItem('Dlogin');
-    localStorage.removeItem('userId');
-    localStorage.removeItem('email');
-    localStorage.removeItem('Demail');
-    alert("Logout successful");
-    navigate('/');
+    setShowModal(true);
   };
 
   const login = () => {
     navigate('/Login');
   };
-
-  
 
   return (
     <>
@@ -165,6 +172,22 @@ const Sidebar = () => {
           </SidebarWrap>
         </SidebarNav>
       </IconContext.Provider>
+
+      <Modal show={showModal} onHide={handleCloseModal}>
+        {/* <Modal.Header >
+          <Modal.Title>Confirm Logout</Modal.Title>
+        </Modal.Header> */}
+        <Modal.Body>Are you sure you want to log out?</Modal.Body>
+        <Modal.Footer>
+          <Button  onClick={handleLogout} style={{width:'40%'}}>
+            Yes
+          </Button>
+          <Button  onClick={handleCloseModal} style={{width:'40%'}}>
+            No
+          </Button>
+         
+        </Modal.Footer>
+      </Modal>
        
     </>
   );

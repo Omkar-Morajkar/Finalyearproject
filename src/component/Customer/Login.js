@@ -3,11 +3,21 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import {useForm} from "react-hook-form";
+import { Button, Modal } from 'react-bootstrap';
 
 const Login = () => {
   
   const { register, formState: {errors},handleSubmit } = useForm();
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    navigate('/');
+  }
+
   const navigate = useNavigate();
+
   const [users, setUsers] = useState({
     email:"",
     password:""  
@@ -22,6 +32,7 @@ const Login = () => {
   useEffect(() => {
     const dlg = localStorage.getItem('Dlogin');
     if(dlg ==='true'){
+      setShowModal(true);
       setDlog(true);
     }
 
@@ -64,8 +75,20 @@ const Login = () => {
     return (
       <>
       {dlog ?(
-        alert("Please Logout.")+
-        navigate('/')
+        <>
+         <Modal show={showModal} onHide={handleCloseModal}>
+         {/* <Modal.Header >
+           <Modal.Title>Confirm Logout</Modal.Title>
+         </Modal.Header> */}
+         <Modal.Body>Please logout </Modal.Body>
+         <Modal.Footer>
+           <Button  onClick={handleCloseModal} style={{width:'40%'}}>
+             ok
+           </Button>
+          
+         </Modal.Footer>
+       </Modal>
+        </>
       ) : (
         <>
         {isLoggedIn ? (

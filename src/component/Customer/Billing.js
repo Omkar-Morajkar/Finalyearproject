@@ -5,11 +5,13 @@ import { useNavigate, useParams} from 'react-router-dom';
 import { useState } from "react";
 import axios from 'axios';
 import {useForm} from "react-hook-form";
+import ThankYou from './ThankYou';
 
 const Billing = () =>{
   const { id } = useParams();
 
   const { register, formState: {errors},handleSubmit } = useForm();
+  const [paymentSuccessful, setPaymentSuccessful] = useState(false);
 
   const navigate = useNavigate();
 
@@ -38,7 +40,9 @@ const Billing = () =>{
       if(rs.data.status =="valid")
       {
         alert("payment successful");
-        navigate('/Donate');
+        setPaymentSuccessful(true);
+        // navigate('/Donate');
+
       }
       else if(rs.data.status =="invalid")
       {
@@ -53,6 +57,9 @@ const Billing = () =>{
 
     return(
     <>
+     {paymentSuccessful ? (
+        <ThankYou/>
+      ) : (
     <div id='Login' >
         <div className="col-75" >
             <div className="Bcontainer" >
@@ -138,7 +145,7 @@ const Billing = () =>{
       
         </div>
         
-
+      )}
     </>
     );
 }

@@ -21,6 +21,7 @@ import Verify from "./component/Admin/Verify";
 import VerifyPerson from "./component/Admin/VerifyPerson";
 import ALogin from "./component/Admin/ALogin";
 import UserData from "./component/Admin/UserData";
+import ThankYou from "./component/Customer/ThankYou";
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
             <Route path="/pverify/:id" element={<VerifyPerson/>}/>
             <Route path="/ALogin" element={<ALogin/>}/>
             <Route path="/UserData/:id" element={<UserData/>}/>
+            <Route path="/Thankyou" element={<ThankYou/>}/>
 
         </Routes>
     </BrowserRouter>
