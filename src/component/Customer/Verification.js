@@ -26,7 +26,7 @@ function Verification() {
     alert("Your verification status is pending");
     navigate('/');
   } else if (status === "null"){
-    return alert("Your form is not been viewed by admin yet please wait until your form is verified");
+    return alert("Your form is not been viewed by admin ");
   }
 
   
@@ -153,6 +153,7 @@ function Verification() {
                 <div className="item">
                     <label htmlFor="name">Gender<span>*</span></label>
                     <select id="gender" name='Gender' style={{width:'100%',height:'50%'}} {...register("Gender", {required: true})} onChange={e =>handleChange(e)}>
+                    <option value="" selected disabled>Select Gender</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                     </select>
@@ -218,9 +219,10 @@ function Verification() {
                 <div className="item">
                     <label htmlFor="name">Please select the stage of funds needed.<span>*</span></label>
                     <select id="stage" required placeholder="-" name='stage'style={{width:'100%',height:'50%'}} {...register("stage", {required: true})} onChange={e =>handleChange(e)}>
+                    <option value="" selected disabled>Select stage</option>
                       <option value="week">Week</option>
                       <option value="month">Month</option>
-                      <option value='year'>Year</option>
+                      <option value="year">Year</option>
                     </select>
                     <p style={{color:'red',fontSize:'13px'}}>{errors.stage?.type === "required" && "*Plese select stage"}</p>
                 </div>
@@ -242,6 +244,7 @@ function Verification() {
               <div className="btn-block">
                 <button type="submit" href="/">Submit</button>
               </div>
+              
             </form>
           </div>
         </div>

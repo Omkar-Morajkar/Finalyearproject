@@ -14,8 +14,16 @@ export default function DLogin  (){
   })
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [log, setLog] = useState(false);
+
   useEffect(() => {
     const loginStatus = localStorage.getItem('Dlogin');
+    const logstatus = localStorage.getItem('login');
+
+    if(logstatus ==='true'){
+      setLog(true);
+    }
+
     if (loginStatus === 'true') {
       setIsLoggedIn(true);
     }
@@ -30,15 +38,16 @@ export default function DLogin  (){
     // e.preventDefault();
     console.log(users);
 
-    await axios.post("http://localhost/finalYearProject/Dlogin.php",users)
+    await axios.post("http://localhost/finalYearProject/Dlogin.php",users) 
     .then((re)=>{
       console.log(re);
       if(re.data.status =="valid")
       {
         alert("Login successful");
-        setIsLoggedIn(true);
+        setIsLoggedIn(true); 
         localStorage.setItem('Dlogin', 'true');
         console.log(localStorage.setItem('userId',re.data.userId));
+        localStorage.setItem('Demail',re.data.demail);
         navigate(`/verification/${re.data.userId}`);
         
       }
@@ -54,6 +63,11 @@ export default function DLogin  (){
   }
   
     return(
+      <>
+      {log ?(
+        alert("Please Logout.")+
+        navigate('/')
+      ) : (
         <>
         {isLoggedIn ? (
             navigate(`/verification/${localStorage.getItem('userId')}`)
@@ -105,6 +119,8 @@ export default function DLogin  (){
       </div>
         )}
         </>
+      )}
+    </>
     );
 }
 

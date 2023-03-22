@@ -3,7 +3,6 @@ import "bootstrap/dist/js/bootstrap.bundle";
 import './App.css';
 import { BrowserRouter,Route, Routes } from 'react-router-dom';
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Register from "./component/Customer/Register";
 import Login from "./component/Customer/Login";
 import Ahome from "./component/Admin/Ahome";
@@ -21,15 +20,16 @@ import Donator from "./component/Admin/Donator";
 import Verify from "./component/Admin/Verify";
 import VerifyPerson from "./component/Admin/VerifyPerson";
 import ALogin from "./component/Admin/ALogin";
+import UserData from "./component/Admin/UserData";
 
 
 function App() {
-    const id = localStorage.getItem('userId');
   return(
     <BrowserRouter>
         <Sidebar/>
         <Routes>
-            <Route path="/" element={<Home/>}/>
+            
+            <Route exact path="/" element ={<Home/>}/>
             <Route path="/Register" element={<Register/>} />
             <Route path="/Login" element={<Login/>} />
             <Route path="/Ahome" element={<Ahome/>}/>
@@ -45,6 +45,8 @@ function App() {
             <Route path="/averify" element={<Verify/>}/>
             <Route path="/pverify/:id" element={<VerifyPerson/>}/>
             <Route path="/ALogin" element={<ALogin/>}/>
+            <Route path="/UserData/:id" element={<UserData/>}/>
+
         </Routes>
     </BrowserRouter>
 );

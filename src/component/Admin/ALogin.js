@@ -20,20 +20,6 @@ export default function DLogin  (){
     e.preventDefault();
     console.log(users);
 
-    // if(email.length == "")
-    // {
-    //   alert("Enter email");
-    // }
-    // if(password.length == "")
-    // {
-    //   alert("Enter password");
-    // }
-    // var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    // if(!regex.test(email))
-    // {
-    //   alert("Invalid email format");
-    // }
-
     await axios.post("http://localhost/FinalYearProject/Login.php",users)
     .then((re)=>{
       console.log(re);

@@ -46,8 +46,16 @@ function Verify (){
                                     state: {
                                         userId: user.id
                                     }
-                                }} style={{marginRight: "10px" ,width:'200px'}} className="btn btn-info">Check record</Link>
+                                }} style={{marginRight: "10px" ,width:'200px'}} className="btn btn-info">Check Verification form</Link>
+                                
+                                 <Link to={{
+                                    pathname: `/UserData/${user.id}`,
+                                    state: {
+                                        userId: user.id
+                                    }
+                                }} style={{marginRight: "10px" ,width:'200px'}} className="btn btn-info">Check user data</Link>
                             </td>
+                            
                         </tr>
                     )}
                 </tbody>

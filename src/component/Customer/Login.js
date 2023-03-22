@@ -13,10 +13,18 @@ const Login = () => {
     password:""  
   })
 
+  const [dlog,setDlog] = useState(false);
+
   const [isLoaded, setIsLoaded] = useState(false);
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   useEffect(() => {
+    const dlg = localStorage.getItem('Dlogin');
+    if(dlg ==='true'){
+      setDlog(true);
+    }
+
     const loginStatus = localStorage.getItem('login');
     if (loginStatus === 'true') {
       setIsLoggedIn(true);
@@ -29,7 +37,7 @@ const Login = () => {
     setUsers({...users,[e.target.name]:e.target.value});
   }
   const submitForm = async(e) =>{
-    console.log(users);
+    // console.log(users);
 
     await axios.post("http://localhost/FinalYearProject/Login.php",users)
     .then((resp)=>{
@@ -39,6 +47,8 @@ const Login = () => {
         alert("Login successful");
         setIsLoggedIn(true);
         localStorage.setItem('login', 'true');
+        localStorage.setItem('userId',resp.data.userId);
+        localStorage.setItem('email',resp.data.email);
         navigate('/Donate');
       }
       else if(resp.data.status =="invalid")
@@ -52,8 +62,12 @@ const Login = () => {
     })
   }
     return (
+      <>
+      {dlog ?(
+        alert("Please Logout.")+
+        navigate('/')
+      ) : (
         <>
-
         {isLoggedIn ? (
             navigate('/Donate')
         ) : (
@@ -106,6 +120,8 @@ const Login = () => {
         </div>
 
 )}
+    </>
+      )}
     </>
   );
 };

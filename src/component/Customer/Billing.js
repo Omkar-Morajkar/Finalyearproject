@@ -1,12 +1,14 @@
 import React from 'react';
 import './Billing.css';
 import cardLogo from '../Logo/card.png';
-import { useNavigate} from 'react-router-dom';
+import { useNavigate, useParams} from 'react-router-dom';
 import { useState } from "react";
 import axios from 'axios';
 import {useForm} from "react-hook-form";
 
 const Billing = () =>{
+  const { id } = useParams();
+
   const { register, formState: {errors},handleSubmit } = useForm();
 
   const navigate = useNavigate();
@@ -30,30 +32,12 @@ const Billing = () =>{
   const submitForm = async(e) =>{
     // e.preventDefault();
     console.log(users);
-    await axios.post("http://localhost/FinalYearProject/billing.php",users)
+    await axios.post(`http://localhost/FinalYearProject/billing.php?id=${id}`,users)
     .then((rs)=>{
       console.log(rs);
       if(rs.data.status =="valid")
       {
-        alert("payment successfull");
-        navigate('/Donate');
-      }
-      else if(rs.data.status =="invalid")
-      {
-        alert("payment failed");
-      }
-      else
-      {
-        alert("There is some problem"+rs.data.status);
-      }
-    })
-
-    await axios.post("http://localhost/FinalYearProject/billing.php",users)
-    .then((rs)=>{
-      console.log(rs);
-      if(rs.data.status =="valid")
-      {
-        alert("payment successfull");
+        alert("payment successful");
         navigate('/Donate');
       }
       else if(rs.data.status =="invalid")
@@ -66,6 +50,7 @@ const Billing = () =>{
       }
     })
   }
+
     return(
     <>
     <div id='Login' >
@@ -118,7 +103,7 @@ const Billing = () =>{
                     <p style={{color:'red'}}>{errors.cname?.type === "pattern" && " you have entered incorrect card name"}</p>
                     
                     <label htmlFor="ccnum">card number</label>
-                    <input type="number" id="ccnum" name="cnumber" placeholder="1111-2222-3333-4444"  value={cnumber} {...register("cnumber", {required: true,pattern:/^(?:4[0-9]{12}(?:[0-9]{3})?|(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|6(?:011|5[0-9]{2})[0-9]{12}|(?:2131|1800|35\d{3})\d{11})$/ })} onChange={e =>handleChange(e)}/>
+                    <input type="number" id="ccnum" name="cnumber" placeholder="1111-2222-3333-4444"  value={cnumber} {...register("cnumber", {required: true,pattern:/^4[0-9]{12}(?:[0-9]{3})?$/ })} onChange={e =>handleChange(e)}/>
                     <p style={{color:'red',fontSize:'13px'}}>{errors.cnumber?.type === "required" && "*Enter card number"}</p>
                     <p style={{color:'red'}}>{errors.cnumber?.type === "pattern" && " you have entered incorrect card number"}</p>
 
@@ -131,7 +116,7 @@ const Billing = () =>{
                     <div className="row">
                     <div className="col-50">
                         <label htmlFor="expyear">Exp Year</label>
-                        <input type="number" id="expyear" name="eyear" placeholder={2018}  value={eyear} {...register("eyear", {required: true,pattern:/^(0[1-9]|1[0-2])\/\d{2}$/})} onChange={e =>handleChange(e)}/>
+                        <input type="number" id="expyear" name="eyear" placeholder={2018}  value={eyear} {...register("eyear", {required: true,pattern:/^1\d{3}|20([0-1][0-9]|2[0-3])$/})} onChange={e =>handleChange(e)}/>
                         <p style={{color:'red',fontSize:'13px'}}>{errors.eyear?.type === "required" && "*Enter year"}</p>
                         <p style={{color:'red'}}>{errors.eyear?.type === "pattern" && " you have entered invalid year"}</p>
                     </div>

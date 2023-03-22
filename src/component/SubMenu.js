@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
  
 const SidebarLink = styled(Link)`
+  color:blue;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,7 +13,7 @@ const SidebarLink = styled(Link)`
   list-style: none;
   height: 5px;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 15px;
  
   &:hover {
     background: white;
@@ -29,17 +30,19 @@ const SidebarLabel = styled.span`
 `;
  
 const DropdownLink = styled(Link)`
-  background: #252831;
-  height: 40px;
-  padding-left: 3rem;
+  color:blue;
+  height: 5px;
+  padding:30px;
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: #f5f5f5;
-  font-size: 18px;
+  font-size: 15px;
+  border-style: outset 1px;
  
   &:hover {
     background: white;
+    transform: translateY(-5px);
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
     cursor: pointer;
     border-radius:20px;
   }

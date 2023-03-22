@@ -29,6 +29,8 @@ const CustCard = () => {
                             <div className="card-body">
                                   <h3 className="card-title">{inputs.title}</h3>
                                   <span className="card-author subtle">Name:{inputs.name}</span><br/>
+                                  <span className="card-description subtle">Amount required : {inputs.amount}</span><br/><br/>
+                                  <span className="card-description subtle">Amount Collected : {inputs.acollected}</span><br/><br/>
                                   <span className="card-description subtle">
                                     {inputs.discription}
                                   </span>
