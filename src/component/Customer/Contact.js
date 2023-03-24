@@ -1,7 +1,45 @@
 import React from 'react';
 import './Contact.css';
 import imagelogo from '../Images/project.png';
+import { useState,useEffect } from "react";
+import {useForm} from "react-hook-form";
+import axios from 'axios';
+
 const Contact = () =>{
+  const { register, formState: {errors},handleSubmit } = useForm();
+  const [users, setUsers] = useState({
+    fname:"",
+    email:"",
+    message:""  
+  })
+
+  const{email,fname,message}=users;
+  const handleChange = (e) =>{
+    setUsers({...users,[e.target.name]:e.target.value});
+  }
+
+  const submitForm = async(e) =>{
+    // e.preventDefault();
+    console.log(users);
+
+    await axios.post("http://localhost/FinalYearProject/contact.php",users)
+    .then((csr)=>{
+      console.log(csr);
+      if(csr.data.status =="valid")
+      {
+        alert("your response was accepted successfully");
+      }
+      else if(csr.data.status =="invalid")
+      {
+        alert("response failed");
+      }
+      else{
+        alert("There is some problem");
+      }
+    })
+    console.log(errors)
+  }
+
     return(
         <>
          <div id='Login'>
@@ -36,26 +74,28 @@ const Contact = () =>{
         </div>
       </div>
       <div className="right-side">
-        <div className="topic-text">Send us a message</div>
+        <div className="topic-text">Contact us </div>
         <p>
           If you have any sort of queries related to account,terms and conditions or any sort of queries do contact us without hesitation on the provided email,or you can drop a message below
         </p>
-        <form action="#">
+        <form onSubmit={ handleSubmit( e => submitForm(e))}>
           <div className="inputbox">
-            <input type="text" placeholder="Enter your name" />
+          <input type="fname" className="fname" placeholder="Enter name" style={{boxShadow:' 0px 5px 5px rgba(0, 0, 0, 0.5)'}} value={fname} {...register("fname", { required:true})} onChange={e =>handleChange(e)} />
+          <p style={{color:'red'}}>{errors.fname?.type === "required" && "Enter fname"}</p> 
           </div>
           <div className="inputbox">
             
-            <input type="text" placeholder="Enter your email" />
+            <input type="email" placeholder="Enter your email" value={email} {...register("email", { required:true})} onChange={e =>handleChange(e)}  />
           </div>
 
-         <textarea id="msgtext" class="textmsg"rows={4}  cols={50} placeholder="enter your message here"/>
+         <textarea id="msgtext" className="textmsg"rows={4}  cols={50} placeholder="enter your message here"  value={message} {...register("message", { required:true})} onChange={e =>handleChange(e)}/>
 
 
 
           <div className="inputbox message-box"></div>
           <div className="button">
-            <input type="button" defaultValue="Send Now" />
+            {/* <input type="button" defaultValue="Send Now" /> */}
+            <button type="submit" className="btn btn-primary btn-lg" name="submit" value="add user" >Submit</button>
           </div>
           
         </form>
