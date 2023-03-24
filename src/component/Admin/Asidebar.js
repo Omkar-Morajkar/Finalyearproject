@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import * as FaIcons from "react-icons/im";
@@ -61,6 +61,7 @@ const Asidebar = () => {
  
   const showSidebar = () => setSidebar(!sidebar);
   
+  useEffect(() => {
   if(sidebar && document.getElementById("Login") && document.getElementById("mydiv"))
   {
     document.getElementById("Login").style.marginLeft = "225px";
@@ -73,6 +74,7 @@ const Asidebar = () => {
     document.getElementById("Login").style.marginLeft = "0px";
     document.getElementById("mydiv").style.marginLeft = "0px";
   }
+}, [sidebar]); 
 
   const [showModal, setShowModal] = useState(false);
 
@@ -113,7 +115,7 @@ const Asidebar = () => {
         </Nav>
         </div>
         <SidebarNav sidebar={sidebar}>
-          <SidebarWrap>
+          <SidebarWrap> 
             <NavIcon to="#">
               <AiIcons.AiOutlineClose onClick={showSidebar} />
             </NavIcon>

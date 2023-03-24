@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import axios from "axios"
 
 const CustCard = () => {
-  const now = 50;
   const [dinput, setdinput] = useState([]);
     useEffect(() => {
         getUsers();
@@ -18,7 +17,7 @@ const CustCard = () => {
     }
   return (
     <>
-            <section className="main-card--cointainer" style={{margin:'0px'}}>
+            <section className="main-card--cointainer">
             {dinput.map((inputs,key) =>(
                   <div key={key} className="col-lg-12 col-xl-11" >
                     <br/><br/>
@@ -30,12 +29,12 @@ const CustCard = () => {
                                   <h3 className="card-title">{inputs.title}</h3>
                                   <span className="card-author subtle">Name:{inputs.name}</span><br/>
                                   <span className="card-description subtle">Amount required : {inputs.amount}</span><br/><br/>
-                                  <span className="card-description subtle">Amount Collected : {inputs.acollected}</span><br/><br/>
+                                  {/* <span className="card-description subtle">Amount Collected : {inputs.acollected}</span><br/><br/> */}
                                   <span className="card-description subtle">
                                     {inputs.discription}
                                   </span>
                                   <br/><br/>
-                                    <ProgressBar now={now} label={`${now}%`} />
+                                  <ProgressBar now={inputs.percentage} label={`${inputs.percentage}%`} />
                                   <br/>
                                   <Link to={{
                                     pathname: `/billing/${inputs.id}`,

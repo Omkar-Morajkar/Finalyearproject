@@ -2,10 +2,9 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 import './App.css';
 import { BrowserRouter,Route, Routes } from 'react-router-dom';
-import {React, useEffect, useState} from 'react';
+import {React} from 'react';
 import Register from "./component/Customer/Register";
 import Login from "./component/Customer/Login";
-import Ahome from "./component/Admin/Ahome";
 import Home from "./component/Customer/Home";
 import Contact from "./component/Customer/Contact";
 import DLogin from "./component/Customer/DLogin";
@@ -36,7 +35,7 @@ function App() {
             <Route exact path="/" element ={<Home/>}/>
             <Route path="/Register" element={<Register/>} />
             <Route path="/Login" element={<Login/>} />
-            <Route path="/Ahome" element={<Ahome/>}/>
+
             <Route path="/Contact" element={<Contact/>}/>
             <Route path="/DLogin" element={<DLogin/>}/>
             <Route path="DRegister" element={<DRegister/>}/>

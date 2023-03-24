@@ -60,7 +60,7 @@ function UserData(){
     return(
       
         <>
-        <div id="Login" className='avp'>
+        <div id="Login" className='avp' style={{marginLeft:"225px"}}>
             {dinput.map((inputs,key) =>(
                 <div key={key} className='divTable' style={{boxShadow:'inset 0px 10px 10px rgba(0, 0, 0, 0.5)'}}>
                   <div className="row justify-content-center">
