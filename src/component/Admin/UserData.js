@@ -29,7 +29,7 @@ function UserData(){
 
       await axios.post(`http://localhost/FinalYearProject/Status.php?id=${id}`,fd)
     .then((stat)=>{
-      console.log(rss);
+      console.log(stat);
       if(stat.data.status == "valid")
       {
         alert("Data updated successfully");

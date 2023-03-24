@@ -62,7 +62,7 @@ const Billing = () =>{
       ) : (
     <div id='Login' >
         <div className="col-75" >
-            <div className="Bcontainer" >
+            <div className="Bcontainer" style={{background:'#e9ecef',boxShadow:'  0px 10px 10px rgba(0, 0, 0, 0.5)', borderRadius:'20px', animation: "popup 0.3s ease" }}>
             <form action="/action_page.php" onSubmit={handleSubmit( e => submitForm(e))}>
                 <div className="row">
                 <div className="col-50">
@@ -138,7 +138,7 @@ const Billing = () =>{
                     </div>
                 </div>
                 </div>
-                <input type="submit" name="submit" value="add user"/>
+                <input type="submit" name="submit" value="Donate"/>
             </form>
             </div>
         </div>

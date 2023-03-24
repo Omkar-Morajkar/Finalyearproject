@@ -29,7 +29,7 @@ function Verify (){
                         <th scope="col">ID</th>
                         <th scope="col">Name</th>
                         <th scope="col">amount</th>
-                        <th scope="col">stage</th>
+                        <th scope="col">status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,8 +38,7 @@ function Verify (){
                             <td>{user.id}</td>
                             <td>{user.name}</td>
                             <td>{user.amount}</td>
-                            <td>{user.stage}</td>
-
+                            <td>{user.status}</td>
                             <td>
                             <Link to={{
                                     pathname: `/pverify/${user.id}`,

@@ -15,7 +15,8 @@ function Donator() {
         });
     }
     return (
-        <div className="container"> 
+        <div id="Login">
+        <div className="container" style={{ margin: '30px auto', boxShadow: 'inset 0px 10px 10px rgba(0, 0, 0, 0.5)', padding: '30px', borderRadius: '20px', background: '#e9ecef', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}> 
             <h1>Donator</h1>
             <table className="table">
                 <thead>
@@ -39,6 +40,7 @@ function Donator() {
                     )}
                 </tbody>
             </table>
+        </div>
         </div>
     )
 }

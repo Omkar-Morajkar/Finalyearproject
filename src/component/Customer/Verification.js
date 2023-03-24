@@ -16,16 +16,21 @@ function Verification() {
     fetch(`http://localhost/FinalYearProject/statusCheck.php?id=${id}`)
       .then((rrss) => rrss.json())
       .then((data) => {
-        setStatus(data.status);
+        setStatus(data.status); 
       });
   }, [id]);
 
-  if (status === "verified") {
+  if (status === "verified") 
+  {
     navigate(`/input/${id}`);
-  } else if (status === "not-verified") {
+  } 
+  else if (status === "not-verified") 
+  {
     alert("Your verification status is pending");
     navigate('/');
-  } else if (status === "null"){
+  } 
+  else if (status === "null")
+  {
     return alert("Your form is not been viewed by admin ");
   }
 

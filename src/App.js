@@ -2,7 +2,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 import './App.css';
 import { BrowserRouter,Route, Routes } from 'react-router-dom';
-import React from 'react';
+import {React, useEffect, useState} from 'react';
 import Register from "./component/Customer/Register";
 import Login from "./component/Customer/Login";
 import Ahome from "./component/Admin/Ahome";
@@ -22,14 +22,17 @@ import VerifyPerson from "./component/Admin/VerifyPerson";
 import ALogin from "./component/Admin/ALogin";
 import UserData from "./component/Admin/UserData";
 import ThankYou from "./component/Customer/ThankYou";
+import Asidebar from "./component/Admin/Asidebar";
 
 
 function App() {
+    const isAdmin = localStorage.getItem('adminlogin') == 'true';
+
+    const sidebar = isAdmin ? <Asidebar/> : <Sidebar/>;
   return(
     <BrowserRouter>
-        <Sidebar/>
+        {sidebar}
         <Routes>
-            
             <Route exact path="/" element ={<Home/>}/>
             <Route path="/Register" element={<Register/>} />
             <Route path="/Login" element={<Login/>} />

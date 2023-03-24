@@ -87,6 +87,7 @@ const Sidebar = () => {
  
   const showSidebar = () => setSidebar(!sidebar);
   
+  useEffect(() => {
   if(sidebar && document.getElementById("Login") && document.getElementById("mydiv"))
   {
     document.getElementById("Login").style.marginLeft = "225px";
@@ -99,6 +100,7 @@ const Sidebar = () => {
     document.getElementById("Login").style.marginLeft = "0px";
     document.getElementById("mydiv").style.marginLeft = "0px";
   }
+}, [sidebar]); 
 
   const logout = () => {
     setShowModal(true);
@@ -119,11 +121,11 @@ const Sidebar = () => {
             <FaIcons.ImMenu onClick={showSidebar}/>
           </NavIcon>
 
-          <div style={{marginLeft:'30px'}}>
+          <div style={{marginLeft:'30px',right:'40px',marginLeft:'150px'}}>
              <img className="d-block w-100" src={imagelogo} style={{width:'40px',height:'40px'}} />
           </div>
 
-          <h2 style={{ textAlign: "center", marginLeft: "200px", color: "white" }}> Fundpeti </h2>
+          <h2 style={{ textAlign: "center", marginLeft: "20px", color: "white" }}> Fundpeti </h2>
           
           {isLoggedIn || dlogi ? (
             <button type="submit" onClick={logout} className="btn btn-primary btn-lg" name="submit"  style={{ background:'white',color:'blue', position: "absolute", right: '50px', width: '100px',height:'40px',fontSize:'12pt' }}>Logout</button>
