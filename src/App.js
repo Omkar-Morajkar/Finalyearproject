@@ -22,7 +22,7 @@ import ALogin from "./component/Admin/ALogin";
 import UserData from "./component/Admin/UserData";
 import ThankYou from "./component/Customer/ThankYou";
 import Asidebar from "./component/Admin/Asidebar";
-
+import Dview from "./component/Customer/Dview";
 
 function App() {
     const isAdmin = localStorage.getItem('adminlogin') == 'true';
@@ -35,7 +35,7 @@ function App() {
             <Route exact path="/" element ={<Home/>}/>
             <Route path="/Register" element={<Register/>} />
             <Route path="/Login" element={<Login/>} />
-
+            <Route path="/dview" element={<Dview/>}/>
             <Route path="/Contact" element={<Contact/>}/>
             <Route path="/DLogin" element={<DLogin/>}/>
             <Route path="DRegister" element={<DRegister/>}/>

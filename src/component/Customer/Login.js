@@ -80,7 +80,7 @@ const Login = () => {
          {/* <Modal.Header >
            <Modal.Title>Confirm Logout</Modal.Title>
          </Modal.Header> */}
-         <Modal.Body>Please logout </Modal.Body>
+         <Modal.Body>Please logout from current Account </Modal.Body>
          <Modal.Footer>
            <Button  onClick={handleCloseModal} style={{width:'40%'}}>
              ok

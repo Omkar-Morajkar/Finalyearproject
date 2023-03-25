@@ -30,7 +30,7 @@ function DonateInput(){
   
   if (status === "verified")
   {
-    navigate(`/`);
+    navigate(`/dview`);
   } 
   else if (status === "not-verified") 
   {
@@ -114,7 +114,7 @@ function DonateInput(){
   }
     return(
         <>
-         <div id='Login'>
+         <div id='Login' style={{marginLeft:'225px'}}>
           <title>Volunteer Sign up form</title>
           <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" />
           <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossOrigin="anonymous" />
@@ -151,7 +151,6 @@ function DonateInput(){
             </form>
           </div>
         </div>
-
         </>
     );
 }
