@@ -47,7 +47,7 @@ function DRegister(){
 
     return(
         <>
-        <div id='Login'>
+        <div id='Login' style={{marginLeft:"225px"}}>
         <section className="vh-100" >
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">

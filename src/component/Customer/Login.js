@@ -3,20 +3,39 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import {useForm} from "react-hook-form";
+import { Button, Modal } from 'react-bootstrap';
 
 const Login = () => {
   
   const { register, formState: {errors},handleSubmit } = useForm();
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    navigate('/');
+  }
+
   const navigate = useNavigate();
+
   const [users, setUsers] = useState({
     email:"",
     password:""  
   })
 
+  const [dlog,setDlog] = useState(false);
+
   const [isLoaded, setIsLoaded] = useState(false);
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   useEffect(() => {
+    const dlg = localStorage.getItem('Dlogin');
+    if(dlg ==='true'){
+      setShowModal(true);
+      setDlog(true);
+    }
+
     const loginStatus = localStorage.getItem('login');
     if (loginStatus === 'true') {
       setIsLoggedIn(true);
@@ -29,7 +48,7 @@ const Login = () => {
     setUsers({...users,[e.target.name]:e.target.value});
   }
   const submitForm = async(e) =>{
-    console.log(users);
+    // console.log(users);
 
     await axios.post("http://localhost/FinalYearProject/Login.php",users)
     .then((resp)=>{
@@ -39,6 +58,8 @@ const Login = () => {
         alert("Login successful");
         setIsLoggedIn(true);
         localStorage.setItem('login', 'true');
+        localStorage.setItem('userId',resp.data.userId);
+        localStorage.setItem('email',resp.data.email);
         navigate('/Donate');
       }
       else if(resp.data.status =="invalid")
@@ -52,8 +73,24 @@ const Login = () => {
     })
   }
     return (
+      <>
+      {dlog ?(
         <>
-
+         <Modal show={showModal} onHide={handleCloseModal}>
+         {/* <Modal.Header >
+           <Modal.Title>Confirm Logout</Modal.Title>
+         </Modal.Header> */}
+         <Modal.Body>Please logout from current Account </Modal.Body>
+         <Modal.Footer>
+           <Button  onClick={handleCloseModal} style={{width:'40%'}}>
+             ok
+           </Button>
+          
+         </Modal.Footer>
+       </Modal>
+        </>
+      ) : (
+        <>
         {isLoggedIn ? (
             navigate('/Donate')
         ) : (
@@ -106,6 +143,8 @@ const Login = () => {
         </div>
 
 )}
+    </>
+      )}
     </>
   );
 };

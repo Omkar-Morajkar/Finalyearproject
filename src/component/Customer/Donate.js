@@ -5,7 +5,7 @@ import Menu from './CustApi';
 const Donate = () =>{
     return(
         <>
-            <div id='Login'>
+            <div id='Login' style={{marginLeft:"225px"}}>
                 <CustCard />
             </div>
         </>

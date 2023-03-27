@@ -2,13 +2,13 @@ import React from 'react'
 import Footer from './Footer';
 import CustHome from './CustHome';
 
-const Home = (props) => {
+const Home = () => {
     
     return (
         <>
-            <div id='Login'style={{marginLeft:"225px"}}>
+            <div id='Login' style={{marginLeft:'225px'}}>
                 <CustHome/>
-            <Footer/>   
+                <Footer/>   
             </div>
             
         </>

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
  
 const SidebarLink = styled(Link)`
-  color:blue;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,7 +12,7 @@ const SidebarLink = styled(Link)`
   list-style: none;
   height: 5px;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 18px;
  
   &:hover {
     background: white;
@@ -30,25 +29,23 @@ const SidebarLabel = styled.span`
 `;
  
 const DropdownLink = styled(Link)`
-  color:blue;
-  height: 5px;
-  padding:30px;
+  background: #252831;
+  height: 40px;
+  padding-left: 3rem;
   display: flex;
   align-items: center;
   text-decoration: none;
-  font-size: 15px;
-  border-style: outset 1px;
+  color: #f5f5f5;
+  font-size: 18px;
  
   &:hover {
     background: white;
-    transform: translateY(-5px);
-    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
     cursor: pointer;
     border-radius:20px;
   }
 `;
  
-const SubMenu = ({ item }) => {
+const ASubMenu = ({ item }) => {
   const [subnav, setSubnav] = useState(false);
  
   const showSubnav = () => setSubnav(!subnav);
@@ -82,4 +79,4 @@ const SubMenu = ({ item }) => {
   );
 };
  
-export default SubMenu;
+export default ASubMenu;

@@ -3,14 +3,13 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import * as FaIcons from "react-icons/im";
 import * as AiIcons from "react-icons/ai";
-import { SidebarData } from "./SidebarData";
-import SubMenu from "./SubMenu";
+import { ASidebarData } from "./ASidebarData";
+import ASubMenu from "./ASubMenu";
 import { IconContext } from "react-icons/lib";
 import { useNavigate } from 'react-router-dom';
-import axios from "axios"; 
-import imagelogo from '../component/Images/project.png';
+import imagelogo from '../Images/project.png';
 import { Button, Modal } from 'react-bootstrap';
-
+ 
 const Nav = styled.div`
 background-color: #007bff;
   border: 3px solid white;
@@ -55,32 +54,7 @@ const SidebarWrap = styled.div`
 `;
 
  
-const Sidebar = () => {
-
-  const [showModal, setShowModal] = useState(false);
-
-  const handleCloseModal = () => setShowModal(false);
-
-  const handleLogout = () => {
-    localStorage.removeItem('login'); 
-    localStorage.removeItem('Dlogin');
-    localStorage.removeItem('userId');
-    localStorage.removeItem('email');
-    localStorage.removeItem('Demail');
-    setShowModal(false);
-    navigate('/');
-  };
-
-  const isLoggedIn = localStorage.getItem('login');
-  const dlogi = localStorage.getItem('Dlogin');
-
-  // const [users, setUsers] = useState([]);
-  useEffect(() => {
-      console.log(localStorage.getItem('Demail'));
-      console.log(localStorage.getItem('email'));
-  }, []); 
-
-
+const Asidebar = () => {
   const [sidebar, setSidebar] = useState(false);
 
   const navigate = useNavigate();
@@ -102,17 +76,21 @@ const Sidebar = () => {
   }
 }, [sidebar]); 
 
+  const [showModal, setShowModal] = useState(false);
+
+  const handleCloseModal = () => setShowModal(false);
+
+  const handleLogout = () => {
+    localStorage.removeItem('adminlogin'); 
+    navigate('/');
+    window.location.reload();
+  };
+
   const logout = () => {
     setShowModal(true);
   };
-
-  const login = () => {
-    navigate('/Login');
-  };
-
   return (
     <>
-    
     
       <IconContext.Provider value={{ color: "black" }}>
         <div id="mydiv" className="mydiv">
@@ -125,52 +103,25 @@ const Sidebar = () => {
              <img className="d-block w-100" src={imagelogo} style={{width:'40px',height:'40px'}} />
           </div>
 
-          <h2 style={{ textAlign: "center", marginLeft: "20px", color: "white" }}> Fundpeti </h2>
-          
-          {isLoggedIn || dlogi ? (
-            <button type="submit" onClick={logout} className="btn btn-primary btn-lg" name="submit"  style={{ background:'white',color:'blue', position: "absolute", right: '50px', width: '100px',height:'40px',fontSize:'12pt' }}>Logout</button>
-          ) : (
-          <>
-            <button type="submit" onClick={login} className="btn btn-primary btn-lg" name="submit"  style={{ background:'white',color:'blue', position: "absolute", right: '50px', width: '100px',height:'40px',fontSize:'12pt' }}>Login</button>
-            
-            </>
-          )}
-        </Nav>
+          <h2
+            style={{ textAlign: "center",
+                     marginLeft: "10px",
+                     color: "white" }}
+          >
+            Fundpeti
+          </h2>
 
+            <button type="submit" onClick={logout} className="btn btn-primary btn-lg" name="submit"  style={{ background:'white',color:'blue', position: "absolute", right: '50px', width: '100px',height:'40px',fontSize:'12pt' }}>Logout</button>
+        </Nav>
         </div>
         <SidebarNav sidebar={sidebar}>
-          <SidebarWrap>
+          <SidebarWrap> 
             <NavIcon to="#">
               <AiIcons.AiOutlineClose onClick={showSidebar} />
             </NavIcon>
-            
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center',marginBottom: '20px' }}>
-              <img src="https://static.vecteezy.com/system/resources/previews/005/276/776/original/logo-icon-person-on-white-background-free-vector.jpg" style={{width:'70px',height:'70px',borderRadius:'50%',objectFit:'cover',boxShadow:'  0px 5px 10px 0px rgba(0, 0, 0, 0.5)'}}></img>
-            </div><br/><br/>
-
-            <div>
-
-            <div  style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '20px' }} >
-            {isLoggedIn || dlogi ? (
-              <>
-              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '20px', background:'white',height:'40px', borderRadius:'10px',width:'90%',boxShadow:'  0px 5px 10px 0px rgba(0, 0, 0, 0.5)'}}>
-                   <p>{localStorage.getItem('email')}</p>  
-                   <p>{localStorage.getItem('Demail')}</p>   
-              </div>    
-              </> 
-            ) : (
-              <>
-                    <button type="submit" onClick={login} className="btn btn-primary btn-lg" name="submit"  style={{ background:'white',color:'blue', position: "absolute", right: '60px', width: '100px',height:'40px',fontSize:'12pt'}}>Login</button>   
-                    <br/><br/>
-                  </>
-            )}
-            </div>
-            
-            {SidebarData.map((item, index) => {
-              return <SubMenu item={item} key={index} />;
+            {ASidebarData.map((item, index) => {
+              return <ASubMenu item={item} key={index} />;
             })}
-            </div>
-
           </SidebarWrap>
         </SidebarNav>
       </IconContext.Provider>
@@ -190,9 +141,8 @@ const Sidebar = () => {
          
         </Modal.Footer>
       </Modal>
-       
     </>
   );
 };
  
-export default Sidebar;
+export default Asidebar;

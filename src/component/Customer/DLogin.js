@@ -3,10 +3,19 @@ import { useNavigate } from 'react-router-dom';
 import { useState,useEffect } from "react";
 import axios from 'axios';
 import {useForm} from "react-hook-form";
+import { Button, Modal } from 'react-bootstrap';
 
 
 export default function DLogin  (){
   const { register, formState: {errors},handleSubmit } = useForm();
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    navigate('/');
+  }
+
   const navigate = useNavigate();
   const [users, setUsers] = useState({
     email:"",
@@ -14,8 +23,17 @@ export default function DLogin  (){
   })
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [log, setLog] = useState(false);
+
   useEffect(() => {
     const loginStatus = localStorage.getItem('Dlogin');
+    const logstatus = localStorage.getItem('login');
+
+    if(logstatus ==='true'){
+      setShowModal(true);
+      setLog(true);
+    }
+
     if (loginStatus === 'true') {
       setIsLoggedIn(true);
     }
@@ -30,15 +48,16 @@ export default function DLogin  (){
     // e.preventDefault();
     console.log(users);
 
-    await axios.post("http://localhost/finalYearProject/Dlogin.php",users)
+    await axios.post("http://localhost/finalYearProject/Dlogin.php",users) 
     .then((re)=>{
       console.log(re);
       if(re.data.status =="valid")
       {
         alert("Login successful");
-        setIsLoggedIn(true);
+        setIsLoggedIn(true); 
         localStorage.setItem('Dlogin', 'true');
         console.log(localStorage.setItem('userId',re.data.userId));
+        localStorage.setItem('Demail',re.data.demail);
         navigate(`/verification/${re.data.userId}`);
         
       }
@@ -54,6 +73,23 @@ export default function DLogin  (){
   }
   
     return(
+      <>
+      {log ?(
+       <>
+        <Modal show={showModal} onHide={handleCloseModal}>
+          {/* <Modal.Header >
+            <Modal.Title>Confirm Logout</Modal.Title>
+          </Modal.Header> */}
+          <Modal.Body>Please logout  from current account </Modal.Body>
+          <Modal.Footer>
+            <Button  onClick={handleCloseModal} style={{width:'40%'}}>
+              ok
+            </Button>
+            
+          </Modal.Footer>
+        </Modal>
+      </>
+      ) : (
         <>
         {isLoggedIn ? (
             navigate(`/verification/${localStorage.getItem('userId')}`)
@@ -105,6 +141,8 @@ export default function DLogin  (){
       </div>
         )}
         </>
+      )}
+    </>
     );
 }
 

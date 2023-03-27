@@ -18,7 +18,7 @@ function Verify (){
     }
     return(
         <> 
-        <div id="Login">
+        <div id="Login" style={{marginLeft:'225px'}}>
         <div className="container"> 
         <br/><br/>
         <div className='divTable' style={{ background:'#e9ecef',padding: '30px', borderRadius: '20px', border: '1px solid #ccc', boxShadow: 'inset 10px 10px 10px rgba(0, 0, 0.3, 0.3)',}}>
@@ -29,7 +29,7 @@ function Verify (){
                         <th scope="col">ID</th>
                         <th scope="col">Name</th>
                         <th scope="col">amount</th>
-                        <th scope="col">stage</th>
+                        <th scope="col">status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,16 +38,23 @@ function Verify (){
                             <td>{user.id}</td>
                             <td>{user.name}</td>
                             <td>{user.amount}</td>
-                            <td>{user.stage}</td>
-
+                            <td>{user.status}</td>
                             <td>
                             <Link to={{
                                     pathname: `/pverify/${user.id}`,
                                     state: {
                                         userId: user.id
                                     }
-                                }} style={{marginRight: "10px" ,width:'200px'}} className="btn btn-info">Check record</Link>
+                                }} style={{marginRight: "10px" ,width:'200px'}} className="btn btn-info">Check Verification form</Link>
+                                
+                                 <Link to={{
+                                    pathname: `/UserData/${user.id}`,
+                                    state: {
+                                        userId: user.id
+                                    }
+                                }} style={{marginRight: "10px" ,width:'200px'}} className="btn btn-info">Check user data</Link>
                             </td>
+                            
                         </tr>
                     )}
                 </tbody>

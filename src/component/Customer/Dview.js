@@ -4,19 +4,22 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios"
 
-const CustCard = () => {
+const Dview = () => {
   const [dinput, setdinput] = useState([]);
     useEffect(() => {
         getUsers();
     }, []); 
+
+    const id = localStorage.getItem('userId');
     function getUsers() {
-        axios.get('http://localhost/finalYearProject/dInputView.php').then(function(rese) {
+        axios.get(`http://localhost/finalYearProject/dInputView.php?id=${id}`).then(function(rese) {
             console.log(rese.data);
             setdinput(rese.data);
         });
     }
   return (
     <>
+    <div id='Login' style={{marginLeft:'225px'}}>
             <section className="main-card--cointainer">
             {dinput.map((inputs,key) =>(
                   <div key={key} className="col-lg-12 col-xl-11" >
@@ -29,19 +32,19 @@ const CustCard = () => {
                                   <h3 className="card-title">{inputs.title}</h3>
                                   <span className="card-author subtle">Name:{inputs.name}</span><br/>
                                   <span className="card-description subtle">Amount required : {inputs.amount}</span><br/><br/>
-                                  {/* <span className="card-description subtle">Amount Collected : {inputs.acollected}</span><br/><br/> */}
+                                  <span className="card-description subtle">Amount Collected : {inputs.acollected}</span><br/><br/>
                                   <span className="card-description subtle">
                                     {inputs.discription}
                                   </span>
                                   <br/><br/>
                                   <ProgressBar now={inputs.percentage} label={`${inputs.percentage}%`} />
                                   <br/>
-                                  <Link to={{
+                                  {/* <Link to={{
                                     pathname: `/billing/${inputs.id}`,
                                     state: {
                                         userId: inputs.id
                                     }
-                                }} style={{marginRight: "10px" ,width:'130px',boxShadow:' 0px 5px 5px rgba( 0, 0, 0, 0.5)'}} className="btn btn-info">Donate</Link>
+                                }} style={{marginRight: "10px" ,width:'130px',boxShadow:' 0px 5px 5px rgba( 0, 0, 0, 0.5)'}} className="btn btn-info">Donate</Link> */}
                                 </div>
                           </div>
                           <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
@@ -54,7 +57,8 @@ const CustCard = () => {
         ))}
       </section>
       <br/>
+      </div>
     </>
   );
 };
-export default CustCard;
+export default Dview;

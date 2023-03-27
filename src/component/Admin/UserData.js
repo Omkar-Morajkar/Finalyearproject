@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 // import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from 'axios';
-import { useParams,useNavigate} from 'react-router-dom';
+import { useParams} from 'react-router-dom';
 import {useForm} from "react-hook-form";
 
-function VerifyPerson(){
-  const navigate = useNavigate();
+function UserData(){
+    
     const [dinput, setdinput] = useState([]);
 
     const [ver, setVer] = useState([]);
@@ -27,20 +27,17 @@ function VerifyPerson(){
       const fd = new FormData();
       fd.append('verify',ver);
 
-      await axios.post(`http://localhost/finalYearProject/ver.php?id=${id}`,fd)
-    .then((rss)=>{
-      console.log(rss);
-      if(rss.data.status =="valid")
+      await axios.post(`http://localhost/FinalYearProject/Status.php?id=${id}`,fd)
+    .then((stat)=>{
+      console.log(stat);
+      if(stat.data.status == "valid")
       {
-        alert("Data added successfully");
+        alert("Data updated successfully");
         navigate('/Login');
       }
-      else if(rss.data.status =="invalid")
+      else if(stat.data.status == "invalid")
       {
-        alert("There is some problem");
-      }
-      else if(rss.data.status =="exist"){
-        alert("Account already exist");
+        alert("Failed to update");
       }
       else
       {
@@ -55,7 +52,7 @@ function VerifyPerson(){
 
     
     function getUsers() {
-        axios.get(`http://localhost/FinalYearProject/VerifyPerson.php?id=${id}`).then(function(rese) {
+        axios.get(`http://localhost/FinalYearProject/dInputUserData.php?id=${id}`).then(function(rese) {
             console.log(rese.data);
             setdinput(rese.data);
         });
@@ -70,67 +67,22 @@ function VerifyPerson(){
                    <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                    
                     <div className='vPer'>
-                      ID : 
+                     Name:
                       <hr/>
                     </div>
                     
                     <div className='vPer'>
-                      Name: 
+                      Title: 
                       <hr/>
                     </div>
 
                     <div className='vPer'>
-                    Gender:
+                    Description :
                     <hr/>
-                    </div>
-
-                    <div className='vPer'>
-                    Date of Birth:
-                    <hr/>
-                    </div>
-
-                    <div className='vPer'>
-                    Relation : 
-                    <hr/>
-                    </div>
-
-                    <div className='vPer'>
-                    Mobile number:
-                    <hr/>
-                    </div>
-
-                    <div className='vPer'>
-                    Email:
-                    <hr/>
-                    </div>
-
-                    <div className='vPer'>
-                    Aadhaar:
-                    <hr/>
-                    </div>
-
-                    <div className='vPer'>
-                    Address: 
-                    <hr/>
-                    </div>
-
-                    <div className='vPer'>
-                    Occupation:
-                    <hr/>
-                    </div>
-
-                    <div className='vPer'>
-                    Bank: 
-                    <hr/>
-                    </div>
+                    </div> 
 
                     <div className='vPer'>
                     Amount:
-                    <hr/>
-                    </div>
-
-                    <div className='vPer'>
-                    Money required duration:
                     <hr/>
                     </div>
                     
@@ -138,58 +90,24 @@ function VerifyPerson(){
 
                    <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1"  key={key}>
                     <div className='vPerson'>
-                    {inputs.id}
-                    </div>
-                    <div className='vPerson'>
                     {inputs.name}
                     </div>
 
                     <div className='vPerson'>
-                    {inputs.gender}
+                    {inputs.title}
                     </div>
 
                     <div className='vPerson'>
-                    {inputs.dob}
+                    {inputs.description}
                     </div>
 
                     <div className='vPerson'>
-                    {inputs.relation}
-                    </div>
-
-                    <div className='vPerson'>
-                    {inputs.mno}
-                    </div>
-
-                    <div className='vPerson'>
-                    {inputs.email}
-                    </div>
-
-                    <div className='vPerson'>
-                    {inputs.aadhaar}
-                    </div>
-
-                    <div className='vPerson'>
-                    {inputs.address}
-                    </div>
-
-                    <div className='vPerson'>
-                     {inputs.occupation}
-                    </div>
-
-                    <div className='vPerson'>
-                     {inputs.bank}
-                    </div>
-
-                    <div className='vPerson'>
-                     {inputs.amount}
-                    </div>
-
-                    <div className='vPerson'>
-                     {inputs.stage}
+                    {inputs.amount}
                     </div>
 
                     <form className="mx-1 mx-md-4" onSubmit={handleSubmit( e => submitForm(e))}>
                       <select id="verify" name='verify' style={{width:'100%',height:'60px'}} {...register("verify", {required: true})} onChange={e =>handleChange(e)}>
+                        <option value="" selected disabled>Select status</option>
                         <option value="verified">Verified</option>
                         <option value="not-verified">Not-Verified</option>
                       </select>  
@@ -211,4 +129,4 @@ function VerifyPerson(){
         </>
     )
 }
-export default VerifyPerson;
+export default UserData;

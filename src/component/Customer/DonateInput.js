@@ -1,16 +1,48 @@
 import React from 'react';
 import { useNavigate,useParams } from 'react-router-dom';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from 'axios';
 import {useForm} from "react-hook-form";
 
 function DonateInput(){
 
   const { register, formState: {errors},handleSubmit } = useForm();
-
-  const { id } = useParams();
-
   const navigate = useNavigate();
+  const [dataLoaded, setDataLoaded] = useState(false);
+
+  // const { id } = useParams();
+  const id = localStorage.getItem('userId');
+
+  const [status, setStatus] = useState(null);
+
+  useEffect(() => {
+    fetch(`http://localhost/FinalYearProject/dinputStatusCheck.php?id=${id}`)
+      .then((ab) => ab.json())
+      .then((data) => {
+        setStatus(data.status); 
+        setDataLoaded(true);
+      });
+  }, []);
+
+  if (!dataLoaded) {
+    return null; // Return null or a loading indicator until the data is loaded
+  }
+  
+  if (status === "verified")
+  {
+    navigate(`/dview`);
+  } 
+  else if (status === "not-verified") 
+  {
+    alert("Your form status is pending");
+    navigate('/');
+  } 
+  // else
+  // {
+  //   alert("error ");
+  // }
+
+
   const [nm, setPname] = useState([]);
   const [ti,setTi] = useState([]);
   const [ig,setIg] = useState([null]);
@@ -82,7 +114,7 @@ function DonateInput(){
   }
     return(
         <>
-         <div id='Login'>
+         <div id='Login' style={{marginLeft:'225px'}}>
           <title>Volunteer Sign up form</title>
           <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" />
           <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossOrigin="anonymous" />
@@ -119,7 +151,6 @@ function DonateInput(){
             </form>
           </div>
         </div>
-
         </>
     );
 }

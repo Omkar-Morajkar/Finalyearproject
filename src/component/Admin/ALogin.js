@@ -26,8 +26,10 @@ export default function ALogin  (){
       console.log(al);
       if(al.data.status =="valid")
       {
-        alert("Login successful");
-        navigate('/verification');
+        localStorage.setItem('adminlogin', 'true');
+        // alert("Login successful");
+        navigate('/ListUsers');
+        window.location.reload();
       }
       else if(al.data.status =="invalid")
       {
@@ -43,17 +45,17 @@ export default function ALogin  (){
   
     return(
         <>
-        <div id='Login' style={{marginLeft:"225px"}} >
+        <div id='Login'>
           <section className="vh-100" >
         <div className="container h-100" >
-          <div className="row d-flex justify-content-center align-items-center h-100" >
+          <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-lg-12 col-xl-11" >
-              <div className="card text-black" >
+              <div className="card text-black"  style={{background:'#e9ecef',boxShadow:'  0px 10px 10px rgba(0, 0, 0, 0.5)', borderRadius:'20px', animation: "slideInDown 0.3s ease" }}>
                 <div className="card-body p-md-5" >
                   <div className="row justify-content-center">
                     <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                       <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign In</p>
-                      <form className="mx-1 mx-md-4" onSubmit={ handleSubmit( e => submitForm(e))}>
+                      <form className="mx-1 mx-md-4" onSubmit={ handleSubmit( e => submitForm(e))}> 
                         
                           <div className="form-outline flex-fill mb-0">
                             <input type="email" name="email"  placeholder="Enter email"  value={email} {...register("email", { required:true})}onChange={e =>handleChange(e)}  />
