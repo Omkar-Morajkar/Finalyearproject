@@ -21,7 +21,7 @@ import Donator from "./component/Admin/Donator";
 import Verify from "./component/Admin/Verify";
 import VerifyPerson from "./component/Admin/VerifyPerson";
 import ALogin from "./component/Admin/ALogin";
-
+import Terms from "./component/Customer/Terms";
 
 function App() {
     const id = localStorage.getItem('userId');
@@ -45,6 +45,7 @@ function App() {
             <Route path="/averify" element={<Verify/>}/>
             <Route path="/pverify/:id" element={<VerifyPerson/>}/>
             <Route path="/ALogin" element={<ALogin/>}/>
+            <Route path="/Terms" element={<Terms/>}/>
         </Routes>
     </BrowserRouter>
 );
