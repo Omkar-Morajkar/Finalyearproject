@@ -93,8 +93,8 @@ const Contact = () =>{
           </div>
 
          <textarea id="msgtext" className="textmsg"rows={4}  cols={50} placeholder="enter your message here"  value={message} {...register("message", { required:true,pattern:/^[a-zA-Z0-9\s\.,!?@#\$%\^&\*\(\)-_+=;:'"<>\{\}\[\]\\\/]+$/})} onChange={e =>handleChange(e)}/>
-         <p style={{color:'red'}}>{errors.msgtext?.type === "required" && "Enter message"}</p> 
-            <p style={{color:'red'}}>{errors.textmsg?.type === "pattern" && " you have entered email format"}</p>
+         <p style={{color:'red'}}>{errors.message?.type === "required" && "Enter message"}</p> 
+            <p style={{color:'red'}}>{errors.message?.type === "pattern" && " you have entered email format"}</p>
 
 
           <div className="inputbox message-box"></div>
