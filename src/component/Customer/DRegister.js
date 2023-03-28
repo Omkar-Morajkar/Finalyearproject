@@ -84,11 +84,8 @@ function DRegister(){
                       <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
                       <form className="mx-1 mx-md-4" onSubmit={ handleSubmit( e => submitForm(e))}>
                           <div className="form-outline flex-fill mb-0">
-<<<<<<< HEAD
                             <input type="text" name='Dname' className="form-control"  placeholder="Enter Name" value={Dname} {...register("Dname", { required:true,pattern:/^[A-Za-z]+([-']?[A-Za-z]+)*$/})} onChange={e =>handleChange(e)}/>
-=======
                             <input type="text" name='Dname' className="form-control"  placeholder="Enter Name"  {...register("Dname", { required:true})} onChange={e =>handleChange(e)}/>
->>>>>>> 43ad529e5169db7b5e2b06c2d0252a316af44e3f
                             <p style={{color:'red',fontSize:'13px'}}>{errors.Dname?.type === "required" && "*Enter name"}</p>
                             <p style={{color:'red'}}>{errors.name?.type === "pattern" && "invalid name format"}</p>
 
@@ -100,11 +97,8 @@ function DRegister(){
                           </div>
 
                           <div className="form-outline flex-fill mb-0">
-<<<<<<< HEAD
                             <input type="email" name='Demail' className="form-control"  placeholder="Enter email" value={Demail} {...register("Demail", { required:true,pattern:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/})} onChange={e =>handleChange(e)}/>
-=======
                             <input type="email" name='Demail' className="form-control"  placeholder="Enter email" {...register("Demail", { required:true})} onChange={e =>handleChange(e)}/>
->>>>>>> 43ad529e5169db7b5e2b06c2d0252a316af44e3f
                             <p style={{color:'red',fontSize:'13px'}}>{errors.Demail?.type === "required" && "*Enter email"}</p>
                             <p style={{color:'red'}}>{errors.name?.type === "pattern" && "invalid email format"}</p>
 
