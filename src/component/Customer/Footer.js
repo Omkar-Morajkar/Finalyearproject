@@ -1,5 +1,5 @@
 import React from 'react';
-
+import  './Footer.css';
 const Footer = () => {
     return(
         <>
@@ -22,11 +22,27 @@ const Footer = () => {
                            Contact
                            ph no:9583843920
                            mumbai,India
-                           Flipkart Private Limited is an Indian e-commerce company, headquartered in Bengaluru, and incorporated in Singapore as a private limited company. The company initially focused on online book sales before expanding into other product categories such as consumer electronics, fashion, home essentials, groceries, and lifestyle products.
+                           We are a crowdfunding platform dedicated to connecting people with innovative and inspiring ideas to individuals who believe in making a difference. Our mission is to empower entrepreneurs, creatives, and visionaries to turn their dreams into reality through the power of community and collaboration.
+<br/>
+<div>
+<br/><b>How It Works:</b><br/>
+Our platform provides a simple and efficient way to raise funds for your projects, ideas, or causes. You can create a campaign, set a funding goal, and promote it to your network and beyond. Our user-friendly interface makes it easy for you to share your story, update your supporters, and track your progress in real-time.
+</div>
 
-The service competes primarily with Amazon's Indian subsidiary and domestic rival Snapdeal.[5][6] As of March 2017, Flipkart held a 39.5% market share of India's e-commerce industry.[7] Flipkart has a dominant position in the apparel segment, bolstered by its acquisition of Myntra, and was described as being "neck and neck" with Amazon in the sale of electronics and mobile phones.[8]
+<div class="pos">
+<br/>Trust & Safety:<br/>
+We take the trust and safety of our users very seriously. We use advanced security measures to protect your data and ensure that your donations go directly to the cause you support. Our team reviews every campaign to ensure it meets our guidelines and policies. In case of any issues, we offer dedicated customer support to assist you throughout the process.
+</div>
 
-In August 2018, American retail chain Walmart acquired a 77% controlling stake in Flipkart for US$16 billion, valuing Flipkart at around US$20 billion.[9] Flipkart is valued at $37.6 billion as of 2022.[10] It is planning to go public through a listing in the United States of America in 2023.[1
+<div>
+<br/>Join Our Community:<br/>
+We believe that great things happen when people come together. Join our community of changemakers and support projects that matter to you. Whether you want to contribute financially, share your skills, or spread the word, your support can make a huge difference. Sign up today and start making an impact!
+</div>
+
+
+
+
+Regenerate response
                         </p>
                     </div>
                 </div>
@@ -42,7 +58,7 @@ In August 2018, American retail chain Walmart acquired a 77% controlling stake i
 
 <div class="footer-bottom">
     <div class="container text-right">
-        Sadaka @ copyrights 2015 - by <a href="http://www.ouarmedia.com" target="_blank">Ouarmedia</a>
+       Fund_Peti <a href="http://www.ouarmedia.com" target="_blank">Ouarmedia</a>
     </div>
 </div>
 
