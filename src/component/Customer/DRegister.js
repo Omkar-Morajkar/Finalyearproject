@@ -59,16 +59,20 @@ function DRegister(){
                       <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
                       <form className="mx-1 mx-md-4" onSubmit={ handleSubmit( e => submitForm(e))}>
                           <div className="form-outline flex-fill mb-0">
-                            <input type="text" name='Dname' className="form-control"  placeholder="Enter Name" value={Dname} {...register("Dname", { required:true})} onChange={e =>handleChange(e)}/>
+                            <input type="text" name='Dname' className="form-control"  placeholder="Enter Name" value={Dname} {...register("Dname", { required:true,pattern:/^[A-Za-z]+([-']?[A-Za-z]+)*$/})} onChange={e =>handleChange(e)}/>
                             <p style={{color:'red',fontSize:'13px'}}>{errors.Dname?.type === "required" && "*Enter name"}</p>
+                            <p style={{color:'red'}}>{errors.name?.type === "pattern" && "invalid name format"}</p>
+
                           </div>
                           <div className="form-outline flex-fill mb-0">
                             <input type="tel" id="mobileNo" name='Dnumber' className="form-control" placeholder="Enter Mobile Number" value={Dnumber} {...register("Dnumber", { required:true})} onChange={e =>handleChange(e)}  />
                             <p style={{color:'red',fontSize:'13px'}}>{errors.Dnumber?.type === "required" && "*Please Enter mobile number"}</p>
                           </div>
                           <div className="form-outline flex-fill mb-0">
-                            <input type="email" name='Demail' className="form-control"  placeholder="Enter email" value={Demail} {...register("Demail", { required:true})} onChange={e =>handleChange(e)}/>
+                            <input type="email" name='Demail' className="form-control"  placeholder="Enter email" value={Demail} {...register("Demail", { required:true,pattern:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/})} onChange={e =>handleChange(e)}/>
                             <p style={{color:'red',fontSize:'13px'}}>{errors.Demail?.type === "required" && "*Enter email"}</p>
+                            <p style={{color:'red'}}>{errors.name?.type === "pattern" && "invalid email format"}</p>
+
                           </div>
                           <div className="form-outline flex-fill mb-0">
                             <input type="password"  name='Dpass' className="form-control"  placeholder="Enter password" value={Dpass} {...register("Dpass", { required:true})} onChange={e =>handleChange(e)} />

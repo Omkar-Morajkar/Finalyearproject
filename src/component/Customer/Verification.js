@@ -10,6 +10,22 @@ function Verification() {
   const { register, formState: {errors},handleSubmit } = useForm();
   const navigate = useNavigate();
 
+
+  const [nam, setNam] = useState([]);
+  const [gen, setGen] = useState([]);
+  const [datb, setDatb] = useState([]);
+  const [Rel, setRel] = useState([]);
+  const [mob, setMob] = useState([]);
+  const [eml, seteml] = useState([]);
+  const [aadh, setAadh] = useState([]);
+  const [adr, setAdr] = useState([]);
+  const [occ, setOcc] = useState([]);
+  const [bnk, setBnk] = useState([]);
+  const [amt, setAmt] = useState([]);
+  const [stg, setStg] = useState([]);
+  const [mroc, setMroc] = useState([]);
+  const [bstry, setBstry] = useState([]);
+
   const [status, setStatus] = useState(null);
 
   useEffect(() => {
@@ -33,23 +49,6 @@ function Verification() {
   {
     return alert("Your form is not been viewed by admin ");
   }
-
-  
-
-  const [nam, setNam] = useState([]);
-  const [gen, setGen] = useState([]);
-  const [datb, setDatb] = useState([]);
-  const [Rel, setRel] = useState([]);
-  const [mob, setMob] = useState([]);
-  const [eml, seteml] = useState([]);
-  const [aadh, setAadh] = useState([]);
-  const [adr, setAdr] = useState([]);
-  const [occ, setOcc] = useState([]);
-  const [bnk, setBnk] = useState([]);
-  const [amt, setAmt] = useState([]);
-  const [stg, setStg] = useState([]);
-  const [mroc, setMroc] = useState([]);
-  const [bstry, setBstry] = useState([]);
 
 
   const handleChange = (e) =>{
