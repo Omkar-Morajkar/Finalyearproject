@@ -69,7 +69,7 @@ const Billing = () =>{
                     <h3>Billing Address</h3>
                     <label htmlFor="fname">Full Name</label>
                     <input type="text" id="fname" name="name" placeholder="John M. Doe"  value={name} {...register("name", {required: true,pattern:/^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/})} onChange={e =>handleChange(e)} />
-                    <p style={{color:'red',fontSize:'13px'}}>{errors.name?.type === "required" && "*Enter name"}</p>
+                    <p style={{color:'red',fontSize:'13px'}}>{errors.fname?.type === "required" && "*Enter name"}</p>
                     <p style={{color:'red'}}>{errors.name?.type === "pattern" && "invalid name format"}</p>
 
 

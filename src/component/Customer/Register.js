@@ -57,8 +57,10 @@ const Register = () => {
                       <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
                       <form className="mx-1 mx-md-4" onSubmit={handleSubmit( e => submitForm(e))}>
                           <div className="form-outline flex-fill mb-0">
-                            <input type="text" name="name" className="form-control" placeholder="Enter Name" value={name} {...register("name", { required:true})} onChange={e =>handleChange(e)}/>
-                            <p style={{color:'red',fontSize:'13px'}}>{errors.name?.type === "required" && "*Enter name"}</p>
+                            <input type="text" name="name" className="form-control" placeholder="Enter Name" value={name} {...register("name", { required:true,pattern:/^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/})} onChange={e =>handleChange(e)}/>
+                            <p style={{color:'red',fontSize:'13px'}}>{errors.name?.type === "pattern" && "*Enter name"}</p>
+                            <p style={{color:'red'}}>{errors.name?.type === "pattern" && "invalid name format"}</p>
+
                           </div>
                           <div className="form-outline flex-fill mb-0">
                             <input type="tel" name="mobile" className="form-control" placeholder="Enter Mobile Number" value={mobile} {...register("mobile", { required:true})} onChange={e =>handleChange(e)} />

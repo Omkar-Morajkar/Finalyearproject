@@ -5,6 +5,10 @@ import axios from 'axios';
 import {useForm} from "react-hook-form";
 
 function DonateInput(){
+  const [nm, setPname] = useState([]);
+  const [ti,setTi] = useState([]);
+  const [ig,setIg] = useState([null]);
+  const [dis,setDis]=useState([]);
 
   const { register, formState: {errors},handleSubmit } = useForm();
   const navigate = useNavigate();
@@ -42,11 +46,6 @@ function DonateInput(){
   //   alert("error ");
   // }
 
-
-  const [nm, setPname] = useState([]);
-  const [ti,setTi] = useState([]);
-  const [ig,setIg] = useState([null]);
-  const [dis,setDis]=useState([]);
 
   const handleChange = (e) =>{
     const target = e.target;
