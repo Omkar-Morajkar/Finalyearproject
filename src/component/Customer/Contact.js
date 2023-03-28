@@ -87,7 +87,7 @@ const Contact = () =>{
           </div>
           <div className="inputbox">
             
-            <input type="email" id="email" name="email"   placeholder="Enter your email" value={email} {...register("email", { required:true,pattern:/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/})} onChange={e =>handleChange(e)}  />
+            <input type="email" id="emails" name="email"   placeholder="Enter your email" value={email} {...register("email", { required:true,pattern:/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/})} onChange={e =>handleChange(e)}  />
             <p style={{color:'red'}}>{errors.email?.type === "required" && "Enter email"}</p> 
             <p style={{color:'red'}}>{errors.email?.type === "pattern" && " you have entered wrong  email format"}</p>
           </div>
