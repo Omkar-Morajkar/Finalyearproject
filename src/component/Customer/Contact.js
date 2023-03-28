@@ -96,7 +96,7 @@ const Contact = () =>{
          <p style={{color:'red'}}>{errors.message?.type === "required" && "Enter message"}</p> 
             <p style={{color:'red'}}>{errors.message?.type === "pattern" && " you have entered wrong message format"}</p>
 
-         <textarea id="msgtext" class="textmsg"rows={4}  cols={50} placeholder="enter your message here"/>
+         
 
           <div className="inputbox message-box"></div>
           <div className="button">
