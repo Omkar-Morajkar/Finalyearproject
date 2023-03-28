@@ -4,7 +4,7 @@ import imagelogo from '../Images/project.png';
 const Contact = () =>{
     return(
         <>
-         <div id='Login'>
+         <div id='Login' style={{marginLeft:'225px'}}>
             <div className="card">
   <div className="containerr">
     <div className="contentt">
@@ -50,8 +50,6 @@ const Contact = () =>{
           </div>
 
          <textarea id="msgtext" class="textmsg"rows={4}  cols={50} placeholder="enter your message here"/>
-
-
 
           <div className="inputbox message-box"></div>
           <div className="button">
