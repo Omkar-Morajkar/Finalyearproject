@@ -5,7 +5,7 @@ import { useNavigate, useParams} from 'react-router-dom';
 import { useState } from "react";
 import axios from 'axios';
 import {useForm} from "react-hook-form";
-import ThankYou from './ThankYou';
+import ThankYou from '../Customer/ThankYou';
 
 const Billing = () =>{
   const { id } = useParams();
@@ -39,14 +39,16 @@ const Billing = () =>{
       console.log(rs);
       if(rs.data.status =="valid")
       {
-        alert("payment successful");
+        // alert("payment successful");
         setPaymentSuccessful(true);
         // navigate('/Donate');
-
       }
       else if(rs.data.status =="invalid")
       {
         alert("payment failed");
+      }
+      else if(rs.data.status =="full"){
+        alert("Amount required is already collected");
       }
       else
       {
@@ -60,7 +62,7 @@ const Billing = () =>{
      {paymentSuccessful ? (
         <ThankYou/>
       ) : (
-    <div id='Login' >
+    <div id='Login' style={{marginLeft:'225px'}}>
         <div className="col-75" >
             <div className="Bcontainer" style={{background:'#e9ecef',boxShadow:'  0px 10px 10px rgba(0, 0, 0, 0.5)', borderRadius:'20px', animation: "popup 0.3s ease" }}>
             <form action="/action_page.php" onSubmit={handleSubmit( e => submitForm(e))}>
@@ -102,7 +104,7 @@ const Billing = () =>{
                 <div className="col-50">
                     <h3>Payment</h3>
                     <label htmlFor="cards">Enter Card Details</label>
-                    <img src={cardLogo} alt="card"/><br/><br/><br/>
+                    <img src={cardLogo} alt="card"/><br/><br/><br/><br/>
 
                     <label htmlFor="cname">Name on Card</label>
                     <input type="text" id="cname" name="cname" placeholder="John More Doe"  value={cname} {...register("cname", {required: true,pattern:/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/})} onChange={e =>handleChange(e)}/>

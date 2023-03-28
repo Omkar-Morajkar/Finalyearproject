@@ -53,7 +53,7 @@ export default function DLogin  (){
       console.log(re);
       if(re.data.status =="valid")
       {
-        alert("Login successful");
+        // alert("Login successful");
         setIsLoggedIn(true); 
         localStorage.setItem('Dlogin', 'true');
         console.log(localStorage.setItem('userId',re.data.userId));

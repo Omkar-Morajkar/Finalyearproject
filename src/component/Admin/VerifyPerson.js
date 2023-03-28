@@ -28,19 +28,15 @@ function VerifyPerson(){
       fd.append('verify',ver);
 
       await axios.post(`http://localhost/finalYearProject/ver.php?id=${id}`,fd)
-    .then((rss)=>{
-      console.log(rss);
-      if(rss.data.status =="valid")
+    .then((answer)=>{
+      console.log(answer.data.status);
+      if(answer.data.status =="valid")
       {
-        alert("Data added successfully");
-        navigate('/Login');
+        alert("Data updated successfully");
       }
-      else if(rss.data.status =="invalid")
+      else if(answer.data.status =="invalid")
       {
-        alert("There is some problem");
-      }
-      else if(rss.data.status =="exist"){
-        alert("Account already exist");
+        alert("Invalid");
       }
       else
       {

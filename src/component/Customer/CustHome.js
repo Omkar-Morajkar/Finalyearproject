@@ -14,45 +14,49 @@ const CustHome = ()=>{
     return(
     <>
 		<div id="mainHome" style={{margintop:'60px'}}>
-		<Carousel>
-          <Carousel.Item>
-            <img
-              className="d-block w-100 animate__animated animate__fadeIn"
-              src={img1}
-              alt="First slide"
-            />
-            <Carousel.Caption>
-              <h1 class="carousel-title animate__animated animate__fadeIn slow">
-                Because they need your help
-              </h1>
-              <h4 class="carousel-subtitle bounceInUp animated slow">
-                Do not let them down
-              </h4>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100 animate__animated animate__fadeIn"
-              src={img2}
-              alt="Second slide"
-            />
-            <Carousel.Caption>
-              <h1>Together we can save their lives</h1>
-              <h4>So let's do it!</h4>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100 animate__animated animate__fadeIn"
-              src={img3}
-              alt="Third slide"
-            />
-            <Carousel.Caption>
-              <h1>Your kindness and generosity can transform lives. </h1>
-              <h3>Donate now.</h3>
-            </Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
+		 <Carousel>
+      <Carousel.Item>
+        <img
+          className="d-block w-100 animate__animated animate__fadeInRight"
+          src={img1}
+          alt="First slide"
+        />
+        <Carousel.Caption className="animate__animated animate__fadeInDown animate__delay-1s">
+			<h1 className="carousel-title">Because they need your help</h1> <br/><br/>
+		</Carousel.Caption>
+		<Carousel.Caption className="animate__animated animate__fadeInUp animate__delay-1s">
+          <h4 className="carousel-subtitle">Do not let them down</h4>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100 animate__animated animate__fadeInRight"
+          src={img2}
+          alt="Second slide"
+        />
+        <Carousel.Caption className="animate__animated animate__fadeInDown animate__delay-1s">
+          <h1 className="carousel-title">Together we can save their lives</h1><br/><br/>
+		  </Carousel.Caption>
+		  <Carousel.Caption className="animate__animated animate__fadeInUp animate__delay-1s">
+          <h4 className="carousel-subtitle">So let's do it!</h4>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100 animate__animated animate__fadeInRight"
+          src={img3}
+          alt="Third slide"
+        />
+		 <Carousel.Caption className="animate__animated animate__fadeInDown animate__delay-1s">
+		 <h1 className="carousel-title">
+            Your kindness and generosity can transform lives.
+          </h1> <br/><br/>
+		</Carousel.Caption>
+		<Carousel.Caption className="animate__animated animate__fadeInUp animate__delay-1s">
+			<h4 className="carousel-subtitle">Donate now.</h4>
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
 		</div>
         
 		<div class="section-home about-us fadeIn animated">

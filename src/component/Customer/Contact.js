@@ -42,7 +42,7 @@ const Contact = () =>{
 
     return(
         <>
-         <div id='Login'>
+         <div id='Login' style={{marginLeft:'225px'}}>
             <div className="card">
   <div className="containerr">
     <div className="contentt">
@@ -92,10 +92,14 @@ const Contact = () =>{
             <p style={{color:'red'}}>{errors.email?.type === "pattern" && " you have entered wrong  email format"}</p>
           </div>
 
+<<<<<<< HEAD
          <textarea id="msgtext" className="textmsg"rows={4}  cols={50} placeholder="enter your message here"  value={message} {...register("message", { required:true,pattern:/^[a-zA-Z0-9\s\.,!?@#\$%\^&\*\(\)-_+=;:'"<>\{\}\[\]\\\/]+$/})} onChange={e =>handleChange(e)}/>
          <p style={{color:'red'}}>{errors.message?.type === "required" && "Enter message"}</p> 
             <p style={{color:'red'}}>{errors.message?.type === "pattern" && " you have entered wrong message format"}</p>
 
+=======
+         <textarea id="msgtext" class="textmsg"rows={4}  cols={50} placeholder="enter your message here"/>
+>>>>>>> 43ad529e5169db7b5e2b06c2d0252a316af44e3f
 
           <div className="inputbox message-box"></div>
           <div className="button">

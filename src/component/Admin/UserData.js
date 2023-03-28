@@ -89,21 +89,21 @@ function UserData(){
                    </div>
 
                    <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1"  key={key}>
-                    <div className='vPerson'>
-                    {inputs.name}
-                    </div>
+                    {/* <div className='vPerson'> */}
+                    <input type='text' value={inputs.name}/>
+                    {/* </div> */}
 
-                    <div className='vPerson'>
-                    {inputs.title}
-                    </div>
+                    {/* <div className='vPerson'> */}
+                    <input type='text' value={inputs.title}/>
+                    {/* </div> */}
 
-                    <div className='vPerson'>
-                    {inputs.description}
-                    </div>
+                    {/* <div className='vPerson'> */}
+                    <input type='text' value={inputs.discription}/>
+                    {/* </div> */}
 
-                    <div className='vPerson'>
-                    {inputs.amount}
-                    </div>
+                    {/* <div className='vPerson'> */}
+                    <input type='number' value={inputs.amount}/>
+                    {/* </div> */}
 
                     <form className="mx-1 mx-md-4" onSubmit={handleSubmit( e => submitForm(e))}>
                       <select id="verify" name='verify' style={{width:'100%',height:'60px'}} {...register("verify", {required: true})} onChange={e =>handleChange(e)}>

@@ -55,7 +55,7 @@ const Login = () => {
       console.log(resp);
       if(resp.data.status =="valid")
       {
-        alert("Login successful");
+        // alert("Login successful");
         setIsLoggedIn(true);
         localStorage.setItem('login', 'true');
         localStorage.setItem('userId',resp.data.userId);
