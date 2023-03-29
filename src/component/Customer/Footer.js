@@ -14,6 +14,7 @@ const Footer = () => {
         <>
 
 <footer class="main-footer">
+  <div className='footer-top'></div>
 <div class="footer-main">
     <div class="container">  
         <div class="row">
