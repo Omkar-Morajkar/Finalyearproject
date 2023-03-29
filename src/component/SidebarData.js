@@ -56,4 +56,9 @@ export const SidebarData = [
     path: "/Contact",
     icon: <FaIcons.FaPhone />,
   },
+  {
+    title: "Support",
+    path: "/Support",
+    icon: <FaIcons.FaPhone />,
+  },
 ];

@@ -82,12 +82,12 @@ const Contact = () =>{
           <div className="inputbox">
           <input type="text" id="fname"  name="name" placeholder="Enter name" style={{boxShadow:' 0px 5px 5px rgba(0, 0, 0, 0.5)'}} value={fname} {...register("fname", { required:true,pattern:/^[A-Za-z]+(([',. -][A-Za-z ])?[A-Za-z]*)*$/})} onChange={e =>handleChange(e)} />
           <p style={{color:'red'}}>{errors.fname?.type === "required" && "Enter name"}</p> 
-          <p style={{color:'red'}}>{errors.fname?.type === "pattern" && " you have entered email format"}</p>
+          <p style={{color:'red'}}>{errors.fname?.type === "pattern" && " you have entered wrong name format"}</p>
 
           </div>
           <div className="inputbox">
             
-            <input type="email" id="emails" name="email"   placeholder="Enter your email" value={email} {...register("email", { required:true,pattern:/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/})} onChange={e =>handleChange(e)}  />
+            <input type="email" id="email" className="email"   placeholder="Enter your email" value={email} {...register("email", { required:true,pattern:/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/})} onChange={e =>handleChange(e)}  />
             <p style={{color:'red'}}>{errors.email?.type === "required" && "Enter email"}</p> 
             <p style={{color:'red'}}>{errors.email?.type === "pattern" && " you have entered wrong  email format"}</p>
           </div>

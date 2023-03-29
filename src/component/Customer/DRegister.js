@@ -14,6 +14,7 @@ function DRegister(){
   const [dno,setDno] = useState([]);
   const [deml,setDeml] = useState([]);
   const [dpass,setPass] = useState([]);
+  const [conpass, setConpass] = useState([]);
   const [daadhaar,setaadhaar] = useState([]);
 
   const handleChange = (e) =>{
@@ -32,11 +33,21 @@ function DRegister(){
     if (name === 'Dpass') {
       setPass(e.target.value);
     }
+    if (name === 'cpass'){
+      setConpass(e.target.value);
+    }
     if (name === 'Daadhar') {
       setaadhaar(e.target.files[0]);
     }
   }
   const submitForm = async(e) =>{
+    console.log(dpass);
+    console.log(conpass);
+
+    if(dpass != conpass){
+      alert("Password does not match");
+    }
+    else{
    
     const fd = new FormData();
     fd.append('Dname',Dnm);
@@ -69,6 +80,7 @@ function DRegister(){
       }
     })
   }
+  }
 
     return(
         <>
@@ -85,32 +97,34 @@ function DRegister(){
                       <form className="mx-1 mx-md-4" onSubmit={ handleSubmit( e => submitForm(e))}>
                           <div className="form-outline flex-fill mb-0">
                            
-                            <input type="text" name='Dname' className="form-control"  placeholder="Enter Name"  {...register("Dname", { required:true})} onChange={e =>handleChange(e)}/>
+                            <input type="text" name='Dname' className="form-control"  placeholder="Enter Name"  {...register("Dname", { required:true,pattern: /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/})} onChange={e =>handleChange(e)}/>
                             <p style={{color:'red',fontSize:'13px'}}>{errors.Dname?.type === "required" && "*Enter name"}</p>
-                            <p style={{color:'red'}}>{errors.name?.type === "pattern" && "invalid name format"}</p>
+                            <p style={{color:'red'}}>{errors.Dname?.type === "pattern" && "invalid name format"}</p>
 
                           </div>
 
                           <div className="form-outline flex-fill mb-0">
-                            <input type="tel" name='Dnumber' className="form-control" placeholder="Enter Mobile Number"  {...register("Dnumber", { required:true})} onChange={e =>handleChange(e)}  />
+                            <input type="tel" name='Dnumber' className="form-control" placeholder="Enter Mobile Number (eg +919730658857)"  {...register("Dnumber", { required:true,pattern:/((\+*)((0[ -]*)*|((91 )*))((\d{12})+|(\d{10})+))|\d{5}([- ]*)\d{6}/})} onChange={e =>handleChange(e)}  />
                             <p style={{color:'red',fontSize:'13px'}}>{errors.Dnumber?.type === "required" && "*Please Enter mobile number"}</p>
+                            <p style={{color:'red'}}>{errors.Dnumber?.type === "pattern" && "invalid phone number format"}</p>
                           </div>
 
                           <div className="form-outline flex-fill mb-0">
                             
-                            <input type="email" name='Demail' className="form-control"  placeholder="Enter email" {...register("Demail", { required:true})} onChange={e =>handleChange(e)}/>
+                            <input type="email" name='Demail' className="form-control"  placeholder="Enter email" {...register("Demail", { required:true,pattern:/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/})} onChange={e =>handleChange(e)}/>
                             <p style={{color:'red',fontSize:'13px'}}>{errors.Demail?.type === "required" && "*Enter email"}</p>
-                            <p style={{color:'red'}}>{errors.name?.type === "pattern" && "invalid email format"}</p>
+                            <p style={{color:'red'}}>{errors.Demail?.type === "pattern" && "invalid email format"}</p>
 
                           </div>
 
                           <div className="form-outline flex-fill mb-0">
-                            <input type="password"  name='Dpass' className="form-control"  placeholder="Enter password"  {...register("Dpass", { required:true})} onChange={e =>handleChange(e)} />
+                            <input type="password"  name='Dpass' className="form-control"  placeholder="Enter password"  {...register("Dpass", { required:true,pattern:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/})} onChange={e =>handleChange(e)} />
                             <p style={{color:'red',fontSize:'13px'}}>{errors.Dpass?.type === "required" && "*Enter password"}</p>
+                            <p style={{color:'red'}}>{errors.Dpass?.type === "pattern" && "invalid password format"}</p>
                           </div>
 
                           <div className="form-outline flex-fill mb-0">
-                            <input type="password" name='cpass' className="form-control"  placeholder="Confirm password" {...register("cpass", { required:true})} />
+                            <input type="password" name='cpass' className="form-control"  placeholder="Confirm password" {...register("cpass", { required:true,pattern:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/})} onChange={e =>handleChange(e)}/>
                             <p style={{color:'red',fontSize:'13px'}}>{errors.cpass?.type === "required" && "Please confirm your password"}</p>
                           </div>
 
@@ -118,6 +132,8 @@ function DRegister(){
                           <label for="Daadhar" className="form-label">Upload Aadharcard</label>
                             <input  type="file" name='Daadhar' className="form-control"  {...register("Daadhar", { required:true})} onChange={e =>handleChange(e)}/>
                             <p style={{color:'red',fontSize:'13px'}}>{errors.Daadhar?.type === "required" && "Enter Addharcard "}</p>
+
+
                           </div>
                         <div className="form-check d-flex justify-content-center mb-5">
                           <label className="form-check-label" htmlFor="form2Example3">

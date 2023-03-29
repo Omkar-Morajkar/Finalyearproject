@@ -21,6 +21,7 @@ import Verify from "./component/Admin/Verify";
 import VerifyPerson from "./component/Admin/VerifyPerson";
 import ALogin from "./component/Admin/ALogin";
 import Terms from "./component/Customer/Terms";
+import Support from "./component/Customer/Support";
 
 function App() {
     const id = localStorage.getItem('userId');
@@ -44,6 +45,7 @@ function App() {
             <Route path="/pverify/:id" element={<VerifyPerson/>}/>
             <Route path="/ALogin" element={<ALogin/>}/>
             <Route path="/Terms" element={<Terms/>}/>
+            <Route path="/Support" element={<Support/>}/>
         </Routes>
     </BrowserRouter>
 );
