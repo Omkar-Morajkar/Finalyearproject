@@ -3,6 +3,7 @@ import "bootstrap/dist/js/bootstrap.bundle";
 import './App.css';
 import { BrowserRouter,Route, Routes } from 'react-router-dom';
 import React from 'react';
+import { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Register from "./component/Customer/Register";
 import Login from "./component/Customer/Login";
@@ -22,12 +23,28 @@ import VerifyPerson from "./component/Admin/VerifyPerson";
 import ALogin from "./component/Admin/ALogin";
 import Terms from "./component/Customer/Terms";
 import ThankYou from "./component/Customer/ThankYou";
+import Asidebar from "./component/Admin/Asidebar";
 
 function App() {
-    const id = localStorage.getItem('userId');
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    
+    useEffect(() => {
+      // check if the user is logged in
+      const admin = localStorage.getItem('adminlogin');
+      if (admin) {
+        setIsLoggedIn(true);
+      }
+    }, []);
+  
+    function handleLogout() {
+      // clear localStorage and log the user out
+      localStorage.clear();
+      setIsLoggedIn(false);
+    }
+
   return(
     <BrowserRouter>
-        <Sidebar/>
+       {isLoggedIn ? <Asidebar handleLogout={handleLogout} /> : <Sidebar />}
         <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/Register" element={<Register/>} />
