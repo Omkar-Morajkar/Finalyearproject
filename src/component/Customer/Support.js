@@ -6,7 +6,7 @@ function Support(){
     return(
         
            <>
-            <div id="Login" style={{marginLeft:'225px',marginTop:'40px'}} className="d-flex justify-content-center align-items-center">
+            <div id="Login" style={{marginLeft:'225px',marginTop:'40px'}} >
   <title>Tutorial</title>
   
   <link rel="stylesheet" type="text/css" href="style.css" />
@@ -197,7 +197,7 @@ function Support(){
           The platform may send a response to your email address, so make sure
           to check your email regularly.
         </ul>
-        <a href="#">contact us Page</a>
+        <a href="/Contact">contact us Page</a>
       </div>
       <div className="Billing">
         <h2>Billing Tutorials</h2>
