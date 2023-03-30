@@ -9,7 +9,7 @@ function UserFeedback() {
         getUsers();
     }, []); 
     function getUsers() {
-        axios.get('http://localhost/FinalYearProject/view.php').then(function(response) {
+        axios.get('http://localhost/FinalYearProject/UserFeedback.php').then(function(response) {
             console.log(response.data);
             setUsers(response.data);
         });
