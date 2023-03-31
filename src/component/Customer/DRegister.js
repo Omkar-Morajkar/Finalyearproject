@@ -130,7 +130,7 @@ function DRegister(){
 
                           <div className="form-outline flex-fill mb-0">
                           <label for="Daadhar" className="form-label">Upload Aadharcard</label>
-                            <input  type="file" name='Daadhar' className="form-control"  {...register("Daadhar", { required:true})} onChange={e =>handleChange(e)}/>
+                            <input  type="file" name='Daadhar' className="form-control" accept="application/pdf" {...register("Daadhar", { required:true})} onChange={e =>handleChange(e)}/>
                             <p style={{color:'red',fontSize:'13px'}}>{errors.Daadhar?.type === "required" && "Enter Addharcard "}</p>
 
 

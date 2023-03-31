@@ -25,6 +25,9 @@ import Terms from "./component/Customer/Terms";
 import Support from "./component/Customer/Support";
 import ThankYou from "./component/Customer/ThankYou";
 import Asidebar from "./component/Admin/Asidebar";
+import UserFeedback from "./component/Admin/UserFeedback";
+import Dusers from       "./component/Admin/Dusers";
+
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -65,6 +68,8 @@ function App() {
             <Route path="/Terms" element={<Terms/>}/>
             <Route path="/Support" element={<Support/>}/>
             <Route path="/thankYou" element={<ThankYou/>}/>
+            <Route path="/UserFeedback" element={<UserFeedback/>}/>
+            <Route path="/Dusers" element={<Dusers/>}/>
         </Routes>
     </BrowserRouter>
 );

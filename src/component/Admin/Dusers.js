@@ -3,13 +3,13 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 
-function UserFeedback() {
+function Dusers() {
     const [users, setUsers] = useState([]);
     useEffect(() => {
         getUsers();
     }, []); 
     function getUsers() {
-        axios.get('http://localhost/FinalYearProject/UserFeedback.php').then(function(response) {
+        axios.get('http://localhost/FinalYearProject/needdonator.php').then(function(response) {
             console.log(response.data);
             setUsers(response.data);
         });
@@ -25,15 +25,16 @@ function UserFeedback() {
                     <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Message</th>
+                        <th scope="col">number</th>
+                       
                     </tr>
                 </thead>
                 <tbody>
                     {users.map((user, key) =>
                         <tr key={key}>
-                            <td>{user.name}</td>
-                            <td>{user.email}</td>
-                            <td>{user.message}</td>
+                            <td>{user.Dname}</td>
+                            <td>{user.Demail}</td>
+                            <td>{user.Dnumber}</td>
                         </tr>
                     )}
                 </tbody>
@@ -44,4 +45,4 @@ function UserFeedback() {
         </>
     )
 }
-export default UserFeedback;
+export default Dusers;

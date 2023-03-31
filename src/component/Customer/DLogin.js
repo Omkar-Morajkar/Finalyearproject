@@ -101,6 +101,7 @@ export default function DLogin  (){
           <div className="row d-flex justify-content-center align-items-center h-100" >
             <div className="col-lg-12 col-xl-11" >
               <div className="card text-black"  style={{background:'#e9ecef',boxShadow:' 0px 10px 10px rgba(0, 0, 0, 0.5)', borderRadius:'20px',marginTop:'30px',marginBottom:'30px'}}>
+                
                 <div className="card-body p-md-5" >
                   <div className="row justify-content-center">
                     <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
