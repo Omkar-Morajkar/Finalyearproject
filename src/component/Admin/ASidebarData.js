@@ -27,11 +27,14 @@ export const ASidebarData = [
     // icon: <AiIcons.AiOutlineLogin />,
     // iconClosed: <RiIcons.RiArrowDownSFill />,
     // iconOpened: <RiIcons.RiArrowUpSFill />,
-
   }, 
+  
+
   {
-    title: "Contact",
-    path: "/Contact",
-    icon: <FaIcons.FaPhone />,
-  },
+    title: "User Feedbacks",
+    path: "/UserFeedback",
+    // icon: <AiIcons.AiOutlineLogin />,
+    // iconClosed: <RiIcons.RiArrowDownSFill />,
+    // iconOpened: <RiIcons.RiArrowUpSFill />,
+  }, 
 ];
