@@ -38,4 +38,15 @@ export const ASidebarData = [
     // iconClosed: <RiIcons.RiArrowDownSFill />,
     // iconOpened: <RiIcons.RiArrowUpSFill />,
   }, 
+
+  {
+    title: "Donator User",
+    path: "/Dusers",
+    // icon: <AiIcons.AiOutlineLogin />,
+    // iconClosed: <RiIcons.RiArrowDownSFill />,
+    // iconOpened: <RiIcons.RiArrowUpSFill />,
+  }, 
+
+
+
 ];
