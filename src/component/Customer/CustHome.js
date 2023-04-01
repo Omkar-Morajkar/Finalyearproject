@@ -8,9 +8,10 @@ import logo2 from '../Logo/make-donation-icon.png';
 import logo3 from '../Logo/help-icon.png';
 import logo4 from '../Logo/programs-icon.png';
 import 'animate.css/animate.min.css';
+import { useNavigate } from 'react-router-dom';
 
 const CustHome = ()=>{
-    
+	const navigate = useNavigate();
     return(
     <>
 		<div id="mainHome" style={{margintop:'60px'}}>
@@ -74,7 +75,7 @@ const CustHome = ()=>{
 				  <p>To know more details about fundpeti.com,
 					click more</p> 
 				</div>
-				<a href="#" class="btn btn-primary"> Read more </a>
+			<button class="btn btn-primary"> Read more </button>
 			</div>
 		</div>
 
@@ -87,7 +88,9 @@ const CustHome = ()=>{
 				<div class="col-details">
 				  <p>Alone we can do so little ;together we can do so much So lets donate together</p>
 				</div>
-				<a href="#" class="btn btn-primary"> Read more </a>
+				<button onClick={() => navigate('/DLogin')} class="btn btn-primary"	>
+ click here
+</button>
 			</div> 
 		</div>
 
