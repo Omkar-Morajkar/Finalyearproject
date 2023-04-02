@@ -79,7 +79,7 @@ const CustHome = ()=>{
 			</div>
 		</div>
 
-		<div class="col-md-3 col-sm-6" >
+		<div class="col-md-3 col-sm-6"  >
 			<div class="about-us-col" style={{boxShadow:'inset 0px 10px 10px rgba(0, 0, 0, 0.5)'}}>
 				<div class="col-icon-wrapper">
 				  <img src={logo2} alt=""/>
@@ -88,7 +88,7 @@ const CustHome = ()=>{
 				<div class="col-details">
 				  <p>Alone we can do so little ;together we can do so much So lets donate together</p>
 				</div>
-				<button onClick={() => navigate('/DLogin')} class="btn btn-primary"	>
+				<button onClick={() => navigate('/DLogin')} className="btn btn-primary"	>
  click here
 </button>
 			</div> 
@@ -102,10 +102,10 @@ const CustHome = ()=>{
 				</div>
 				<h3 class="col-title">Help & support</h3>
 				<div class="col-details">
-					<p>For queries related to donations,
-						Please contact us to discuss your needs</p>  
+					<p>For queries related to donations,login ,register click on the button below
+						</p>  
 				</div>
-				<a href="#" class="btn btn-primary"> Read more </a>
+				<button onClick={() => navigate('/Support')} className="btn btn-primary"> click here</button>
 			</div>
 		</div>
 
