@@ -4,6 +4,7 @@ import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
 import * as RiIcons from "react-icons/ri";
 import * as BiIcons from "react-icons/bi";
+import * as VscIcons from "react-icons/vsc";
  
 export const ASidebarData = [
   {
@@ -25,7 +26,7 @@ export const ASidebarData = [
   {
     title: "check Donator",
     path: "/Donator",
-    // icon: <AiIcons.AiOutlineLogin />,
+    icon: <FaIcons.FaDonate />,
     // iconClosed: <RiIcons.RiArrowDownSFill />,
     // iconOpened: <RiIcons.RiArrowUpSFill />,
   }, 
@@ -34,7 +35,7 @@ export const ASidebarData = [
   {
     title: "User Feedbacks",
     path: "/UserFeedback",
-    // icon: <AiIcons.AiOutlineLogin />,
+    icon: <VscIcons.VscFeedback />,
     // iconClosed: <RiIcons.RiArrowDownSFill />,
     // iconOpened: <RiIcons.RiArrowUpSFill />,
   }, 

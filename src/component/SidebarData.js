@@ -3,6 +3,7 @@ import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
 import * as RiIcons from "react-icons/ri";
+import * as BiIcons from "react-icons/bi";
  
 
 export const SidebarData = [
@@ -16,7 +17,7 @@ export const SidebarData = [
   },
   {
     title: "Donate",
-    icon: <AiIcons.AiOutlineLogin />,
+    icon: <FaIcons.FaDonate />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
     subNav: [
@@ -34,7 +35,7 @@ export const SidebarData = [
   }, 
   {
     title: "Need Donation",
-    icon: <AiIcons.AiOutlineLogin />,
+    icon: <FaIcons.FaHandsHelping />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
     subNav: [
@@ -59,6 +60,6 @@ export const SidebarData = [
   {
     title: "Support",
     path: "/Support",
-    icon: <FaIcons.FaPhone />,
+    icon: <BiIcons.BiSupport />,
   },
 ];

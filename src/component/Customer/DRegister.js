@@ -4,11 +4,24 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import {useForm} from "react-hook-form";
+import Terms from './Terms';
 
 
 function DRegister(){
   const { register, formState: {errors},handleSubmit } = useForm();
   const navigate = useNavigate();
+
+  const [termsAccepted, setTermsAccepted] = useState(false);
+
+  const [isTermsModalOpen, setIsTermsModalOpen] = useState(false);
+
+  const handleOpenTermsModal = () => {
+    setIsTermsModalOpen(true);
+  };
+
+  const handleCloseTermsModal = () => {
+    setIsTermsModalOpen(false);
+  };
 
   const [Dnm, setDnm] = useState([]);
   const [dno,setDno] = useState([]);
@@ -132,16 +145,21 @@ function DRegister(){
                           <label for="Daadhar" className="form-label">Upload Aadharcard</label>
                             <input  type="file" name='Daadhar' className="form-control" accept="application/pdf" {...register("Daadhar", { required:true})} onChange={e =>handleChange(e)}/>
                             <p style={{color:'red',fontSize:'13px'}}>{errors.Daadhar?.type === "required" && "Enter Addharcard "}</p>
-
-
                           </div>
+
+                          <label style={{display: 'inline-flex', alignItems: 'center', gap: '8px'}}>
+                            <input type="checkbox" onChange={(e) => setTermsAccepted(e.target.checked)} />
+                            <span style={{width: 'auto', margin: 0}}>I accept the terms and conditions.</span><br/>
+                            <a href="#" onClick={handleOpenTermsModal}>View Terms and Conditions</a>
+                          </label>
+
                         <div className="form-check d-flex justify-content-center mb-5">
                           <label className="form-check-label" htmlFor="form2Example3">
                             Already have an accout? <a href="/DLogin">Login</a>
                           </label>
                         </div>
                         <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                        <button type="submit" className="btn btn-primary btn-lg" name="submit" value="add user" >Register</button>
+                        <button type="submit" className="btn btn-primary btn-lg" name="submit" value="add user" disabled={!termsAccepted}>Register</button>
                         </div>
                       </form>
                     </div>
@@ -156,6 +174,7 @@ function DRegister(){
         </div>
       </section>
       </div>
+      <Terms isOpen={isTermsModalOpen} handleClose={handleCloseTermsModal} />
         </>
     );
 }

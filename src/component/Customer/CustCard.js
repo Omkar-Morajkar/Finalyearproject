@@ -39,9 +39,12 @@ const CustCard = () => {
                               <Link to={{
                                 pathname: `/billing/${inputs.id}`,
                                 state: {
-                                    userId: inputs.id
+                                  userId: inputs.id
                                 }
-                            }} style={{marginRight: "10px" ,width:'130px',boxShadow:' 0px 5px 5px rgba( 0, 0, 0, 0.5)'}} className="btn btn-info">Donate</Link>
+                              }} style={{ display: inputs.acollected >= inputs.amount ? 'none' : 'block', marginRight: "10px", width: '130px', boxShadow: '0px 5px 5px rgba( 0, 0, 0, 0.5)' }} className="btn btn-info">
+                                Donate
+                              </Link>
+
                             </div>
                       </div>
                       <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
