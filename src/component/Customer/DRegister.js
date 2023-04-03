@@ -146,12 +146,13 @@ function DRegister(){
                             <input  type="file" name='Daadhar' className="form-control" accept="application/pdf" {...register("Daadhar", { required:true})} onChange={e =>handleChange(e)}/>
                             <p style={{color:'red',fontSize:'13px'}}>{errors.Daadhar?.type === "required" && "Enter Addharcard "}</p>
                           </div>
-
+                         
+                         
                           <label style={{display: 'inline-flex', alignItems: 'center', gap: '8px'}}>
-                            <input type="checkbox" onChange={(e) => setTermsAccepted(e.target.checked)} />
-                            <span style={{width: 'auto', margin: 0}}>I accept the terms and conditions.</span><br/>
-                            <a href="#" onClick={handleOpenTermsModal}>View Terms and Conditions</a>
-                          </label>
+  <a className="model" href="#" onClick={handleOpenTermsModal}>View Terms and Conditions</a>
+  <input type="checkbox" onChange={(e) => setTermsAccepted(e.target.checked)} />
+  <span style={{width: 'auto', margin: 0}}>I accept the terms and conditions.</span>
+</label>
 
                         <div className="form-check d-flex justify-content-center mb-5">
                           <label className="form-check-label" htmlFor="form2Example3">
