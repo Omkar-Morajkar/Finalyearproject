@@ -182,20 +182,23 @@ function Verification() {
 
                 <div className="item">
                     <label>Phone number:</label>
-                    <input type="tel" name="Mno" placeholder="Enter mobile number"  {...register("Mno", {required: true})} onChange={e =>handleChange(e)}/>
-                    <p style={{color:'red',fontSize:'13px'}}>{errors.Mno?.type === "required" && "*Enter name"}</p>
+                    <input type="tel" name="Mno" placeholder="Enter mobile number"  {...register("Mno", {required: true,pattern:/^(?:(?:\+|0{0,2})91(\s*[-]\s*)?|[0]?)?[6789]\d{9}$/})} onChange={e =>handleChange(e)}/>
+                    <p style={{color:'red',fontSize:'13px'}}>{errors.Mno?.type === "required" && "*Enter mobile number"}</p>
+                    <p style={{color:'red'}}>{errors.Mno?.type === "pattern" && "invalid phone number format"}</p>
                 </div>
 
                 <div className="item">
                   <label htmlFor="eaddress"> Email<span></span></label>
-                  <input id="title" type="email" name="email" placeholder='Enter patient email'  {...register("email", {required: true})} onChange={e =>handleChange(e)}/>
-                  <p style={{color:'red',fontSize:'13px'}}>{errors.email?.type === "required" && "*Enter name"}</p>
+                  <input id="title" type="email" name="email" placeholder='Enter patient email'  {...register("email", {required: true,pattern:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/})} onChange={e =>handleChange(e)}/>
+                  <p style={{color:'red',fontSize:'13px'}}>{errors.email?.type === "required" && "*Enter email"}</p>
+                  <p style={{color:'red'}}>{errors.email?.type === "pattern" && "invalid email address"}</p>
                 </div>
 
                 <div className="item">
                     <label>Aadhaar card number:</label>
-                    <input type="number" name="aadhaar" pattern="[0-9]{12}"  placeholder="Enter aadhaar number" {...register("aadhaar", {required: true})} onChange={e =>handleChange(e)}/>
+                    <input type="number" name="aadhaar" pattern="[0-9]{12}"  placeholder="Enter aadhaar number" {...register("aadhaar", {required: true,pattern:/^[0-9]{4}\s[0-9]{4}\s[0-9]{4}$/})} onChange={e =>handleChange(e)}/>
                     <p style={{color:'red',fontSize:'13px'}}>{errors.aadhaar?.type === "required" && "*Enter aadhaar number"}</p>
+                    <p style={{color:'red'}}>{errors.aadhaar?.type === "pattern" && "invalid aadhar number"}</p>
                 </div>
 
                 <div className="item">
@@ -212,8 +215,9 @@ function Verification() {
 
                 <div className="item">
                     <label>Bank Account Number:</label>
-                    <input type="number" id="form3Example4cd" name="bank" className="form-control" placeholder="Enter Patient Bank Acc"  {...register("bank", {required: true})} onChange={e =>handleChange(e)}/>
+                    <input type="number" id="form3Example4cd" name="bank" className="form-control" placeholder="Enter Patient Bank Acc"  {...register("bank", {required: true,pattern:/^[A-Za-z]{4}\d{7}$/})} onChange={e =>handleChange(e)}/>
                     <p style={{color:'red',fontSize:'13px'}}>{errors.bank?.type === "required" && "*Enter patient bank account number"}</p>
+                    <p style={{color:'red'}}>{errors.bank?.type === "pattern" && "invalid bank account number"}</p>
                 </div>
 
                 <div className="item">

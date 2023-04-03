@@ -3,13 +3,16 @@ import { useEffect, useState } from "react";
 // import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from 'axios';
-import { useParams} from 'react-router-dom';
+import { useParams,useNavigate} from 'react-router-dom';
 import {useForm} from "react-hook-form";
+
 
 function UserData(){
     
     const [dinput, setdinput] = useState([]);
 
+    const navigate = useNavigate();
+    
     const [ver, setVer] = useState([]);
 
     const { register, formState: {errors},handleSubmit } = useForm();

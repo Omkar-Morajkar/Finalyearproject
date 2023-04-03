@@ -57,7 +57,7 @@ function DRegister(){
     console.log(dpass);
     console.log(conpass);
 
-    if(dpass != conpass){
+    if(dpass !== conpass){
       alert("Password does not match");
     }
     else{
