@@ -116,12 +116,12 @@ function UserData(){
                     </form>
                   </div>
                 </div>
-                    Medical Records:
-                    <iframe src={`http://localhost/FinalYearProject/verification/`+inputs.mrecord} width="100%" height="600px" /> <br/>
-                    Background Story:
-                    <iframe src={`http://localhost/FinalYearProject/verification/`+inputs.bstory} width="100%" height="600px" /> <br/>
-              </div>
               
+                <label>Patient photo</label><br/><br/>
+                <div style={{display:'flex',justifyContent:'center'}}>
+                    <img src={`http://localhost/FinalYearProject/uploads/`+inputs.image}alt="images"className="card-media" style={{width:"500px",height:'300px',boxShadow:' 0px 10px 10px rgba( 0, 0, 0, 0.5)',borderRadius:'20px'}}/>
+                </div>
+              </div>
         ))}
        
         <br/>

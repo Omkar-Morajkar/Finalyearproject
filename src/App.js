@@ -27,6 +27,8 @@ import ThankYou from "./component/Customer/ThankYou";
 import Asidebar from "./component/Admin/Asidebar";
 import UserFeedback from "./component/Admin/UserFeedback";
 import Dusers from       "./component/Admin/Dusers";
+import UserData from "./component/Admin/UserData";
+import Dview from "./component/Customer/Dview";
 
 
 function App() {
@@ -70,6 +72,8 @@ function App() {
             <Route path="/thankYou" element={<ThankYou/>}/>
             <Route path="/UserFeedback" element={<UserFeedback/>}/>
             <Route path="/Dusers" element={<Dusers/>}/>
+            <Route path="/UserData/:id" element={<UserData/>}/>
+            <Route path="/dview" element={<Dview/>}/>
         </Routes>
     </BrowserRouter>
 );

@@ -22,7 +22,6 @@ background-color: #007bff;
   box-shadow: inset 0px 10px 10px 0px rgba(0, 0, 0, 0.5);
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
-
 `;
  
 const NavIcon = styled(Link)`

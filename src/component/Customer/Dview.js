@@ -39,12 +39,11 @@ const Dview = () => {
                                   <br/><br/>
                                   <ProgressBar now={inputs.percentage} label={`${inputs.percentage}%`} />
                                   <br/>
-                                  {/* <Link to={{
-                                    pathname: `/billing/${inputs.id}`,
-                                    state: {
-                                        userId: inputs.id
-                                    }
-                                }} style={{marginRight: "10px" ,width:'130px',boxShadow:' 0px 5px 5px rgba( 0, 0, 0, 0.5)'}} className="btn btn-info">Donate</Link> */}
+                                  {inputs.amount <= inputs.acollected && (
+                          <Link to={`/verification/{}`}>
+                            <button className="btn btn-primary">Apply for donation</button>
+                          </Link>
+                        )}
                                 </div>
                           </div>
                           <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
