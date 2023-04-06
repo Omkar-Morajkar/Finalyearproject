@@ -59,7 +59,6 @@ export default function DLogin  (){
         console.log(localStorage.setItem('userId',re.data.userId));
         localStorage.setItem('Demail',re.data.demail);
         navigate(`/verification/${re.data.userId}`);
-        
       }
       else if(re.data.status =="invalid")
       {

@@ -8,15 +8,20 @@ const Dview = () => {
   const [dinput, setdinput] = useState([]);
     useEffect(() => {
         getUsers();
-    }, []); 
+    }, []);
 
     const id = localStorage.getItem('userId');
+    console.log(id);
     function getUsers() {
-        axios.get(`http://localhost/finalYearProject/dInputView.php?id=${id}`).then(function(rese) {
+        axios.get(`http://localhost/FinalYearProject/dview2.php?id=${id}`).then(function(rese) {
             console.log(rese.data);
             setdinput(rese.data);
         });
     }
+    const handleApply = () => {
+     localStorage.setItem('Dstat','true');
+    };
+
   return (
     <>
     <div id='Login' style={{marginLeft:'225px'}}>
@@ -40,8 +45,8 @@ const Dview = () => {
                                   <ProgressBar now={inputs.percentage} label={`${inputs.percentage}%`} />
                                   <br/>
                                   {inputs.amount <= inputs.acollected && (
-                          <Link to={`/verification/{}`}>
-                            <button className="btn btn-primary">Apply for donation</button>
+                          <Link to={`/verification/${id}`}>
+                            <button className="btn btn-primary" onClick={handleApply}>Apply for donation</button>
                           </Link>
                         )}
                                 </div>

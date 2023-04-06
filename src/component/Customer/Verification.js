@@ -3,6 +3,9 @@ import { useState, useEffect} from "react";
 import { useNavigate,useParams } from 'react-router-dom';
 import axios from 'axios';
 import {useForm} from "react-hook-form";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function Verification() {
   const { id } = useParams();
@@ -28,27 +31,38 @@ function Verification() {
 
   const [status, setStatus] = useState(null);
 
+  const [isMessageShown, setIsMessageShown] = useState(false);
+
   useEffect(() => {
     fetch(`http://localhost/FinalYearProject/statusCheck.php?id=${id}`)
       .then((rrss) => rrss.json())
       .then((data) => {
-        setStatus(data.status); 
+        setStatus(data.status);
       });
   }, [id]);
 
-  if (status === "verified") 
-  {
-    navigate(`/input/${id}`);
-  } 
-  else if (status === "not-verified") 
-  {
-    alert("Your verification status is pending");
-    navigate('/');
-  } 
-  else if (status === "null")
-  {
-    return alert("Your form is not been viewed by admin ");
-  }
+  useEffect(() => {
+    if (status === "pending" && !isMessageShown)
+    {
+      setIsMessageShown(true);
+      toast("Your verification status is pending");
+      setTimeout(() => {
+        navigate('/');
+      }, 5000);
+    
+    } else if (status === "verified") 
+    {
+      navigate(`/input/${id}`);
+    } else if (status === "reject" && !isMessageShown)
+    {
+      setIsMessageShown(true);
+      toast("Your verification form is rejected by admin");
+      setTimeout(() => 
+      {
+        navigate('/updatev');
+      }, 5000);
+    }
+  }, [status, isMessageShown, id]);
 
 
   const handleChange = (e) =>{
@@ -196,7 +210,7 @@ function Verification() {
 
                 <div className="item">
                     <label>Aadhaar card number:</label>
-                    <input type="number" name="aadhaar" pattern="[0-9]{12}"  placeholder="Enter aadhaar number" {...register("aadhaar", {required: true,pattern:/^[0-9]{4}\s[0-9]{4}\s[0-9]{4}$/})} onChange={e =>handleChange(e)}/>
+                    <input type="text" name="aadhaar"  placeholder="Enter aadhaar number" {...register("aadhaar", {required: true,pattern:/^[0-9]{4}\s[0-9]{4}\s[0-9]{4}$/})} onChange={e =>handleChange(e)}/>
                     <p style={{color:'red',fontSize:'13px'}}>{errors.aadhaar?.type === "required" && "*Enter aadhaar number"}</p>
                     <p style={{color:'red'}}>{errors.aadhaar?.type === "pattern" && "invalid aadhar number"}</p>
                 </div>
@@ -215,14 +229,14 @@ function Verification() {
 
                 <div className="item">
                     <label>Bank Account Number:</label>
-                    <input type="number" id="form3Example4cd" name="bank" className="form-control" placeholder="Enter Patient Bank Acc"  {...register("bank", {required: true,pattern:/^[A-Za-z]{4}\d{7}$/})} onChange={e =>handleChange(e)}/>
+                    <input type="text"  name="bank" className="form-control" placeholder="Enter Patient Bank Acc"  {...register("bank", {required: true,pattern:/^[A-Za-z]{4}\d{7}$/})} onChange={e =>handleChange(e)}/>
                     <p style={{color:'red',fontSize:'13px'}}>{errors.bank?.type === "required" && "*Enter patient bank account number"}</p>
                     <p style={{color:'red'}}>{errors.bank?.type === "pattern" && "invalid bank account number"}</p>
                 </div>
 
                 <div className="item">
                     <label>Amount:</label>
-                    <input type="number" id="form3Example4cd" name="amount"  className="form-control" placeholder="Enter Amount needed" {...register("amount", {required: true})} onChange={e =>handleChange(e)}/>
+                    <input type="number"  name="amount"  className="form-control" placeholder="Enter Amount needed" {...register("amount", {required: true})} onChange={e =>handleChange(e)}/>
                     <p style={{color:'red',fontSize:'13px'}}>{errors.amount?.type === "required" && "*Enter amount"}</p>
                 </div>
 
@@ -257,6 +271,7 @@ function Verification() {
               
             </form>
           </div>
+          <ToastContainer />
         </div>
       
     </>

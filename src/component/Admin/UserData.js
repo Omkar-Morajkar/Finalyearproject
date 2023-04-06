@@ -36,7 +36,6 @@ function UserData(){
       if(stat.data.status == "valid")
       {
         alert("Data updated successfully");
-        navigate('/Login');
       }
       else if(stat.data.status == "invalid")
       {
@@ -92,27 +91,21 @@ function UserData(){
                    </div>
 
                    <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1"  key={key}>
-                    {/* <div className='vPerson'> */}
+                  
                     <input type='text' value={inputs.name}/>
-                    {/* </div> */}
-
-                    {/* <div className='vPerson'> */}
+                  
                     <input type='text' value={inputs.title}/>
-                    {/* </div> */}
-
-                    {/* <div className='vPerson'> */}
+                  
                     <input type='text' value={inputs.discription}/>
-                    {/* </div> */}
-
-                    {/* <div className='vPerson'> */}
+                    
                     <input type='number' value={inputs.amount}/>
-                    {/* </div> */}
 
                     <form className="mx-1 mx-md-4" onSubmit={handleSubmit( e => submitForm(e))}>
                       <select id="verify" name='verify' style={{width:'100%',height:'60px'}} {...register("verify", {required: true})} onChange={e =>handleChange(e)}>
                         <option value="" selected disabled>Select status</option>
-                        <option value="verified">Verified</option>
-                        <option value="not-verified">Not-Verified</option>
+                        <option value="pending">pending</option>
+                        <option value="verified">accept</option>
+                        <option value="reject">Reject</option>
                       </select>  
                       <p style={{color:'red',fontSize:'13px'}}>{errors.verify?.type === "required" && "*Select above option "}</p>
                         <button type="submit" href="/">Submit</button>

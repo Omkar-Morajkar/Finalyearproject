@@ -29,6 +29,7 @@ import UserFeedback from "./component/Admin/UserFeedback";
 import Dusers from       "./component/Admin/Dusers";
 import UserData from "./component/Admin/UserData";
 import Dview from "./component/Customer/Dview";
+import UpdateVerification from "./component/Customer/UpdateVerification";
 
 
 function App() {
@@ -74,6 +75,7 @@ function App() {
             <Route path="/Dusers" element={<Dusers/>}/>
             <Route path="/UserData/:id" element={<UserData/>}/>
             <Route path="/dview" element={<Dview/>}/>
+            <Route path="/updatev" element={<UpdateVerification/>}/>
         </Routes>
     </BrowserRouter>
 );
