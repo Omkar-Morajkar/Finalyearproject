@@ -31,6 +31,8 @@ import UserData from "./component/Admin/UserData";
 import Dview from "./component/Customer/Dview";
 import UpdateVerification from "./component/Customer/UpdateVerification";
 
+import Blog from "./component/Customer/Blog";
+import Ablog from "./component/Admin/Ablog";
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -76,6 +78,8 @@ function App() {
             <Route path="/UserData/:id" element={<UserData/>}/>
             <Route path="/dview" element={<Dview/>}/>
             <Route path="/updatev" element={<UpdateVerification/>}/>
+            <Route path="/Blog" element={<Blog/>}/>
+            <Route path="/Ablog" element={<Ablog/>}/>
         </Routes>
     </BrowserRouter>
 );
