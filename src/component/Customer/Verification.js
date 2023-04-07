@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect} from "react";
-import { useNavigate,useParams } from 'react-router-dom';
+import { useNavigate,useParams,Link } from 'react-router-dom';
 import axios from 'axios';
 import {useForm} from "react-hook-form";
 import { ToastContainer, toast } from 'react-toastify';
@@ -30,15 +30,23 @@ function Verification() {
   const [bstry, setBstry] = useState([]);
 
   const [status, setStatus] = useState(null);
+  const [msg, setMsg] = useState([]);
 
   const [isMessageShown, setIsMessageShown] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost/FinalYearProject/statusCheck.php?id=${id}`)
+    const apply = localStorage.getItem('Dstat');
+    console.log('Dstatus '+apply);
+    if(apply == 'false' ){
+       fetch(`http://localhost/FinalYearProject/statusCheck.php?id=${id}`)
       .then((rrss) => rrss.json())
       .then((data) => {
+       
         setStatus(data.status);
+        setMsg(data.message);
       });
+    }
+   
   }, [id]);
 
   useEffect(() => {
@@ -57,6 +65,7 @@ function Verification() {
     {
       setIsMessageShown(true);
       toast("Your verification form is rejected by admin");
+      toast("please update " +msg);
       setTimeout(() => 
       {
         navigate('/updatev');
@@ -140,6 +149,7 @@ function Verification() {
       {
         alert("Data added successfully");
         alert("Please wait unit you data verified by admin");
+        localStorage.setItem('Dstat','false');
         navigate("/");
       }
       else if(respo.data.status =="invalid")
@@ -155,6 +165,7 @@ function Verification() {
       }
     })
   }
+
   return (
     <>
     
@@ -268,7 +279,9 @@ function Verification() {
               <div className="btn-block">
                 <button type="submit" href="/">Submit</button>
               </div>
-              
+              <Link to={`/dview/${id}`}>
+                            <button className="btn btn-primary">View Data</button>
+                          </Link>
             </form>
           </div>
           <ToastContainer />

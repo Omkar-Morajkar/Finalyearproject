@@ -155,89 +155,89 @@ function getUsers() {
               <div className="colums">
               <div className="item">
                   <label htmlFor="name">Name<span></span></label>
-                  <input id="name" type="text" name="name" value={nam} placeholder='Enter name of the patient'  {...register("name", {required: true})} onChange={e =>handleChange(e)}/>
-                  <p style={{color:'red',fontSize:'13px'}}>{errors.name?.type === "required" && "*Enter name of the patient"}</p>
+                  <input id="name" type="text" name="name" value={nam} placeholder='Enter name of the patient'  {...register("name")} onChange={e =>handleChange(e)}/>
+                  {/* <p style={{color:'red',fontSize:'13px'}}>{errors.name?.type === "required" && "*Enter name of the patient"}</p> */}
                 </div>
 
                 <div className="item">
                     <label htmlFor="name">Gender<span></span></label>
-                    <select id="gender" name='Gender' value={gen} style={{width:'100%',height:'50%'}} {...register("Gender", {required: true})} onChange={e =>handleChange(e)}>
+                    <select id="gender" name='Gender' value={gen} style={{width:'100%',height:'50%'}} {...register("Gender")} onChange={e =>handleChange(e)}>
                     <option value="" selected disabled>Select Gender</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                     </select>
-                    <p style={{color:'red',fontSize:'13px'}}>{errors.Gender?.type === "required" && "*Select Gender"}</p>
+                    {/* <p style={{color:'red',fontSize:'13px'}}>{errors.Gender?.type === "required" && "*Select Gender"}</p> */}
 
                 </div>
 
                 <div className="item">
                     <label>Date of Birth:</label>
-                    <input type="date" name="dob" value={datb} className="custom-date-input" {...register("dob", {required: true})} onChange={e =>handleChange(e)} style={{height:'50%'}}/>
-                    <p style={{color:'red',fontSize:'13px'}}>{errors.dob?.type === "required" && "*Enter date of birth"}</p>
+                    <input type="date" name="dob" value={datb} className="custom-date-input" {...register("dob")} onChange={e =>handleChange(e)} style={{height:'50%'}}/>
+                    {/* <p style={{color:'red',fontSize:'13px'}}>{errors.dob?.type === "required" && "*Enter date of birth"}</p> */}
                     
                 </div>
 
                 <div className="item">
                     <label>Relationship with patient:</label>
-                    <input id="Relation" type="text" name="Relation" value={Rel} placeholder='Enter Relationship with patient'  {...register("Relation", {required: true})} onChange={e =>handleChange(e)}/>
-                    <p style={{color:'red',fontSize:'13px'}}>{errors.Relation?.type === "required" && "*Enter name"}</p>
+                    <input id="Relation" type="text" name="Relation" value={Rel} placeholder='Enter Relationship with patient'  {...register("Relation")} onChange={e =>handleChange(e)}/>
+                    {/* <p style={{color:'red',fontSize:'13px'}}>{errors.Relation?.type === "required" && "*Enter name"}</p> */}
                 </div>
 
                 <div className="item">
                     <label>Phone number:</label>
-                    <input type="tel" name="Mno" value={mob} placeholder="Enter mobile number"  {...register("Mno", {required: true,pattern:/^(?:(?:\+|0{0,2})91(\s*[-]\s*)?|[0]?)?[6789]\d{9}$/})} onChange={e =>handleChange(e)}/>
-                    <p style={{color:'red',fontSize:'13px'}}>{errors.Mno?.type === "required" && "*Enter mobile number"}</p>
+                    <input type="tel" name="Mno" value={mob} placeholder="Enter mobile number"  {...register("Mno", {pattern:/^(?:(?:\+|0{0,2})91(\s*[-]\s*)?|[0]?)?[6789]\d{9}$/})} onChange={e =>handleChange(e)}/>
+                    {/* <p style={{color:'red',fontSize:'13px'}}>{errors.Mno?.type === "required" && "*Enter mobile number"}</p> */}
                     <p style={{color:'red'}}>{errors.Mno?.type === "pattern" && "invalid phone number format"}</p>
                 </div>
 
                 <div className="item">
                   <label htmlFor="eaddress"> Email<span></span></label>
-                  <input id="title" type="email" name="email"  value={eml} placeholder='Enter patient email'  {...register("email", {required: true,pattern:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/})} onChange={e =>handleChange(e)}/>
-                  <p style={{color:'red',fontSize:'13px'}}>{errors.email?.type === "required" && "*Enter email"}</p>
+                  <input id="title" type="email" name="email"  value={eml} placeholder='Enter patient email'  {...register("email", {pattern:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/})} onChange={e =>handleChange(e)}/>
+                  {/* <p style={{color:'red',fontSize:'13px'}}>{errors.email?.type === "required" && "*Enter email"}</p> */}
                   <p style={{color:'red'}}>{errors.email?.type === "pattern" && "invalid email address"}</p>
                 </div>
 
                 <div className="item">
                     <label>Aadhaar card number:</label>
-                    <input type="text" name="aadhaar" value={aadh} placeholder="Enter aadhaar number" {...register("aadhaar", {required: true,pattern:/^[0-9]{4}\s[0-9]{4}\s[0-9]{4}$/})} onChange={e =>handleChange(e)}/>
-                    <p style={{color:'red',fontSize:'13px'}}>{errors.aadhaar?.type === "required" && "*Enter aadhaar number"}</p>
+                    <input type="text" name="aadhaar" value={aadh} placeholder="Enter aadhaar number" {...register("aadhaar", {pattern:/^[0-9]{4}\s[0-9]{4}\s[0-9]{4}$/})} onChange={e =>handleChange(e)}/>
+                    {/* <p style={{color:'red',fontSize:'13px'}}>{errors.aadhaar?.type === "required" && "*Enter aadhaar number"}</p> */}
                     <p style={{color:'red'}}>{errors.aadhaar?.type === "pattern" && "invalid aadhar number"}</p>
                 </div>
 
                 <div className="item">
                     <label htmlFor="address">Address<span></span></label>
-                    <input id="address" type="text" name="address" value={adr} placeholder='Enter address'  {...register("address", {required: true})} onChange={e =>handleChange(e)}/>
-                    <p style={{color:'red',fontSize:'13px'}}>{errors.address?.type === "required" && "*Enter address"}</p>
+                    <input id="address" type="text" name="address" value={adr} placeholder='Enter address'  {...register("address")} onChange={e =>handleChange(e)}/>
+                    {/* <p style={{color:'red',fontSize:'13px'}}>{errors.address?.type === "required" && "*Enter address"}</p> */}
                 </div>
 
                 <div className="item">
                     <label>Occupation:</label>
-                    <input type="text"  name="occupation" className="form-control" value={occ} placeholder="Enter Patient occupation"  {...register("occupation", {required: true})} onChange={e =>handleChange(e)}/>
-                    <p style={{color:'red',fontSize:'13px'}}>{errors.occupation?.type === "required" && "*Enter occupation"}</p>
+                    <input type="text"  name="occupation" className="form-control" value={occ} placeholder="Enter Patient occupation"  {...register("occupation")} onChange={e =>handleChange(e)}/>
+                    {/* <p style={{color:'red',fontSize:'13px'}}>{errors.occupation?.type === "required" && "*Enter occupation"}</p> */}
                 </div>
 
                 <div className="item">
                     <label>Bank Account Number:</label>
-                    <input type="text"  name="bank" className="form-control" value={bnk} placeholder="Enter Patient Bank Acc"  {...register("bank", {required: true,pattern:/^[A-Za-z]{4}\d{7}$/})} onChange={e =>handleChange(e)}/>
-                    <p style={{color:'red',fontSize:'13px'}}>{errors.bank?.type === "required" && "*Enter patient bank account number"}</p>
+                    <input type="text"  name="bank" className="form-control" value={bnk} placeholder="Enter Patient Bank Acc"  {...register("bank", {pattern:/^[A-Za-z]{4}\d{7}$/})} onChange={e =>handleChange(e)}/>
+                    {/* <p style={{color:'red',fontSize:'13px'}}>{errors.bank?.type === "required" && "*Enter patient bank account number"}</p> */}
                     <p style={{color:'red'}}>{errors.bank?.type === "pattern" && "invalid bank account number"}</p>
                 </div>
 
                 <div className="item">
                     <label>Amount:</label>
-                    <input type="number"  name="amount"  className="form-control" value={amt} placeholder="Enter Amount needed" {...register("amount", {required: true})} onChange={e =>handleChange(e)}/>
-                    <p style={{color:'red',fontSize:'13px'}}>{errors.amount?.type === "required" && "*Enter amount"}</p>
+                    <input type="number"  name="amount"  className="form-control" value={amt} placeholder="Enter Amount needed" {...register("amount")} onChange={e =>handleChange(e)}/>
+                    {/* <p style={{color:'red',fontSize:'13px'}}>{errors.amount?.type === "required" && "*Enter amount"}</p> */}
                 </div>
 
                 <div className="item">
                     <label htmlFor="name">Please select the stage of funds needed.<span></span></label>
-                    <select id="stage" required placeholder="-" value={stg} name='stage'style={{width:'100%',height:'50%'}} {...register("stage", {required: true})} onChange={e =>handleChange(e)}>
+                    <select id="stage" required placeholder="-" value={stg} name='stage'style={{width:'100%',height:'50%'}} {...register("stage")} onChange={e =>handleChange(e)}>
                     <option value="" selected disabled>Select stage</option>
                       <option value="week">Week</option>
                       <option value="month">Month</option>
                       <option value="year">Year</option>
                     </select>
-                    <p style={{color:'red',fontSize:'13px'}}>{errors.stage?.type === "required" && "*Plese select stage"}</p>
+                    {/* <p style={{color:'red',fontSize:'13px'}}>{errors.stage?.type === "required" && "*Plese select stage"}</p> */}
                 </div>
 
                 {/* <div className="item">

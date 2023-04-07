@@ -32,7 +32,7 @@ import Dview from "./component/Customer/Dview";
 import UpdateVerification from "./component/Customer/UpdateVerification";
 
 import Blog from "./component/Customer/Blog";
-import Ablog from "./component/Admin/Ablog";
+// import Ablog from "./component/Admin/Ablog";
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -76,10 +76,10 @@ function App() {
             <Route path="/UserFeedback" element={<UserFeedback/>}/>
             <Route path="/Dusers" element={<Dusers/>}/>
             <Route path="/UserData/:id" element={<UserData/>}/>
-            <Route path="/dview" element={<Dview/>}/>
+            <Route path="/dview/:id" element={<Dview/>}/>
             <Route path="/updatev" element={<UpdateVerification/>}/>
             <Route path="/Blog" element={<Blog/>}/>
-            <Route path="/Ablog" element={<Ablog/>}/>
+            {/* <Route path="/Ablog" element={<Ablog/>}/> */}
         </Routes>
     </BrowserRouter>
 );

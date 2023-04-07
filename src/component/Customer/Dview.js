@@ -6,8 +6,10 @@ import axios from "axios"
 
 const Dview = () => {
   const [dinput, setdinput] = useState([]);
+  const [Dstatus, setDstatus] = useState([]);
     useEffect(() => {
         getUsers();
+        getData();
     }, []);
 
     const id = localStorage.getItem('userId');
@@ -18,6 +20,15 @@ const Dview = () => {
             setdinput(rese.data);
         });
     }
+
+    function getData() {
+      axios.get(`http://localhost/FinalYearProject/Dstatus.php?id=${id}`).then(function(rese) {
+          // console.log("Dstatus "+rese.data);
+          setDstatus(rese.data.status);
+          console.log( " Dstatus = "+Dstatus );
+      });
+  }
+
     const handleApply = () => {
      localStorage.setItem('Dstat','true');
     };
@@ -25,6 +36,11 @@ const Dview = () => {
   return (
     <>
     <div id='Login' style={{marginLeft:'225px'}}>
+    {Dstatus === 'invalid' &&(
+                          <Link to={`/verification/${id}`} >
+                            <button className="btn btn-primary" onClick={handleApply} style={{width:'150px',float:'right'}}>Apply for donation</button>
+                          </Link>
+                        )}
             <section className="main-card--cointainer">
             {dinput.map((inputs,key) =>(
                   <div key={key} className="col-lg-12 col-xl-11" >
@@ -44,12 +60,8 @@ const Dview = () => {
                                   <br/><br/>
                                   <ProgressBar now={inputs.percentage} label={`${inputs.percentage}%`} />
                                   <br/>
-                                  {inputs.amount <= inputs.acollected && (
-                          <Link to={`/verification/${id}`}>
-                            <button className="btn btn-primary" onClick={handleApply}>Apply for donation</button>
-                          </Link>
-                        )}
                                 </div>
+
                           </div>
                           <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
                             <img src={`http://localhost/FinalYearProject/uploads/`+inputs.image}alt="images"className="card-media" style={{width:"500px",height:'300px',boxShadow:' 0px 10px 10px rgba( 0, 0, 0, 0.5)',borderRadius:'20px'}}/>

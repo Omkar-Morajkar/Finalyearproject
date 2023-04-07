@@ -7,16 +7,16 @@ const Blog = () =>{
         <>
         <div id="Login" style={{marginLeft:'225px',marginTop:'40px'}} >
      
-        <section>
-          <div className="container">
-            <div className="text-center mb-5">
+        <div className="text-center mb-5">
               <header className="blogdesign">
-              <h5 className="text-primary h6">Our Blog</h5>
+              {/* <h5 className="text-primary h6">Our Blog</h5> */}
               <h2 className="display-20 display-md-18 display-lg-16">
                 Most recent our blog
               </h2>
               </header>
             </div>
+        <section>
+          <div className="container">
             <div className="row">
               <div className="col-lg-4 col-md-6 mb-2-6">
                 <article className="card card-style2">
