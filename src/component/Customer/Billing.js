@@ -33,6 +33,7 @@ const Billing = () =>{
   }
   const submitForm = async(e) =>{
     // e.preventDefault();
+    console.log(id);
     console.log(users);
     await axios.post(`http://localhost/FinalYearProject/billing.php?id=${id}`,users)
     .then((rs)=>{
@@ -125,7 +126,7 @@ const Billing = () =>{
                     <div className="row">
                     <div className="col-50">
                         <label htmlFor="expyear">Exp Year</label>
-                        <input type="number" id="expyear" name="eyear" placeholder={2018}  value={eyear} {...register("eyear", {required: true,pattern:/^1\d{3}|20([0-1][0-9]|2[0-3])$/})} onChange={e =>handleChange(e)}/>
+                        <input type="number" id="expyear" name="eyear" placeholder={2018}  value={eyear} {...register("eyear", {required: true,pattern:/^1\d{3}|20([0-1][0-9]|2[0-3]|30)$/})} onChange={e =>handleChange(e)}/>
                         <p style={{color:'red',fontSize:'13px'}}>{errors.eyear?.type === "required" && "*Enter year"}</p>
                         <p style={{color:'red'}}>{errors.eyear?.type === "pattern" && " you have entered invalid year"}</p>
                     </div>

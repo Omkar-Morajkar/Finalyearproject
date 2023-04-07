@@ -1,4 +1,4 @@
-body{margin-top:20px;}
+
 .card-style2 {
     position: relative;
     display: flex;
@@ -112,7 +112,7 @@ header h2 {
 }
 
 .blogdesign{
-    height: 70px;
-    width:90%;
+    /* height: 70px; */
+    width:100%;
 }
 

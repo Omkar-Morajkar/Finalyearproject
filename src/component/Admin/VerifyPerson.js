@@ -11,6 +11,7 @@ function VerifyPerson(){
     const [dinput, setdinput] = useState([]);
 
     const [ver, setVer] = useState([]);
+    const [mes, setMes] = useState([]);
 
     const { register, formState: {errors},handleSubmit } = useForm();
 
@@ -22,10 +23,14 @@ function VerifyPerson(){
       if (name === 'verify') {
         setVer(e.target.value);
       }
+      if(name == 'reason'){
+        setMes(e.target.value);
+      }
     }
     const submitForm = async(e) =>{
       const fd = new FormData();
       fd.append('verify',ver);
+      fd.append('reason',mes);
 
       await axios.post(`http://localhost/finalYearProject/ver.php?id=${id}`,fd)
     .then((answer)=>{
@@ -186,9 +191,14 @@ function VerifyPerson(){
 
                     <form className="mx-1 mx-md-4" onSubmit={handleSubmit( e => submitForm(e))}>
                       <select id="verify" name='verify' style={{width:'100%',height:'60px'}} {...register("verify", {required: true})} onChange={e =>handleChange(e)}>
-                        <option value="verified">Verified</option>
-                        <option value="not-verified">Not-Verified</option>
+                        <option value="" selected disabled>Select status</option>
+                        <option value="pending">pending</option>
+                        <option value="verified">Accept</option>
+                        <option value="reject">Reject</option>
                       </select>  
+                      <div>
+                        <input type='text' name='reason' placeholder='Please enter reason for rejecting form' onChange={e =>handleChange(e)}/>
+                      </div>
                       <p style={{color:'red',fontSize:'13px'}}>{errors.verify?.type === "required" && "*Select above option "}</p>
                         <button type="submit" href="/">Submit</button>
                     </form>
