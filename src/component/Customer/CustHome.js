@@ -88,7 +88,7 @@ const CustHome = ()=>{
 				<div class="col-details">
 				  <p>Alone we can do so little ;together we can do so much So lets donate together</p>
 				</div>
-				<button onClick={() => navigate('/DLogin')} className="btn btn-primary"	>
+				<button onClick={() => navigate('/Login')} className="btn btn-primary"	>
  click here
 </button>
 			</div> 

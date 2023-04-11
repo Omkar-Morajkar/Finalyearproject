@@ -28,6 +28,8 @@ function Verification() {
   const [stg, setStg] = useState([]);
   const [mroc, setMroc] = useState([]);
   const [bstry, setBstry] = useState([]);
+  const [reas, setReas] = useState([]);
+  const [aadharpdf, setAadharpdf] = useState([]);
 
   const [status, setStatus] = useState(null);
   const [msg, setMsg] = useState([]);
@@ -113,12 +115,19 @@ function Verification() {
     if (name === 'stage') {
       setStg(e.target.value);
     }
+    if (name === 'reason') {
+      setReas(e.target.value);
+    }
+    if (name === 'aadhr') {
+      setAadharpdf(e.target.files[0]);
+    }
     if (name === 'Mrecord') {
       setMroc(e.target.files[0]);
     }
     if (name === 'Bstory') {
       setBstry(e.target.files[0]);
     }
+   
   }
 
   const submitForm = async(e) =>{
@@ -136,6 +145,8 @@ function Verification() {
     fd.append('bank',bnk);
     fd.append('amount',amt);
     fd.append('stage',stg);
+    fd.append('reason',reas);
+    fd.append('aadhr',aadharpdf);
     fd.append('Mrecord',mroc);
     fd.append('Bstory',bstry);
 
@@ -252,6 +263,12 @@ function Verification() {
                 </div>
 
                 <div className="item">
+                    <label>Reason for applying for Donation:</label>
+                    <input type="text"  name="reason"  className="form-control" placeholder="Add reason" {...register("reason", {required: true})} onChange={e =>handleChange(e)}/>
+                    <p style={{color:'red',fontSize:'13px'}}>{errors.reason?.type === "required" && "*Enter Reason for applying"}</p>
+                </div>
+
+                <div className="item">
                     <label htmlFor="name">Please select the stage of funds needed.<span></span></label>
                     <select id="stage" required placeholder="-" name='stage'style={{width:'100%',height:'50%'}} {...register("stage", {required: true})} onChange={e =>handleChange(e)}>
                     <option value="" selected disabled>Select stage</option>
@@ -260,6 +277,12 @@ function Verification() {
                       <option value="year">Year</option>
                     </select>
                     <p style={{color:'red',fontSize:'13px'}}>{errors.stage?.type === "required" && "*Plese select stage"}</p>
+                </div>
+
+                <div className="item">
+                    <label>Enter Aadhar card:</label>
+                    <input name="aadhr" type="file" className="form-control" accept="application/pdf"   {...register("aadhr", {required: true})} onChange={e =>handleChange(e)}/>
+                    <p style={{color:'red',fontSize:'13px'}}>{errors.aadhr?.type === "required" && "*Enter Medical Records "}</p>
                 </div>
 
                 <div className="item">
@@ -279,9 +302,9 @@ function Verification() {
               <div className="btn-block">
                 <button type="submit" href="/">Submit</button>
               </div>
-              <Link to={`/dview/${id}`}>
+              {/* <Link to={`/dview/${id}`}>
                             <button className="btn btn-primary">View Data</button>
-                          </Link>
+                          </Link> */}
             </form>
           </div>
           <ToastContainer />

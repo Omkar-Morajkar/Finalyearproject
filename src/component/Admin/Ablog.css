@@ -14,21 +14,12 @@ label {
   margin-bottom: 5px;
 }
 
-
-
-
-
-button[type="submit"]:hover {
-  background-color: #021830;
-}
-
 .ablogcontain {
   margin: 20px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 10px;
   background-color: #f2f2f2;
- 
 }
 
 

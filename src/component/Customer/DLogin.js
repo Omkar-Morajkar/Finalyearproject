@@ -4,6 +4,7 @@ import { useState,useEffect } from "react";
 import axios from 'axios';
 import {useForm} from "react-hook-form";
 import { Button, Modal } from 'react-bootstrap';
+import img3 from '../Images/draw1.webp';
 
 
 export default function DLogin  (){
@@ -58,7 +59,8 @@ export default function DLogin  (){
         localStorage.setItem('Dlogin', 'true');
         console.log(localStorage.setItem('userId',re.data.userId));
         localStorage.setItem('Demail',re.data.demail);
-        navigate(`/verification/${re.data.userId}`);
+        navigate('/');
+        window.location.reload();
       }
       else if(re.data.status =="invalid")
       {
@@ -129,7 +131,7 @@ export default function DLogin  (){
                       </form>
                       </div>
                       <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" style={{backgroundSize:'cover', borderRadius:'20px',boxShadow:'0px 5px 10px 0px rgba(0, 0, 0, 0.5)'}}  className="img-fluid" alt="Sample image" />
+                        <img src={img3} style={{backgroundSize:'cover', borderRadius:'20px',boxShadow:'0px 5px 10px 0px rgba(0, 0, 0, 0.5)'}}  className="img-fluid" alt="Sample image" />
                       </div>
                   </div>
                 </div>

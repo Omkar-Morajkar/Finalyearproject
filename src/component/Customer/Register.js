@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import {useForm} from "react-hook-form";
+import img3 from '../Images/draw1.webp';
 
 const Register = () => {
   const { register, formState: {errors},handleSubmit } = useForm();
@@ -89,7 +90,7 @@ const Register = () => {
                       </form>
                     </div>
                     <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2" >
-                      <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" style={{backgroundSize:'cover', borderRadius:'20px',boxShadow:'0px 5px 10px 0px rgba(0, 0, 0, 0.5)'}} className="img-fluid" alt="Sample image" />
+                      <img src={img3} style={{backgroundSize:'cover', borderRadius:'20px',boxShadow:'0px 5px 10px 0px rgba(0, 0, 0, 0.5)'}} className="img-fluid" alt="Sample image" />
                     </div>
                   </div>
                 </div>

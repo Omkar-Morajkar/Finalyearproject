@@ -10,6 +10,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from "axios"; 
 import imagelogo from '../component/Images/project.png';
 import { Button, Modal } from 'react-bootstrap';
+import { DsidebarData } from "./DsidebarData";
+import { UsidebarData } from "./UsidebarData";
 
 const Nav = styled.div`
 background-color: #007bff;
@@ -165,9 +167,31 @@ const Sidebar = () => {
             )}
             </div>
             
-            {SidebarData.map((item, index) => {
-              return <SubMenu item={item} key={index} />;
-            })}
+
+            {dlogi ? (
+              <>
+                  {DsidebarData.map((item, index) => {
+                  return <SubMenu item={item} key={index} />;
+                })}
+              </> 
+            ) : (
+              <>
+                {isLoggedIn ? (
+              <>
+                  {UsidebarData.map((item, index) => {
+                  return <SubMenu item={item} key={index} />;
+                })}
+              </> 
+            ) : (
+              <>
+                {SidebarData.map((item, index) => {
+                  return <SubMenu item={item} key={index} />;
+                })}
+              </>
+            )}
+              </>
+            )}
+            
             </div>
 
           </SidebarWrap>

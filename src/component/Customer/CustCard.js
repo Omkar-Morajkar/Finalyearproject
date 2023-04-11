@@ -41,7 +41,7 @@ const CustCard = () => {
                                 state: {
                                   userId: inputs.id
                                 }
-                              }} style={{ display: inputs.acollected >= inputs.amount ? 'none' : 'block', marginRight: "10px", width: '130px', boxShadow: '0px 5px 5px rgba( 0, 0, 0, 0.5)' }} className="btn btn-info">
+                              }} style={{ display: inputs.acollected >= inputs.amount ? 'block' : 'none', marginRight: "10px", width: '130px', boxShadow: '0px 5px 5px rgba( 0, 0, 0, 0.5)' }} className="btn btn-info">
                                 Donate
                               </Link>
 

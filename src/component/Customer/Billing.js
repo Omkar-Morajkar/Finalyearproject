@@ -6,12 +6,19 @@ import { useState } from "react";
 import axios from 'axios';
 import {useForm} from "react-hook-form";
 import ThankYou from '../Customer/ThankYou';
+import { Button, Modal } from 'react-bootstrap';
 
 const Billing = () =>{
   const { id } = useParams();
 
   const { register, formState: {errors},handleSubmit } = useForm();
   const [paymentSuccessful, setPaymentSuccessful] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    navigate('/Donate');
+  }
 
   const navigate = useNavigate();
 
@@ -45,11 +52,11 @@ const Billing = () =>{
         // navigate('/Donate');
       }
       else if(rs.data.status =="invalid")
-      {
+      { 
         alert("payment failed");
       }
       else if(rs.data.status =="full"){
-        alert("Amount required is already collected");
+        setShowModal(true);
       }
       else
       {
@@ -63,7 +70,19 @@ const Billing = () =>{
      {paymentSuccessful ? (
         <ThankYou/>
       ) : (
-    <div id='Login' style={{marginLeft:'225px'}}>
+    <div id='Login'>
+      <Modal show={showModal} onHide={handleCloseModal}>
+         {/* <Modal.Header >
+           <Modal.Title>Confirm Logout</Modal.Title>
+         </Modal.Header> */}
+         <Modal.Body>Amount required is already collected</Modal.Body>
+         <Modal.Footer>
+           <Button  onClick={handleCloseModal} style={{width:'40%'}}>
+             ok
+           </Button>
+          
+         </Modal.Footer>
+       </Modal>
         <div className="col-75" >
             <div className="Bcontainer" style={{background:'#e9ecef',boxShadow:'  0px 10px 10px rgba(0, 0, 0, 0.5)', borderRadius:'20px', animation: "popup 0.3s ease" }}>
             <form action="/action_page.php" onSubmit={handleSubmit( e => submitForm(e))}>
@@ -147,6 +166,7 @@ const Billing = () =>{
         </div>
       
         </div>
+        
         
       )}
     </>

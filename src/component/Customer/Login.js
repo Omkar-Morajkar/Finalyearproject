@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import {useForm} from "react-hook-form";
 import { Button, Modal } from 'react-bootstrap';
+import img3 from '../Images/draw1.webp';
 
 const Login = () => {
   
@@ -60,7 +61,8 @@ const Login = () => {
         localStorage.setItem('login', 'true');
         localStorage.setItem('userId',resp.data.userId);
         localStorage.setItem('email',resp.data.email);
-        navigate('/Donate');
+        window.location.reload();
+        navigate('/');
       }
       else if(resp.data.status =="invalid")
       {
@@ -129,7 +131,7 @@ const Login = () => {
                                   </form>
                                 </div>
                                 <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                                  <img src="https://th.bing.com/th/id/OIP.kUQnGpBrdnNL5bzRIedO-gHaE8?pid=ImgDet&rs=1" className="img-fluid" style={{backgroundSize:'cover', borderRadius:'20px',boxShadow:'0px 5px 10px 0px rgba(0, 0, 0, 0.5)'}} alt="Sample image" />
+                                  <img src={img3} className="img-fluid" style={{backgroundSize:'cover', borderRadius:'20px',boxShadow:'0px 5px 10px 0px rgba(0, 0, 0, 0.5)'}} alt="Sample image" />
                                 </div>
                               </div>
                             </div>
